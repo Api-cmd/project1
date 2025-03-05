@@ -1,0 +1,252 @@
+/* General Styles */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: #f4f5f7;
+}
+
+header {
+    background: #343a40;
+    color: #fff;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+header .logo {
+    font-size: 28px;
+    font-weight: 700;
+}
+
+header nav {
+    display: flex;
+    gap: 20px;
+}
+
+header nav a {
+    color: #fff;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 15px;
+    border-radius: 5px;
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+
+header nav a:hover {
+    background: #495057;
+    transform: scale(1.05);
+}
+
+header .admin-profile {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+header .admin-profile img {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    border: 2px solid #fff;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+header .admin-profile img:hover {
+    transform: scale(1.1);
+    border-color: #ddd;
+}
+
+button.sidebar-toggle {
+    background: #343a40;
+    color: #fff;
+    border: none;
+    padding: 8px;
+    border-radius: 5px;
+    cursor: pointer;
+    display: none;
+    transition: background-color 0.3s ease;
+}
+
+button.sidebar-toggle:hover {
+    background-color: #495057;
+}
+
+/* Sidebar */
+aside.sidebar {
+    background: #fff;
+    padding: 20px;
+    width: 260px;
+    position: fixed;
+    height: 100%;
+    box-shadow: 4px 0 8px rgba(0, 0, 0, 0.1);
+}
+
+aside.sidebar nav a {
+    display: flex;
+    align-items: center;
+    color: #333;
+    text-decoration: none;
+    padding: 10px;
+    border-radius: 5px;
+    transition: background 0.3s ease;
+}
+
+aside.sidebar nav a:hover {
+    background: #007bff;
+    color: #fff;
+}
+
+/* Main Content */
+main {
+    margin-left: 280px;
+    padding: 20px;
+}
+
+section {
+    margin-bottom: 30px;
+}
+
+h2 {
+    border-bottom: 2px solid #007bff;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    font-size: 24px;
+}
+
+/* Dashboard Overview Stats */
+.stats {
+    display: flex;
+    gap: 20px;
+}
+
+.stat-card {
+    background: #fff;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    flex: 1;
+}
+
+.stat-card h3 {
+    margin: 0;
+    font-size: 18px;
+}
+
+.stat-card p {
+    font-size: 24px;
+    font-weight: bold;
+    margin: 0;
+}
+
+/* Users Table */
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+table th, table td {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+table th {
+    background: #007bff;
+    color: #fff;
+    text-align: left;
+}
+
+table td button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+table td button:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+}
+
+/* Buttons */
+button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 12px 18px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+button:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+}
+
+button.btn-secondary {
+    background-color: #6c757d;
+}
+
+button.btn-secondary:hover {
+    background-color: #5a6268;
+}
+
+/* Form Styles */
+form {
+    max-width: 600px;
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+form label {
+    display: block;
+    margin-top: 10px;
+}
+
+form input {
+    width: 100%;
+    padding: 12px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    transition: border-color 0.3s ease;
+}
+
+form input:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+form button {
+    margin-top: 20px;
+}
+/* Responsive Styles */
+@media (max-width: 768px) {
+    aside.sidebar {
+        display: none;
+    }
+
+    main {
+        margin-left: 0;
+    }
+
+    header .sidebar-toggle {
+        display: block;
+    }
+
+    .sidebar-toggle.active + .sidebar {
+        display: block;
+    }
+}

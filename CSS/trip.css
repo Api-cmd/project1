@@ -1,0 +1,236 @@
+@import url('https://fonts.googleapis.com/css2?family=Single+Day&display=swap');
+/* Global Styles */
+
+body {
+    
+    font-size: small;
+    margin: 0;
+    padding: 20px;
+    background-color: #f8f4eb;
+
+}
+
+.filters {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    width: 200px;
+    
+    padding: 10px;
+    border-radius: 2px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    background-color: rgba(255, 255, 255, 0.8); /* White overlay with 80% opacity */
+}
+
+.filter-section {
+    margin-bottom: 20px; /* Space between filter sections */
+    padding: 10px;
+    height: 250px;
+    border-radius: 5px;
+    background-image: url('../HomeImage/trees.jpeg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent overlay */
+}
+
+.filters h3 {
+    font-family: "Single Day", cursive;
+    font-size: 1.5em;
+    margin-bottom: 10px;
+    color: #ff4757;
+}
+
+.filters ul {
+    list-style: none;
+    padding: 0;
+}
+
+.filters ul li {
+    font-family:  cursive;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.filters ul li input[type="checkbox"] {
+    display: none;
+}
+
+.filters ul li label {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    font-size: 1.2em;
+    color: #f9f9f9; 
+    position: relative;
+    
+}
+
+.filters ul li label:before {
+    content: "\f096"; /* Unicode for an unchecked square */
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    font-size: 1.5em;
+    color: #f9f9f9; 
+    margin-right: 10px;
+}
+
+.filters ul li input[type="checkbox"]:checked + label:before {
+    content: "\f14a"; /* Unicode for a checked square */
+    color: #f9f9f9;
+}
+
+.filters ul li input[type="checkbox"]:checked + label .checked {
+    display: inline;
+}
+
+.container {
+    margin-left: 280px;
+    max-width: 1000px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+.trip-details-container {
+    font-family: cursive;
+    display: flex; /* Default display */
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+    background-color: #f8f4eb;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Optional: Add transition for smooth hiding/showing */
+.trip-details-container {
+    transition: opacity 0.3s ease;
+}
+
+.trip-image {
+    flex: 1;
+    margin-right: 20px;
+}
+
+.trip-image img {
+    width: 100%;
+    height: 100%;
+    margin-bottom: 20px;
+    border-radius: 5px;
+}
+
+.trip-details {
+    flex: 2;
+}
+
+.trip-details h2 {
+    font-family: "Single Day", cursive;
+    font-size: 1.8em;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.price-icon {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    font-size: 1.2em;
+    color: #d9534f;
+    margin-bottom: 20px;
+}
+
+.price-text {
+    font-family: cursive;
+    background-color: #f9f9f9;
+    padding: 10px 15px;
+    border: 2px solid #d9534f;
+    border-radius: 8px;
+    color: #d9534f;
+    font-size: 1.2em;
+    white-space: nowrap;
+}
+
+.view-trip {
+    background-color: #4b5320;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    font-family: cursive;
+    letter-spacing: 10px;
+    text-align: center;
+}
+
+.view-trip:hover {
+    background-color: #3b4220;
+}
+
+.divider {
+    border: none;
+    border-top: 5px solid #e0e0e0; /* Increases the thickness to 5px */
+    margin: 40px 0; /* Maintains the space between the trip containers */
+}
+
+/* Media Queries for Mobile Devices */
+@media screen and (max-width: 768px) {
+    .filters {
+        position: static;
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .filter-section {
+        margin-bottom: 20px;
+        height: auto;
+        
+    }
+
+    .filters h3 {
+        color:  #f9f9f9;;
+    }
+
+    .filters ul {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .filters ul li {
+        width: 50%; /* Two filters per row */
+    }
+
+    .filters ul li label {
+        color: #f9f9f9;
+    }
+
+    .filters ul li label:before {
+        color: #f9f9f9;
+    }
+
+    .container {
+        margin: 0;
+        padding: 10px;
+    }
+
+    .trip-details-container {
+        flex-direction: column;
+    }
+
+    .trip-image {
+        margin-right: 0;
+        margin-bottom: 20px;
+    }
+
+    .price-icon {
+        justify-content: center;
+    }
+
+    .view-trip {
+        width: 100%; /* Full width button on mobile */
+    }
+}

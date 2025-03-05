@@ -1,0 +1,289 @@
+:root {
+   
+    --primary-light: #3B82F6;
+    --primary-dark: #60A5FA;
+    --primary-soft: #10B981;
+    --primary-contrast: #F59E0B;
+    --background-light: #FFFFFF;
+    --background-dark: #1F2937;
+    --background-soft: #F0FDF4;
+    --background-contrast: #FFFBEB;
+    --text-light: #1F2937;
+    --text-dark: #F3F4F6;
+    --text-soft: #065F46;
+    --text-contrast: #92400E;
+
+}
+
+
+
+body {
+    background-color: var(--background-light);
+    color: var(--text-light);
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.header {
+    background-color: var(--background-light);
+    color: var(--text-light);
+    transition: background-color 0.3s, color 0.3s;
+}
+
+
+
+.header-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo-img {
+    height: 40px;
+    width: auto;
+}
+
+.desktop-nav {
+    display: none;
+}
+
+.desktop-nav a {
+    color: var(--text-light);
+    text-decoration: none;
+    margin-left: 1.5rem;
+    display: inline-flex;
+    align-items: center;
+}
+
+.desktop-nav a i {
+    margin-right: 0.5rem;
+}
+
+.actions {
+    display: flex;
+    align-items: center;
+}
+
+.icon-button {
+    background: none;
+    border: none;
+    color: var(--text-light);
+    font-size: 1.2rem;
+    cursor: pointer;
+    padding: 0.5rem;
+    display: flex;
+    align-items: center;
+}
+
+.icon-button i {
+    margin-right: 0.5rem;
+}
+
+.hidden-mobile {
+    display: none;
+}
+
+.dropdown {
+    position: relative;
+}
+
+.dropdown-content {
+    position: absolute;
+    right: 0;
+    top: 100%;
+    background-color: var(--background-light);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+    min-width: 150px;
+    z-index: 100;
+}
+
+.dropdown-content a {
+    color: var(--text-light);
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+.hidden {
+    display: none;
+}
+
+.active-theme::after,
+.active-language::after {
+    content: " ✔"; /* Unicode tick mark */
+    font-weight: bold;
+    color: var(--primary-light);
+    margin-left: 8px; /* Space between text and tick */
+}
+
+
+
+
+
+.search-container {
+            position: relative;
+        }
+
+        .search-bar {
+            position: absolute;
+            right: 0;
+            top: 100%;
+            background-color: var(--background-light);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            border-radius: 4px;
+            padding: 0.5rem;
+            display: flex;
+            z-index: 10; /* Ensure it appears above other elements */
+        }
+
+        .search-bar.hidden {
+            display: none;
+        }
+
+        .search-bar input {
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            padding: 0.5rem;
+            margin-right: 0.5rem;
+        }
+
+        .search-bar button {
+            background-color: var(--primary-light);
+            color: white;
+            border: none;
+            border-radius: 4px;
+            padding: 0.5rem;
+            cursor: pointer;
+        }
+
+        /* Add these styles to your existing CSS */
+        .suggestion-box {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: var(--background-light);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+    max-height: 300px;
+    overflow-y: auto;
+    overflow-x: auto; /* Enable horizontal scrolling */
+    z-index: 1000;
+    display: none;
+}
+
+/* Custom scrollbar styling */
+.suggestion-box::-webkit-scrollbar {
+    height: 8px; /* Height of the horizontal scrollbar */
+}
+
+.suggestion-box::-webkit-scrollbar-thumb {
+    background-color: var(--primary-dark); /* Color of the scrollbar thumb */
+    border-radius: 4px;
+}
+
+.suggestion-box::-webkit-scrollbar-track {
+    background-color: var(--background-soft); /* Color of the scrollbar track */
+}
+
+
+.suggestion-category {
+    padding: 0.5rem 1rem;
+    font-weight: bold;
+    background-color: rgba(0, 0, 0, 0.05);
+    color: var(--text-light);
+}
+
+.suggestion-item {
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    color: var(--text-light);
+}
+
+.suggestion-item:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.highlight {
+    font-weight: bold;
+    color: var(--primary-light);
+}
+
+.no-results {
+    padding: 1rem;
+    text-align: center;
+    color: var(--text-light);
+}
+
+.no-results-icon {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.no-results-help {
+    font-size: 0.875rem;
+    color: rgba(0, 0, 0, 0.6);
+}
+
+        /* Ensure the flag icon is displayed correctly */
+        .icon-button img {
+            width: 20px;
+            height: auto;
+            margin-right: 0.5rem;
+        }
+
+        .mobile-menu {
+    position: absolute;
+    top: 100px; /* Adjust based on the size of the hamburger button */
+    left: 0;
+    right: 0;
+    background-color: var(--background-light);
+    padding: 0;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 100;
+    display: none; /* Hide by default */
+}
+
+.mobile-menu.show {
+    display: block; /* Show when toggled */
+}
+
+        .mobile-menu a {
+            color: var(--text-light);
+            text-decoration: none;
+            display: block;
+            padding: 1rem;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        .mobile-menu a:last-child {
+            border-bottom: none;
+        }
+
+        .mobile-menu a:hover {
+            background-color: rgba(0, 0, 0, 0.05);
+        }
+
+      
+        
+@media (min-width: 768px) {
+    .desktop-nav {
+        display: flex;
+    }
+
+    .hidden-mobile {
+        display: inline;
+    }
+
+    .mobile-only {
+        display: none;
+    }
+}
+

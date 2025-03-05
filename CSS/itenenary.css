@@ -1,0 +1,337 @@
+
+
+body {
+    background-color: var(--background-light);
+}
+/* Hero Section */
+.hero {
+    position: relative;
+    height: 100vh;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.bg-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--text-light);
+    z-index: 2;
+}
+
+.hero-content {
+    max-width: 800px;
+    padding: 2rem;
+}
+
+.hero h1 {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    z-index: -1;
+}
+
+h1 {
+    text-align: center;
+    font-size: clamp(2rem, 5vw, 3rem);
+    animation: fadeInDown 0.8s ease-out;
+    color: var(--h1-color);
+}
+
+h2 {
+    text-align: center;
+    font-size: clamp(1.5rem, 4vw, 2rem);
+    animation: fadeInDown 0.8s ease-out;
+    color: var(--h2-color);
+}
+
+/* General Styles */
+.itinerary-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    gap: 40px;
+    position: relative;
+    min-height: 600px;
+}
+
+.timeline {
+    position: sticky;
+    top: 100px;
+    height: fit-content;
+    background: var(--background-dark);
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: var(--card-shadow);
+}
+
+/* Day Card Styles */
+.day {
+    padding: 20px;
+    margin: 10px 0;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    background: var(--background-light);
+    color: var(--text-light);
+}
+
+.day::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: -10px;
+    width: 2px;
+    height: calc(100% + 20px);
+    background: linear-gradient(to bottom, var(--primary-light) 50%, transparent 50%);
+    transform: translateX(-50%);
+    z-index: 0;
+}
+
+.day:last-child::before {
+    display: none;
+}
+
+.day i {
+    font-size: 24px;
+    color: var(--primary-light);
+    margin-bottom: 10px;
+    background: var(--background-light);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 10px rgba(42, 157, 143, 0.2);
+    transition: all 0.3s ease;
+    z-index: 1;
+}
+
+.day:hover i {
+    transform: scale(1.1);
+    color: var(--text-light);
+    background: var(--primary-light);
+}
+
+.day h2 {
+    font-size: 1.2rem;
+    margin: 10px 0 5px;
+    color: var(--h1-color);
+}
+
+.day p {
+    font-size: 0.9rem;
+    color: var(--p-color);
+    margin: 0;
+}
+
+.day.active {
+    background: rgba(42, 157, 143, 0.1);
+}
+
+.day.active i {
+    color: var(--text-light);
+    background: var(--primary-light);
+}
+
+/* Details Section */
+.details-container {
+    background: var(--background-dark);
+    border-radius: 20px;
+    box-shadow: var(--card-shadow);
+    overflow: hidden;
+}
+
+.day-details {
+    display: none;
+    padding: 40px;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.5s ease;
+    color: var(--text-light);
+}
+
+.day-details.active {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.day-details h3 {
+    font-size: 1.8rem;
+    color: var(--h2-color);
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.day-details h3::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -10px;
+    width: 60px;
+    height: 3px;
+    background: var(--primary-light);
+    border-radius: 2px;
+}
+
+.day-details p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: var(--p-color);
+    margin-bottom: 30px;
+}
+
+.detail-img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 15px;
+    margin: 20px 0;
+    box-shadow: var(--card-shadow);
+}
+
+/* Navigation Buttons */
+.nav-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid #eee;
+}
+
+.prev-btn, .next-btn {
+    padding: 12px 24px;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    color: var(--primary-light);
+    font-weight: 500;
+}
+
+.prev-btn:hover, .next-btn:hover {
+    background: var(--hover-overlay);
+}
+
+/* Animations */
+@keyframes fadeSlideIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 968px) {
+    .itinerary-container {
+        grid-template-columns: 1fr;
+    }
+
+    .timeline {
+        position: relative;
+        top: 0;
+        display: flex;
+        overflow-x: auto;
+        padding: 20px;
+        gap: 20px;
+        scrollbar-width: thin;
+        scrollbar-color: var(--primary-light) var(--background-dark);
+    }
+
+    .day {
+        min-width: 200px;
+    }
+
+    .day::before {
+        display: none;
+    }
+}
+
+@media (max-width: 600px) {
+    .itinerary-container {
+        padding: 20px 10px;
+        flex-direction: column;
+    }
+
+    .timeline {
+        order: 1;
+        padding: 10px;
+        gap: 10px;
+    }
+
+    .details-container {
+        order: 2;
+    }
+
+    .day {
+        min-width: 150px;
+        padding: 15px;
+    }
+
+    .day i {
+        font-size: 20px;
+        width: 40px;
+        height: 40px;
+    }
+
+    .day h2 {
+        font-size: 1rem;
+    }
+
+    .day p {
+        font-size: 0.8rem;
+    }
+
+    .day-details {
+        padding: 20px;
+    }
+
+    .day-details h3 {
+        font-size: 1.5rem;
+    }
+
+    .detail-img {
+        height: 300px;
+    }
+
+    .nav-buttons {
+        flex-direction: column;
+        gap: 10px;
+    }
+}

@@ -1,0 +1,170 @@
+
+
+/* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    line-height: 1.6;
+    color: var(--text-light);
+    background-color: var(--background-light);
+}
+
+h1, h2, h3, p {
+    margin-bottom: 1rem;
+}
+
+h1 {
+    font-size: clamp(2rem, 5vw, 4rem);
+    font-weight: bold;
+    color: var(--h1-color);
+}
+
+h2 {
+    font-size: 2rem;
+    font-weight: bold;
+    color: var(--h2-color);
+}
+
+h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--primary-light);
+}
+
+p {
+    font-size: 1rem;
+    color: var(--p-color);
+}
+
+
+/* Navbar */
+.navbar {
+    background: var(--background-dark);
+    padding: 1rem;
+    box-shadow: var(--card-shadow);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logoB {
+    display: flex;
+    align-items: center;
+    font-family: 'Arial', sans-serif;
+    font-weight: 700;
+    font-size: 1.5rem;
+    color: var(--text-light);
+    text-decoration: none;
+    gap: 0.5rem;
+    transition: color 0.3s ease;
+}
+
+.logo-text {
+    position: relative;
+    letter-spacing: 1px;
+    transition: transform 0.3s ease;
+}
+
+.logo-arrow {
+    font-size: 1.3rem;
+    transition: transform 0.3s ease;
+}
+
+.logoB:hover .logo-text {
+    transform: translateX(5px); /* Moves text slightly to the right on hover */
+}
+
+.logoB:hover .logo-arrow {
+    transform: translateX(10px); /* Moves the arrow further on hover */
+    color: var(--primary-light); /* Changes the arrow color */
+}
+
+.nav-links {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+}
+
+.nav-links a {
+    color: var(--text-dark);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: var(--primary-light);
+}
+
+.request-btn {
+    padding: 0.8rem 1.5rem;
+    background-color: var(--primary-light);
+    color: var(--text-light) !important;
+    border-radius: 50px;
+    text-decoration: none;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.request-btn:hover {
+    transform: translateY(-3px);
+    background-color: var(--primary-dark);
+}
+
+.menu-toggle {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        gap: 1rem;
+        background: var(--background-dark);
+        padding: 1rem;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        box-shadow: var(--card-shadow);
+        transition: max-height 0.3s ease-in-out;
+        max-height: 0;
+        overflow: hidden;
+    }
+
+    .menu-toggle {
+        display: block;
+        background: none;
+        border: none;
+        color: var(--text-light);
+        font-size: 1.5rem;
+        cursor: pointer;
+        transition: transform 0.3s ease;
+    }
+
+    .menu-toggle:focus {
+        outline: none;
+    }
+
+    .nav-links.active {
+        display: flex;
+        max-height: 500px;
+    }
+}
+
+.nav-links a.active {
+    color: var(--primary-light);
+    font-weight: bold;
+}
