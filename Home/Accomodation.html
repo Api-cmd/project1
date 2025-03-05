@@ -1,0 +1,353 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accomodation</title>
+    <link rel="stylesheet" href="../CSS/Accomodation.css">
+    <link rel="stylesheet" href="../CSS/header.css">
+
+   
+    <link rel="stylesheet" href="../CSS/CTA.css">
+    <link rel="stylesheet" href="../CSS/spinner.css">
+    <link rel="stylesheet" href="../CSS/footer.css">
+    
+
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Dancing+Script&display=swap" rel="stylesheet">
+
+
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&display=swap" rel="stylesheet">
+
+</head>
+<body>
+    
+    <!-- Header Section -->
+      
+
+    
+    <header class="header">
+        <div class="header-container">
+            <div class="logo-container">
+                <a href="/">
+                    <img src="/api/placeholder/120/40" alt="Logo" class="logo-img">
+                </a>
+            </div>
+
+            <nav class="desktop-nav">
+                <a href="../Home/Packages.html"><i class="fas fa-suitcase"></i> Packages</a>
+                <a href="../Home/Accomodation.html"><i class="fas fa-hotel"></i> Accommodation</a>
+                <a href="../Home/plan your tour.html"><i class="fas fa-map-marked-alt"></i> Plan Your Tour</a>
+            </nav>
+
+            <div class="actions">
+                <div class="search-container">
+                    <button id="search-toggle" class="icon-button">
+                        <i class="fas fa-search"></i>
+                    </button>
+                    <div id="search-bar" class="search-bar hidden">
+                        <input type="text" id="search-input" placeholder="Search..." oninput="filterSuggestions()">
+                        <button><i class="fas fa-search"></i></button>
+                        <div id="suggestion-box" class="suggestion-box"></div> <!-- Suggestions container -->
+                    </div>
+                </div>
+
+               
+            <div class="dropdown">
+                <button class="icon-button" id="language-dropdown-toggle">
+                    <img src="https://flagcdn.com/w20/gb.png" alt="English" id="language-flag">
+                    <span class="hidden-mobile">Language</span>
+                </button>
+                    <div id="language-dropdown" class="dropdown-content hidden">
+                        <a href="#" data-lang="en"><img src="https://flagcdn.com/w20/gb.png" alt="English"> English</a>
+                        <a href="Language/fr-accomodation.html" data-lang="fr"><img src="https://flagcdn.com/w20/fr.png" alt="Français"> Français</a>
+                        <a href="#" data-lang="es"><img src="https://flagcdn.com/w20/es.png" alt="Español"> Español</a>
+                        <a href="#" data-lang="de"><img src="https://flagcdn.com/w20/de.png" alt="Deutsch"> Deutsch</a>
+                        <a href="#" data-lang="de"><img src="https://flagcdn.com/w20/de.png" alt="Deutsch"> Deutsch</a>
+                        <a href="#" data-lang="it"><img src="https://flagcdn.com/w20/it.png" alt="Italiano"> Italiano</a>
+                        <a href="#" data-lang="sa"><img src="https://flagcdn.com/w20/sa.png" alt="العربية"> العربية</a>
+                        <a href="#" data-lang="ru"><img src="https://flagcdn.com/w20/ru.png" alt="Русский"> Русский</a>
+                        <a href="#" data-lang="cn"><img src="https://flagcdn.com/w20/cn.png" alt="中文"> 中文</a>
+                        <a href="#" data-lang="jp"><img src="https://flagcdn.com/w20/jp.png" alt="日本語"> 日本語</a>
+                        <a href="#" data-lang="kr"><img src="https://flagcdn.com/w20/kr.png" alt="한국어"> 한국어</a>
+                        <a href="#" data-lang="no"><img src="https://flagcdn.com/w20/no.png" alt="Norsk"> Norsk</a>
+                    </div>
+                </div>
+
+                <div class="dropdown">
+                    <button class="icon-button" id="theme-dropdown-toggle">
+                        <i class="fas fa-palette"></i>
+                        <span class="hidden-mobile">Theme</span>
+                    </button>
+                    <div id="theme-dropdown" class="dropdown-content hidden">
+                        <a href="#" data-theme="light"><i class="fas fa-sun"></i> Light</a>
+                        
+                        <a href="#" data-theme="soft"><i class="fas fa-le"></i> Soft</a>
+                        <a href="#" data-theme="nature"><i class="fas fa-leaf"></i> Nature</a>
+                        <a href="#" data-theme="dark"><i class="fas fa-moon"></i> Dark</a>
+                        
+                        <a href="#" data-theme="contrast"><i class="fas fa-sunset"></i> Contrast</a>
+                    </div>
+
+                <button id="mobile-menu-toggle" class="icon-button mobile-only">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+
+        <div id="mobile-menu" class="mobile-menu hidden">
+            <a href="../Home/Packages.html"><i class="fas fa-suitcase"></i> Packages</a>
+            <a href="../Home/Accomodation.html"><i class="fas fa-hotel"></i> Accommodation</a>
+            <a href="../Home/plan-your-tour.html"><i class="fas fa-map-marked-alt"></i> Plan Your Tour</a>
+        </div>
+    </header>
+
+<div class="spinner-container spinner-overlay">
+    <div class="spinner">
+        <div class="spinner-ring"></div>
+        <div class="spinner-ring"></div>
+        <div class="spinner-ring"></div>
+        <div class="spinner-pulse"></div>
+        <div class="spinner-dots">
+            <div class="spinner-dot"></div>
+            <div class="spinner-dot"></div>
+            <div class="spinner-dot"></div>
+            <div class="spinner-dot"></div>
+        </div>
+    </div>
+    <div class="spinner-text">Loading...</div>
+</div>
+
+
+
+
+
+<div class="container">
+    <header class="hero-section">
+        <h1 class="title">Luxury Accommodations for Your Dream Safari</h1>
+        <p class="subtitle">Experience Africa in style with our carefully curated selection of accommodations, 
+            each offering a unique blend of comfort, luxury, and authentic experiences.</p>
+    </header>
+
+    <div class="category-grid"> 
+        <!-- Silver Category -->
+        <div class="category-card" data-category="silver">
+            <div class="category-badge">Silver</div>
+            <div class="carousel">
+                <div class="carousel-track" id="silver-track">
+                    <img src="../HomeImage/Accomodation/silver1.jpg" alt="Comfortable Silver Accommodation" class="carousel-image active">
+                    <img src="../HomeImage/Accomodation/silver2.jpg" alt="Cozy Silver Suite" class="carousel-image">
+                    <img src="HomeImage/ele.jpg" alt="Silver Lodge View" class="carousel-image">
+                </div>
+                <div class="carousel-controls">
+                    <button class="carousel-arrow prev" data-control="prev">
+                        <svg viewBox="0 0 24 24"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
+                    </button>
+                    <button class="carousel-arrow next" data-control="next">
+                        <svg viewBox="0 0 24 24"><path d="M8.59 7.41L10 6l6 6-6 6-1.41-1.41L13.17 12z"/></svg>
+                    </button>
+                    <div class="carousel-dots"></div>
+                </div>
+            </div>
+            <div class="category-content">
+                <h2>Silver Collection</h2>
+                <p>Perfect blend of comfort and value, offering intimate lodges and camps that capture the essence of African hospitality.</p>
+                <ul class="feature-list">
+                    <li><span class="icon">🌟</span>Comfortable accommodations</li>
+                    <li><span class="icon">🍽️</span>Full board meals</li>
+                    <li><span class="icon">👥</span>Professional staff</li>
+                </ul>
+                <button class="explore-btn">Explore Silver Properties</button>
+            </div>
+        </div>
+
+        <!-- Gold Category -->
+        <div class="category-card" data-category="gold">
+            <div class="category-badge">Gold</div>
+            <div class="carousel">
+                <div class="carousel-track" id="gold-track">
+                    <img src="../HomeImage/Accomodation/gold1.jpg" alt="Luxury Gold Suite" class="carousel-image active">
+                    <img src="../HomeImage/Accomodation/gold2.jpg" alt="Gold Lodge View" class="carousel-image">
+                    <img src="../HomeImage/Accomodation/gold3.jpg" alt="Gold Accommodation" class="carousel-image">
+                </div>
+                <div class="carousel-controls">
+                    <button class="carousel-arrow prev" data-control="prev">
+                        <svg viewBox="0 0 24 24"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
+                    </button>
+                    <button class="carousel-arrow next" data-control="next">
+                        <svg viewBox="0 0 24 24"><path d="M8.59 7.41L10 6l6 6-6 6-1.41-1.41L13.17 12z"/></svg>
+                    </button>
+                    <div class="carousel-dots"></div>
+                </div>
+            </div>
+            <div class="category-content">
+                <h2>Gold Collection</h2>
+                <p>Elevated luxury experiences with premium amenities and personalized service in stunning locations.</p>
+                <ul class="feature-list">
+                    <li><span class="icon">✨</span>Premium amenities</li>
+                    <li><span class="icon">🥂</span>Gourmet dining</li>
+                    <li><span class="icon">🌅</span>Prime locations</li>
+                </ul>
+                <button class="explore-btn">Explore Gold Properties</button>
+            </div>
+        </div>
+
+        <!-- Platinum Category -->
+        <div class="category-card" data-category="platinum">
+            <div class="category-badge">Platinum</div>
+            <div class="carousel">
+                <div class="carousel-track" id="platinum-track">
+                    <img src="../HomeImage/Accomodation/platinum1.jpg" alt="Ultra-Luxury Platinum Suite" class="carousel-image active">
+                    <img src="../HomeImage/Accomodation/platinum2.jpg" alt="Platinum Resort View" class="carousel-image">
+                    <img src="../HomeImage/Accomodation/platinum3.jpg" alt="Exclusive Platinum Accommodation" class="carousel-image">
+                </div>
+                <div class="carousel-controls">
+                    <button class="carousel-arrow prev" data-control="prev">
+                        <svg viewBox="0 0 24 24"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
+                    </button>
+                    <button class="carousel-arrow next" data-control="next">
+                        <svg viewBox="0 0 24 24"><path d="M8.59 7.41L10 6l6 6-6 6-1.41-1.41L13.17 12z"/></svg>
+                    </button>
+                    <div class="carousel-dots"></div>
+                </div>
+            </div>
+            <div class="category-content">
+                <h2>Platinum Collection</h2>
+                <p>The pinnacle of luxury safari accommodations, offering unparalleled experiences and exclusive amenities.</p>
+                <ul class="feature-list">
+                    <li><span class="icon">👑</span>Ultra-luxury amenities</li>
+                    <li><span class="icon">🍷</span>Fine dining experience</li>
+                    <li><span class="icon">🌟</span>Exclusive services</li>
+                </ul>
+                <button class="explore-btn">Explore Platinum Properties</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Call to Action Section -->
+ 
+<section class="call-to-action" id="bookingSection">
+    <div class="cta-container">
+        <h2 class="cta-title">Begin Your Safari Adventure</h2>
+        <p class="cta-subtitle">Let us help you create memories that will last a lifetime</p>
+        
+        <form class="cta-form" id="bookingForm2" action="save_Packages.php" method="post">
+            <div class="form-group">
+                <label for="name" class="visually-hidden">Your Name</label>
+                <input type="text" id="name" name="name" placeholder="Your Name" required>
+                <div class="form-indicator"></div>
+            </div>
+
+            <div class="form-group">
+                <label for="email" class="visually-hidden">Your Email</label>
+                <input type="email" id="email" name="email" placeholder="Your Email" required>
+                <div class="form-indicator"></div>
+            </div>
+
+            <div class="form-group">
+                <label for="expectations" class="visually-hidden">Adventure Expectations</label>
+                <textarea id="expectations" name="Adventure_Expectations" 
+                    placeholder="Tell us about your dream safari experience..."
+                    rows="4"></textarea>
+                <div class="form-indicator"></div>
+            </div>
+
+            <button type="submit" class="submit-button">
+                <span class="button-text">Begin Your Journey</span>
+                <span class="button-icon">→</span>
+            </button>
+        </form>
+    </div>
+</section>
+
+<!-- Appreciation Section -->
+<section class="appreciation-section" id="appreciationSection" aria-hidden="true">
+    <div class="appreciation-container">
+        <div class="success-icon">✓</div>
+        <h2 class="appreciation-title">Adventure Awaits!</h2>
+        <p class="appreciation-message">Thank you for choosing to explore with us. Our safari experts will be in touch within 24 hours to start planning your perfect adventure.</p>
+        <button class="return-button" onclick="resetBooking(event)">
+            <span class="button-icon">←</span>
+            <span class="button-text">Plan Another Adventure</span>
+        </button>
+    </div>
+</section>
+
+<script src="../JS/header.js" defer></script>
+<script src="../JS/accomadation.js" defer></script>
+<script src="../JS/spinner.js" defer></script>
+<script src="../JS/CTA.js" defer></script>
+</body>
+
+    <!--FOOTER-->
+    <footer class="site-footer">
+        <div class="footer-background"></div>
+        <div class="container-footer">
+            <div class="row">
+                <div class="col company" id="company">
+                    <img src="images/logo.png" alt="Company Logo" class="logo">
+                    <p>"The world is a book, and those who do not travel read only one page." – Saint Augustine</p>
+                    <div class="social">
+                        <a href="#" class="facebook"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="youtube"><i class="fab fa-youtube"></i></a>
+                        <a href="#" class="twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="linkedin"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+                <div class="col services" id="services">
+                    <h3>Service</h3>
+                    <div class="links">
+                        <a href="us.html">About</a>
+                        <a href="us.html#services">Services</a>
+                        <a href="us.html#policies">Our Policy</a>
+                        <a href="us.html#help">Help</a>
+                    </div>
+                </div>
+                <div class="col useful-links" id="useful-links">
+                    <h3>Useful Links</h3>
+                    <div class="links">
+                        <a href="#">Home</a>
+                        <a href="#">Destinations</a>
+                        <a href="#">Blog</a>
+                        <a href="#">Contact</a>
+                    </div>
+                </div>
+                <div class="col contact" id="contact">
+                    <h3>Contact</h3>
+                    <div class="contact-details">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <p>123 Arusha, <br>Arusha City,</p>
+                    </div>
+                    <div class="contact-details">
+                        <i class="fas fa-phone-alt"></i>
+                        <p>+255 7________</p>
+                    </div>
+                    <div class="contact-details">
+                        <i class="fas fa-envelope"></i>
+                        <p>info@company.com</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row partners">
+                <h3>Our Partners</h3>
+                <div class="partner-logos">
+                    <a href="#"><img src="images/partner1.png" alt="Partner 1"></a>
+                    <a href="#"><img src="images/partner2.png" alt="Partner 2"></a>
+                    <a href="#"><img src="images/partner3.png" alt="Partner 3"></a>
+                    <a href="#"><img src="images/partner4.png" alt="Partner 4"></a>
+                    <a href="#"><img src="images/partner5.png" alt="Partner 5"></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 YourCompany | <span class="designer">Designed by Nola Inc</span></p>
+        </div>
+    </footer>
+    
+
+</html>

@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>9 Days Kilimanjaro-Lemosho-Route</title>
+    <link rel="stylesheet" href="../../CSS/view more.css">
+    <link rel="stylesheet" href="../../CSS/header.css">
+   
+    <link rel="stylesheet" href="../../CSS/CTA.css">
+    <link rel="stylesheet" href="../../CSS/spinner.css">
+    <link rel="stylesheet" href="../../CSS/footer.css">
+
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Dancing+Script&display=swap" rel="stylesheet">
+
+
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&display=swap" rel="stylesheet">
+
+</head>
+<body>
+    
+    <!-- Header Section -->
+      
+
+     
+    <header class="header">
+        <div class="header-container">
+            <div class="logo-container">
+                <a href="/">
+                    <img src="/api/placeholder/120/40" alt="Logo" class="logo-img">
+                </a>
+            </div>
+
+            <nav class="desktop-nav">
+                <a href="../../Home/Packages.html"><i class="fas fa-suitcase"></i> Packages</a>
+                <a href="../../Home/Accomodation.html"><i class="fas fa-hotel"></i> Accommodation</a>
+                <a href="../../Home/plan your tour.html"><i class="fas fa-map-marked-alt"></i> Plan Your Tour</a>
+            </nav>
+
+            <div class="actions">
+                <div class="search-container">
+                    <button id="search-toggle" class="icon-button">
+                        <i class="fas fa-search"></i>
+                    </button>
+                    <div id="search-bar" class="search-bar hidden">
+                        <input type="text" id="search-input" placeholder="Search..." oninput="filterSuggestions()">
+                        <button><i class="fas fa-search"></i></button>
+                        <div id="suggestion-box" class="suggestion-box"></div> <!-- Suggestions container -->
+                    </div>
+                </div>
+
+               
+            <div class="dropdown">
+                <button class="icon-button" id="language-dropdown-toggle">
+                    <img src="https://flagcdn.com/w20/gb.png" alt="English" id="language-flag">
+                    <span class="hidden-mobile">Language</span>
+                </button>
+                    <div id="language-dropdown" class="dropdown-content hidden">
+                        <a href="#" data-lang="en"><img src="https://flagcdn.com/w20/gb.png" alt="English"> English</a>
+                        <a href="#" data-lang="fr"><img src="https://flagcdn.com/w20/fr.png" alt="Français"> Français</a>
+                        <a href="#" data-lang="es"><img src="https://flagcdn.com/w20/es.png" alt="Español"> Español</a>
+                        <a href="#" data-lang="de"><img src="https://flagcdn.com/w20/de.png" alt="Deutsch"> Deutsch</a>
+                        <a href="#" data-lang="it"><img src="https://flagcdn.com/w20/it.png" alt="Italiano"> Italiano</a>
+                        <a href="#" data-lang="sa"><img src="https://flagcdn.com/w20/sa.png" alt="العربية"> العربية</a>
+                        <a href="#" data-lang="ru"><img src="https://flagcdn.com/w20/ru.png" alt="Русский"> Русский</a>
+                        <a href="#" data-lang="cn"><img src="https://flagcdn.com/w20/cn.png" alt="中文"> 中文</a>
+                        <a href="#" data-lang="jp"><img src="https://flagcdn.com/w20/jp.png" alt="日本語"> 日本語</a>
+                        <a href="#" data-lang="kr"><img src="https://flagcdn.com/w20/kr.png" alt="한국어"> 한국어</a>
+                        <a href="#" data-lang="no"><img src="https://flagcdn.com/w20/no.png" alt="Norsk"> Norsk</a>
+
+                    </div>
+                </div>
+
+                <div class="dropdown">
+                    <button class="icon-button" id="theme-dropdown-toggle">
+                        <i class="fas fa-palette"></i>
+                        <span class="hidden-mobile">Theme</span>
+                    </button>
+                    <div id="theme-dropdown" class="dropdown-content hidden">
+                        <a href="#" data-theme="light"><i class="fas fa-sun"></i> Light</a>
+                        
+                        <a href="#" data-theme="soft"><i class="fas fa-leaf"></i> Soft</a>
+                        <a href="#" data-theme="nature"><i class="fas fa-leaf"></i> Nature</a>
+                        <a href="#" data-theme="dark"><i class="fas fa-moon"></i> Dark</a>
+                        
+                        <a href="#" data-theme="contrast"><i class="fas fa-sunset"></i> Contrast</a>
+                    </div>
+
+                <button id="mobile-menu-toggle" class="icon-button mobile-only">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+
+        <div id="mobile-menu" class="mobile-menu hidden">
+            <a href="../../Home/Packages.html"><i class="fas fa-suitcase"></i> Packages</a>
+            <a href="../../Home/Accomodation.html"><i class="fas fa-hotel"></i> Accommodation</a>
+            <a href="../../Home/plan-your-tour.html"><i class="fas fa-map-marked-alt"></i> Plan Your Tour</a>
+        </div>
+    </header>
+
+
+<div class="spinner-container spinner-overlay">
+    <div class="spinner">
+        <div class="spinner-ring"></div>
+        <div class="spinner-ring"></div>
+        <div class="spinner-ring"></div>
+        <div class="spinner-pulse"></div>
+        <div class="spinner-dots">
+            <div class="spinner-dot"></div>
+            <div class="spinner-dot"></div>
+            <div class="spinner-dot"></div>
+            <div class="spinner-dot"></div>
+        </div>
+    </div>
+    <div class="spinner-text">Loading...</div>
+</div>
+
+
+<!-- Hero Section -->
+<header class="hero">
+    <video autoplay muted loop playsinline class="bg-video">
+        <source src="../../HomeImage/Videos/kilimanjaro.mp4" type="video/mp4">
+    </video>
+    <div class="overlay">
+        <div class="hero-content">
+            <h1>On Top of Africa: The Ultimate Kilimanjaro Adventure</h1>
+            <p>9 Days Lemosho-Route-Kilimanjaro Adventures</p>
+        </div>
+    </div>
+</header>
+ <!-- Navbar -->
+ <nav class="navbar">
+    <div class="nav-container">
+        <a href="#" class="logoB">
+            <span class="logo-text">HYVERTOURS</span>
+            <span class="logo-arrow">&#8594;</span> <!-- Right arrow symbol -->
+        </a>
+        <button class="menu-toggle" aria-label="Toggle Menu"><i class="fas fa-bars"></i></button>
+        <div class="nav-links">
+                <a href="9-days-kilimanjaro.lemosho-general.html" class="active">Overview</a>
+                
+
+             
+                
+                <a href="../request-form/request-form-9-Days-kilimanjaro-Lemosho-Shira-route.html" class="request-btn">Request This Trip</a>
+            
+        </div>
+    </div>
+</nav>
+ 
+    <!-- Main Content Section -->
+   
+            
+            <div class="main-content">
+                <div class="content-left">
+                    <!-- Itinerary Section -->
+                    <section id="itinerary">
+                        <h2>Your Journey</h2>
+                        <div class="itinerary-day">
+                            <div class="day-number">Day 1</div>
+                            <div class="day-content">
+                                <h3>Arrival at Kilimanjaro International Airport</h3>
+                                <p>Welcome to Tanzania! Get ready for your climb as you are transferred to your hotel for preparation and rest.</p>
+                            </div>
+                        </div>
+                        <div class="itinerary-day">
+                            <div class="day-number">Day 2</div>
+                            <div class="day-content">
+                                <h3>Lemosho-Shira Route (1/6)</h3>
+                                <p><strong>Route:</strong> Drop off (3,500 m/11,483 ft) - Shira 2 Camp (3,890 m/12,762 ft)</p>
+                                <p>Begin your ascent along the Lemosho route, traveling to Shira 2 Camp with stunning views of the surrounding landscapes.</p>
+                            </div>
+                        </div>
+                        <div class="itinerary-day">
+                            <div class="day-number">Day 3</div>
+                            <div class="day-content">
+                                <h3>Lemosho-Shira Route (2/6)</h3>
+                                <p><strong>Route:</strong> Shira 2 Camp (3,890 m/12,762 ft) - Lava Tower (4,630 m/15,190 ft) - Barranco Camp (3,950 m/12,959 ft)</p>
+                                <p>Ascend to Lava Tower and experience stunning high-altitude views before descending to Barranco Camp for an overnight stay.</p>
+                            </div>
+                        </div>
+                        <div class="itinerary-day">
+                            <div class="day-number">Day 4</div>
+                            <div class="day-content">
+                                <h3>Lemosho-Shira Route (3/6)</h3>
+                                <p><strong>Route:</strong> Barranco Camp (3,950 m/12,959 ft) - Karanga Camp (4,040 m/13,254 ft)</p>
+                                <p>Tackle the Barranco Wall before trekking to Karanga Camp, where you will rest and acclimatize.</p>
+                            </div>
+                        </div>
+                        <div class="itinerary-day">
+                            <div class="day-number">Day 5</div>
+                            <div class="day-content">
+                                <h3>Lemosho-Shira Route (4/6)</h3>
+                                <p><strong>Route:</strong> Karanga Camp (4,040 m/13,254 ft) - Barafu Camp (4,645 m/15,239 ft)</p>
+                                <p>Continue your trek to Barafu Camp, the final stop before your summit push.</p>
+                            </div>
+                        </div>
+                        <div class="itinerary-day">
+                            <div class="day-number">Day 6</div>
+                            <div class="day-content">
+                                <h3>Lemosho-Shira Route (5/6)</h3>
+                                <p><strong>Route:</strong> Barafu Camp (4,645 m/15,239 ft) - Uhuru Peak (5,895 m/19,340 ft) - Millennium Camp (3,820 m/12,532 ft)</p>
+                                <p>Summit day! Reach the highest point in Africa, Uhuru Peak, and descend to Millennium Camp for rest.</p>
+                            </div>
+                        </div>
+                        <div class="itinerary-day">
+                            <div class="day-number">Day 7</div>
+                            <div class="day-content">
+                                <h3>Lemosho-Shira Route (6/6)</h3>
+                                <p><strong>Route:</strong> Millennium Camp (3,820 m/12,532 ft) - Mweka Gate (1,640 m/5,380 ft) - Hotel</p>
+                                <p>Complete your descent and return to the hotel for celebration and relaxation.</p>
+                            </div>
+                        </div>
+                        <div class="itinerary-day">
+                            <div class="day-number">Days 8-9</div>
+                            <div class="day-content">
+                                <h3>Flight Home</h3>
+                                <p>After the climb, depart from Kilimanjaro International Airport with unforgettable memories of your adventure.</p>
+                            </div>
+                        </div>
+                    </section>
+            
+            
+                 <!-- Accommodations Section -->
+        <section id="accommodations">
+            <h2>Accommodations</h2>
+            <div class="accommodation-grid">
+                <div class="accommodation-card" onclick="showAccommodation('silver')">
+                    <div class="accommodation-img" style="background-image: url('../../HomeImage/Accomodation/silver1.jpg')"></div>
+                    <div class="accommodation-content">
+                        <h3>Silver Tier</h3>
+                        <p>Essential amenities for comfort.</p>
+                     </div>
+                </div>
+                <div class="accommodation-card" onclick="showAccommodation('gold')">
+                    <div class="accommodation-img" style="background-image: url('../../HomeImage/Accomodation/gold1.jpg')"></div>
+                    <div class="accommodation-content">
+                        <h3>Gold Tier</h3>
+                        <p>Enhanced services for added comfort.</p>
+                        </div>
+                </div>
+                <div class="accommodation-card" onclick="showAccommodation('platinum')">
+                    <div class="accommodation-img" style="background-image: url('../../HomeImage/Accomodation/platinum1.jpg')"></div>
+                    <div class="accommodation-content">
+                        <h3>Platinum Tier</h3>
+                        <p>Luxury services and exclusive amenities.</p>
+                        </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+
+      <!-- Sidebar -->
+    <div class="sidebar">
+        <div class="pricing-card">
+            <h2>Tour Pricing</h2>
+            <div class="pricing-season">
+                <h3>Low Season</h3>
+                <p>April 1st - May 19th</p>
+                <h4>$2,288 per person</h4>
+            </div>
+            <div class="pricing-season">
+                <h3>Mid Season</h3>
+                <p>Rest of the Year</p>
+                <h4>$2,397 per person</h4>
+            </div>
+            <div class="pricing-season">
+                <h3>High Season</h3>
+                <p>July, August, Dec 20 - Jan 10</p>
+                <h4>$2,624 per person</h4>
+            </div>
+        </div>
+
+        <div class="included-excluded">
+            <div class="included">
+                <h3>Included</h3>
+                <ul>
+                    <li><i class="fas fa-check-circle include-icon"></i>24/7 Service</li>
+                    <li><i class="fas fa-check-circle include-icon"></i>All Accommodations</li>
+                    <li><i class="fas fa-check-circle include-icon"></i>Game Drives</li>
+                    <li><i class="fas fa-check-circle include-icon"></i>Park Fees</li>
+                    <li><i class="fas fa-check-circle include-icon"></i>Airport Transfers</li>
+                </ul>
+            </div>
+            <div class="excluded">
+                <h3>Excluded</h3>
+                <ul>
+                    <li><i class="fas fa-times-circle exclude-icon"></i>International Flights</li>
+                    <li><i class="fas fa-times-circle exclude-icon"></i>Travel Insurance</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+    
+
+<!-- Accommodation Modal -->
+<div id="accommodationModal" class="modal">
+    <span class="close-modal">&times;</span>
+    <div class="modal-content">
+        <h2 id="modalTitle"></h2>
+        <img src="" id="modalImage" alt="Accommodation" style="width: 100%; height: auto; margin-bottom: 1rem;">
+        <div id="modalDescription"></div>
+    </div>
+</div>
+
+
+
+          
+
+ 
+ 
+<section class="call-to-action" id="bookingSection">
+    <div class="cta-container">
+        <h2 class="cta-title">Begin Your Safari Adventure</h2>
+        <p class="cta-subtitle">Let us help you create memories that will last a lifetime</p>
+        
+        <form class="cta-form" id="bookingForm2" action="save_Packages.php" method="post">
+            <div class="form-group">
+                <label for="name" class="visually-hidden">Your Name</label>
+                <input type="text" id="name" name="name" placeholder="Your Name" required>
+                <div class="form-indicator"></div>
+            </div>
+
+            <div class="form-group">
+                <label for="email" class="visually-hidden">Your Email</label>
+                <input type="email" id="email" name="email" placeholder="Your Email" required>
+                <div class="form-indicator"></div>
+            </div>
+
+            <div class="form-group">
+                <label for="expectations" class="visually-hidden">Adventure Expectations</label>
+                <textarea id="expectations" name="Adventure_Expectations" 
+                    placeholder="Tell us about your dream safari experience..."
+                    rows="4"></textarea>
+                <div class="form-indicator"></div>
+            </div>
+
+            <button type="submit" class="submit-button">
+                <span class="button-text">Begin Your Journey</span>
+                <span class="button-icon">→</span>
+            </button>
+        </form>
+    </div>
+</section>
+
+
+<!-- Appreciation Section -->
+<section class="appreciation-section" id="appreciationSection" aria-hidden="true">
+    <div class="appreciation-container">
+        <div class="success-icon">✓</div>
+        <h2 class="appreciation-title">Adventure Awaits!</h2>
+        <p class="appreciation-message">Thank you for choosing to explore with us. Our safari experts will be in touch within 24 hours to start planning your perfect adventure.</p>
+        <button class="return-button" onclick="resetBooking(event)">
+            <span class="button-icon">←</span>
+            <span class="button-text">Plan Another Adventure</span>
+        </button>
+    </div>
+</section>
+
+<script src="../JS/header.js" defer></script>
+<script src="../../JS/view-more.js" defer></script>
+<script src="../../JS/spinner.js" defer></script>
+<script src="../../JS/nav.js" defer></script>
+<script src="../../JS/CTA.js" defer></script>
+</body>
+
+    <!--FOOTER-->
+    <footer class="site-footer">
+        <div class="footer-background"></div>
+        <div class="container-footer">
+            <div class="row">
+                <div class="col company" id="company">
+                    <img src="images/logo.png" alt="Company Logo" class="logo">
+                    <p>"The world is a book, and those who do not travel read only one page." – Saint Augustine</p>
+                    <div class="social">
+                        <a href="#" class="facebook"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="youtube"><i class="fab fa-youtube"></i></a>
+                        <a href="#" class="twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="linkedin"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+                <div class="col services" id="services">
+                    <h3>Service</h3>
+                    <div class="links">
+                        <a href="us.html">About</a>
+                        <a href="us.html#services">Services</a>
+                        <a href="us.html#policies">Our Policy</a>
+                        <a href="us.html#help">Help</a>
+                    </div>
+                </div>
+                <div class="col useful-links" id="useful-links">
+                    <h3>Useful Links</h3>
+                    <div class="links">
+                        <a href="#">Home</a>
+                        <a href="#">Destinations</a>
+                        <a href="#">Blog</a>
+                        <a href="#">Contact</a>
+                    </div>
+                </div>
+                <div class="col contact" id="contact">
+                    <h3>Contact</h3>
+                    <div class="contact-details">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <p>123 Arusha, <br>Arusha City,</p>
+                    </div>
+                    <div class="contact-details">
+                        <i class="fas fa-phone-alt"></i>
+                        <p>+255 7________</p>
+                    </div>
+                    <div class="contact-details">
+                        <i class="fas fa-envelope"></i>
+                        <p>info@company.com</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row partners">
+                <h3>Our Partners</h3>
+                <div class="partner-logos">
+                    <a href="#"><img src="images/partner1.png" alt="Partner 1"></a>
+                    <a href="#"><img src="images/partner2.png" alt="Partner 2"></a>
+                    <a href="#"><img src="images/partner3.png" alt="Partner 3"></a>
+                    <a href="#"><img src="images/partner4.png" alt="Partner 4"></a>
+                    <a href="#"><img src="images/partner5.png" alt="Partner 5"></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 YourCompany | <span class="designer">Designed by Nola Inc</span></p>
+        </div>
+    </footer>
+    
+
+</html>

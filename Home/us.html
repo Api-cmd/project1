@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tanzania Tours & Adventures</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.1/gsap.min.js"></script>
+
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        :root {
+            --primary: #2A9D8F;
+            --secondary: #E9C46A;
+            --dark: #264653;
+            --light: #F4F1DE;
+        }
+
+        body {
+            background-color: var(--light);
+            color: var(--dark);
+            overflow-x: hidden;
+        }
+
+        #canvas-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            z-index: -1;
+            opacity: 0.2;
+        }
+
+        .header {
+            background: rgba(38, 70, 83, 0.95);
+            padding: 1rem;
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+        }
+
+        .nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            color: var(--secondary);
+            text-decoration: none;
+            font-weight: bold;
+            transition: transform 0.3s ease;
+        }
+
+        .logo:hover {
+            transform: scale(1.05);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: var(--light);
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            background: var(--primary);
+            transform: translateY(-2px);
+        }
+
+        .main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 80px 2rem 2rem;
+        }
+
+        section {
+            margin: 4rem 0;
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transform: translateY(50px);
+            opacity: 0;
+            transition: all 0.6s ease;
+        }
+
+        section.visible {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        h2 {
+            color: var(--primary);
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background: var(--secondary);
+            border-radius: 2px;
+        }
+
+        p {
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        li {
+            margin: 1rem 0;
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.5);
+            border-radius: 8px;
+            transition: transform 0.3s ease;
+        }
+
+        li:hover {
+            transform: translateX(10px);
+            background: rgba(255, 255, 255, 0.8);
+        }
+
+        strong {
+            color: var(--primary);
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            section {
+                padding: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+
+    
+    <div id="canvas-container"></div>
+    
+    <header class="header">
+        <nav class="nav">
+            <a href="#" class="logo">Tanzania Adventures</a>
+            <div class="nav-links">
+                <a href="#about-us">About</a>
+                <a href="#services">Services</a>
+                <a href="#policies">Policies</a>
+                <a href="#help">Help</a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="main">
+        <section id="about-us">
+            <h2>About Us</h2>
+            <p>Welcome to Tanzania Adventures, the leading provider of unforgettable tours and adventures through Tanzania's most iconic national parks. Our mission is to provide a unique, immersive, and sustainable travel experience for those seeking the best of wildlife, nature, and adventure.</p>
+            <p>With years of expertise and local knowledge, we offer guided tours that allow you to explore Tanzania's diverse ecosystems, from the Serengeti to the Ngorongoro Crater. Whether you're an avid wildlife photographer or an adventurer looking for an adrenaline rush, our team ensures a memorable and safe journey.</p>
+        </section>
+
+        <section id="services">
+            <h2>Our Services</h2>
+            <ul>
+                <li><strong>Safari Tours</strong>: Explore Tanzania's iconic national parks with our expert guides who will bring you up close to the diverse wildlife.</li>
+                <li><strong>Hiking & Mountaineering</strong>: Conquer the majestic Mount Kilimanjaro or embark on scenic hikes in the Ngorongoro Highlands.</li>
+                <li><strong>Cultural Tours</strong>: Discover the rich heritage of Tanzania through visits to local communities and cultural sites.</li>
+                <li><strong>Custom Itineraries</strong>: Whether you're looking for a family vacation or a romantic getaway, we craft personalized travel plans to suit your needs.</li>
+                <li><strong>Airport Transfers</strong>: We offer reliable airport transfers to and from the major airports in Tanzania, ensuring a seamless start and end to your trip.</li>
+            </ul>
+        </section>
+
+        <section id="policies">
+            <h2>Our Policies</h2>
+            <ul>
+                <li><strong>Booking & Payment</strong>: To confirm your booking, a deposit is required. Full payment must be made at least 30 days prior to your tour date.</li>
+                <li><strong>Cancellations</strong>: Cancellations made at least 7 days before departure will receive a full refund. Cancellations made within 7 days of the tour will be subject to a 50% cancellation fee.</li>
+                <li><strong>Health & Safety</strong>: We prioritize your safety. Our tours are led by certified guides, and we provide all necessary safety equipment. We recommend you carry personal medical insurance.</li>
+                <li><strong>Sustainability</strong>: We are committed to eco-friendly practices and support local communities, ensuring that tourism positively impacts the environment and people.</li>
+            </ul>
+        </section>
+
+        <section id="help">
+            <h2>How Can We Help?</h2>
+            <p>Have questions or need assistance? We're here to make your booking process smooth and easy! Here's how you can reach us:</p>
+            <ul>
+                <li><strong>Frequently Asked Questions</strong>: Visit our FAQ section to find quick answers to common inquiries about tours, payments, and logistics.</li>
+                <li><strong>Customer Support</strong>: If you have specific concerns or need help with bookings, our customer support team is just a message away. Contact us via email or phone.</li>
+                <li><strong>Live Chat</strong>: For instant assistance, use the live chat feature available on our website. Our team is available during business hours to answer all your questions.</li>
+            </ul>
+        </section>
+    </main>
+
+    <script>
+        // Three.js Background Animation
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+        const renderer = new THREE.WebGLRenderer({ alpha: true });
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        document.getElementById('canvas-container').appendChild(renderer.domElement);
+
+        // Create animated background shapes
+        const geometry = new THREE.IcosahedronGeometry(1, 0);
+        const material = new THREE.MeshBasicMaterial({ 
+            color: 0x2A9D8F,
+            wireframe: true
+        });
+        const shapes = [];
+
+        for(let i = 0; i < 50; i++) {
+            const shape = new THREE.Mesh(geometry, material);
+            shape.position.x = Math.random() * 40 - 20;
+            shape.position.y = Math.random() * 40 - 20;
+            shape.position.z = Math.random() * 40 - 20;
+            shape.rotation.x = Math.random() * Math.PI;
+            shape.rotation.y = Math.random() * Math.PI;
+            shapes.push(shape);
+            scene.add(shape);
+        }
+
+        camera.position.z = 5;
+
+        // Animation loop
+        function animate() {
+            requestAnimationFrame(animate);
+            shapes.forEach(shape => {
+                shape.rotation.x += 0.001;
+                shape.rotation.y += 0.001;
+            });
+            renderer.render(scene, camera);
+        }
+        animate();
+
+        // Scroll Animation
+        function checkScroll() {
+            const sections = document.querySelectorAll('section');
+            sections.forEach(section => {
+                const sectionTop = section.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+                if (sectionTop < windowHeight * 0.75) {
+                    section.classList.add('visible');
+                }
+            });
+        }
+
+        window.addEventListener('scroll', checkScroll);
+        checkScroll(); // Initial check
+
+        // Responsive canvas
+        window.addEventListener('resize', () => {
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+        });
+    </script>
+</body>
+</html>

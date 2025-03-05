@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Packages</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../CSS/Packages.css">
+
+    <link rel="stylesheet" href="../CSS/filter.css">
+    <link rel="stylesheet" href="../CSS/spinner.css">
+    <link rel="stylesheet" href="../CSS/header.css">
+    <link rel="stylesheet" href="../CSS/footer.css">
+    <link rel="stylesheet" href="../CSS/CTA.css">  
+</head>
+<body>
+    <!-- Header Section -->
+        
+    <header class="header">
+        <div class="header-container">
+            <div class="logo-container">
+                <a href="/">
+                    <img src="/api/placeholder/120/40" alt="Logo" class="logo-img">
+                </a>
+            </div>
+
+            <nav class="desktop-nav">
+                <a href="../Home/Packages.html"><i class="fas fa-suitcase"></i> Packages</a>
+                <a href="../Home/Accomodation.html"><i class="fas fa-hotel"></i> Accommodation</a>
+                <a href="../Home/plan your tour.html"><i class="fas fa-map-marked-alt"></i> Plan Your Tour</a>
+            </nav>
+
+            <div class="actions">
+                <div class="search-container">
+                    <button id="search-toggle" class="icon-button">
+                        <i class="fas fa-search"></i>
+                    </button>
+                    <div id="search-bar" class="search-bar hidden">
+                        <input type="text" id="search-input" placeholder="Search..." oninput="filterSuggestions()">
+                        <button><i class="fas fa-search"></i></button>
+                        <div id="suggestion-box" class="suggestion-box"></div> <!-- Suggestions container -->
+                    </div>
+                </div>
+
+               
+            <div class="dropdown">
+                <button class="icon-button" id="language-dropdown-toggle">
+                    <img src="https://flagcdn.com/w20/gb.png" alt="English" id="language-flag">
+                    <span class="hidden-mobile">Language</span>
+                </button>
+                    <div id="language-dropdown" class="dropdown-content hidden">
+                        <a href="#" data-lang="en"><img src="https://flagcdn.com/w20/gb.png" alt="English"> English</a>
+                        <a href="#" data-lang="fr"><img src="https://flagcdn.com/w20/fr.png" alt="Français"> Français</a>
+                        <a href="#" data-lang="es"><img src="https://flagcdn.com/w20/es.png" alt="Español"> Español</a>
+                        <a href="#" data-lang="de"><img src="https://flagcdn.com/w20/de.png" alt="Deutsch"> Deutsch</a>
+                        <a href="#" data-lang="de"><img src="https://flagcdn.com/w20/de.png" alt="Deutsch"> Deutsch</a>
+                        <a href="#" data-lang="it"><img src="https://flagcdn.com/w20/it.png" alt="Italiano"> Italiano</a>
+                        <a href="#" data-lang="sa"><img src="https://flagcdn.com/w20/sa.png" alt="العربية"> العربية</a>
+                        <a href="#" data-lang="ru"><img src="https://flagcdn.com/w20/ru.png" alt="Русский"> Русский</a>
+                        <a href="#" data-lang="cn"><img src="https://flagcdn.com/w20/cn.png" alt="中文"> 中文</a>
+                        <a href="#" data-lang="jp"><img src="https://flagcdn.com/w20/jp.png" alt="日本語"> 日本語</a>
+                        <a href="#" data-lang="kr"><img src="https://flagcdn.com/w20/kr.png" alt="한국어"> 한국어</a>
+                        <a href="#" data-lang="no"><img src="https://flagcdn.com/w20/no.png" alt="Norsk"> Norsk</a>
+                    </div>
+                </div>
+
+                <div class="dropdown">
+                    <button class="icon-button" id="theme-dropdown-toggle">
+                        <i class="fas fa-palette"></i>
+                        <span class="hidden-mobile">Theme</span>
+                    </button>
+                    <div id="theme-dropdown" class="dropdown-content hidden">
+                        <a href="#" data-theme="light"><i class="fas fa-sun"></i> Light</a>
+                        
+                        <a href="#" data-theme="soft"><i class="fas fa-leaf"></i> Soft</a>
+                        <a href="#" data-theme="nature"><i class="fas fa-leaf"></i> Nature</a>
+                        <a href="#" data-theme="dark"><i class="fas fa-moon"></i> Dark</a>
+                        
+                        <a href="#" data-theme="contrast"><i class="fas fa-sunset"></i> Contrast</a>
+                    </div>
+
+                <button id="mobile-menu-toggle" class="icon-button mobile-only">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+
+        <div id="mobile-menu" class="mobile-menu hidden">
+            <a href="../Home/Packages.html"><i class="fas fa-suitcase"></i> Packages</a>
+            <a href="../Home/Accomodation.html"><i class="fas fa-hotel"></i> Accommodation</a>
+            <a href="../Home/plan-your-tour.html"><i class="fas fa-map-marked-alt"></i> Plan Your Tour</a>
+        </div>
+    </header>
+
+<div class="spinner-container spinner-overlay">
+    <div class="spinner">
+        <div class="spinner-ring"></div>
+        <div class="spinner-ring"></div>
+        <div class="spinner-ring"></div>
+        <div class="spinner-pulse"></div>
+        <div class="spinner-dots">
+            <div class="spinner-dot"></div>
+            <div class="spinner-dot"></div>
+            <div class="spinner-dot"></div>
+            <div class="spinner-dot"></div>
+        </div>
+    </div>
+    <div class="spinner-text">Loading...</div>
+</div>
+
+
+
+    
+<!--Filter section-->
+<div class="contain">
+    <div class="head">
+        <div class="title">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M3 6h18M7 12h10m-10 6h10"/>
+            </svg>
+            <span>Filter Your Perfect Trip</span>
+        </div>
+        <button class="reset-btn" id="resetBtn">Reset All Filters</button>
+    </div>
+
+    <div class="active-filters" id="activeFilters"></div>
+
+    <div class="filters-grid">
+        <!-- Duration Filter -->
+        <div class="filter-card">
+            <div class="card-header">
+                <svg class="icon icon-blue" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+                    <line x1="16" y1="2" x2="16" y2="6"/>
+                    <line x1="8" y1="2" x2="8" y2="6"/>
+                    <line x1="3" y1="10" x2="21" y2="10"/>
+                </svg>
+                <span>Travel Duration</span>
+            </div>
+            <div class="checkbox-group">
+                <div class="checkbox-item">
+                    <input type="checkbox" id="1-5-days" data-category="duration">
+                    <label class="checkbox-label" for="1-5-days">1 to 5 days</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="6-11-days" data-category="duration">
+                    <label class="checkbox-label" for="6-11-days">6 to 11 days</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="12-plus-days" data-category="duration">
+                    <label class="checkbox-label" for="12-plus-days">12+ Days</label>
+                </div>
+            </div>
+        </div>
+
+        <!-- Trip Type Filter -->
+        <div class="filter-card">
+            <div class="card-header">
+                <svg class="icon icon-green" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                    <circle cx="12" cy="10" r="3"/>
+                </svg>
+                <span>Trip Type</span>
+            </div>
+            <div class="checkbox-group">
+                <div class="checkbox-item">
+                    <input type="checkbox" id="safari" data-category="tripType">
+                    <label class="checkbox-label" for="safari">Safari</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="climbing" data-category="tripType">
+                    <label class="checkbox-label" for="climbing">Climbing</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="zanzibar" data-category="tripType">
+                    <label class="checkbox-label" for="zanzibar">Zanzibar & Beach</label>
+                </div>
+            </div>
+        </div>
+
+        <!-- Price Filter -->
+        <div class="filter-card">
+            <div class="card-header">
+                <svg class="icon icon-yellow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="12" y1="1" x2="12" y2="23"/>
+                    <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+                </svg>
+                <span>Budget</span>
+            </div>
+            <input 
+                type="range" 
+                id="priceRange" 
+                class="price-slider"
+                min="0" 
+                max="5000" 
+                step="100" 
+                value="5000"
+            >
+            <div class="price-value" id="priceValue">Up to $5,000</div>
+        </div>
+    </div>
+</div>
+
+
+    <div class="container">
+        <h1 class="page-title">Featured Tours</h1>
+        
+        <div class="tours-grid">
+            <!-- Tour Card 1 -->
+            <div class="tour-card">
+                <div class="tour-image">
+                    <img src="../HomeImage/lion-on-tree2.jpg" alt="4-Day Tanzania Safari">
+                    <div class="price-badge">
+                        <i class="fas fa-tag"></i> FROM $2926 USD
+                    </div>
+                </div>
+                <div class="tour-content">
+                    <span class="tour-type">Safari</span>
+                    <h2 class="tour-title">4-Day Tanzania Safari Extension</h2>
+                    <ul class="tour-features">
+                        <li>
+                            <i class="fas fa-headset"></i>
+                            24/7 service
+                        </li>
+                        <li>
+                            <i class="fas fa-bed"></i>
+                            All accommodations
+                        </li>
+                        <li>
+                            <i class="fas fa-route"></i>
+                            Arusha ➤ Tarangire ➤ Ngorongoro ➤ Moshi
+                        </li>
+                    </ul>
+                    <div class="tour-actions">
+                        <a href="../Home/View-more/4-days-general.html" class="btn btn-primary">
+                            <i class="fas fa-eye"></i> View Trip
+                        </a>
+                        <a href="book-now.html" class="btn btn-outline">Book Now</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tour Card 2 -->
+            <div class="tour-card">
+                <div class="tour-image">
+                    <img src="../HomeImage/lions.jpg" alt="Trip Image">
+            <div class="price-badge">
+                        <i class="fas fa-tag"></i> FROM $2926 USD
+                    </div>
+                </div>
+                <div class="tour-content">
+                    <span class="tour-type">Safari</span>
+                    <h2 class="tour-title">7 Days Safari Tanzania</h2>
+                    <ul class="tour-features">
+                        <li>
+                            <i class="fas fa-headset"></i>
+                            24/7 service
+                        </li>
+                        <li>
+                            <i class="fas fa-bed"></i>
+                            All accommodations
+                        </li>
+                        <li>
+                            <i class="fas fa-route"></i>
+                            Arusha ➤ Lake Manyara ➤ Serengeti ➤ Ngorongoro ➤ Moshi
+                        </li>
+                    </ul>
+                    <div class="tour-actions">
+                        <a href="../Home/View-more/7-days-general.html" class="btn btn-primary">
+                            <i class="fas fa-eye"></i> View Trip
+                        </a>
+                        <a href="book-now.html" class="btn btn-outline">Book Now</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tour Card 3 -->
+            <div class="tour-card">
+                <div class="tour-image">
+                    <img src="../HomeImage/game-reserve-serengeti.jpg" alt="Trip Image">
+                    <div class="price-badge">
+                        <i class="fas fa-tag"></i> FROM $2926 USD
+                    </div>
+                </div>
+                <div class="tour-content">
+                    <span class="tour-type">Safari</span>
+                    <h2 class="tour-title">8 Days Tanzania Hol</h2>
+                    <ul class="tour-features">
+                        <li>
+                            <i class="fas fa-headset"></i>
+                            24/7 service
+                        </li>
+                        <li>
+                            <i class="fas fa-bed"></i>
+                            All accommodations
+                        </li>
+                        <li>
+                            <i class="fas fa-route"></i>
+                            Arusha ➤ Tarangire ➤ Serengeti ➤ Ngorongoro ➤ Moshi
+                        </li>
+                    </ul>
+                    <div class="tour-actions">
+                        <a href="../Home/View-more/8-days-general.html" class="btn btn-primary">
+                            <i class="fas fa-eye"></i> View Trip
+                        </a>
+                        <a href="book-now.html" class="btn btn-outline">Book Now</a>
+                    </div>
+                </div>
+            </div>
+
+            <!--Tour Card 4-->
+            <div class="tour-card">
+                <div class="tour-image">
+                    <img src="../HomeImage/Mount Kilimanjaro National Park trekking.jpg" alt="Marangu Route">
+                    <div class="price-badge">
+                        <i class="fas fa-tag"></i> FROM $2926 USD
+                    </div>
+                </div>
+                <div class="tour-content">
+                    <span class="tour-type">Climbing</span>
+                    <h2 class="tour-title">8-Day Kilimanjaro Climb – Marangu Route (5-Day)</h2>
+                    <ul class="tour-features">
+                        <li>
+                            <i class="fas fa-headset"></i>
+                            24/7 service
+                        </li>
+                        <li>
+                            <i class="fas fa-bed"></i>
+                            All accommodations
+                        </li>
+                        <li>
+                            <i class="fas fa-route"></i>
+                            <li><i class="fas fa-umbrella-beach"></i> Park fees</li>
+                            <li><i class="fas fa-car"></i> Pickup and transfer airport</li>
+                         </li>
+                    </ul>
+                    <div class="tour-actions">
+                        <a href="../Home/View-more/8-days-kilimanjaro.machame-general.html" class="btn btn-primary">
+                            <i class="fas fa-eye"></i> View Trip
+                        </a>
+                        <a href="book-now.html" class="btn btn-outline">Book Now</a>
+                    </div>
+                </div>
+            </div>
+
+            
+            <!--Tour Card 5-->
+            <div class="tour-card">
+                <div class="tour-image">
+                    <img src="../HomeImage/Mount Kilimanjaro National Park tents.jpg" alt="Machame Route">
+                    <div class="price-badge">
+                        <i class="fas fa-tag"></i> FROM $2926 USD
+                    </div>
+                </div>
+                <div class="tour-content">
+                    <span class="tour-type">Climbing</span>
+                    <h2 class="tour-title">9-Day Kilimanjaro Climb – Marangu Route (5-Day)</h2>
+                    <ul class="tour-features">
+                        <li>
+                            <i class="fas fa-headset"></i>
+                            24/7 service
+                        </li>
+                        <li>
+                            <i class="fas fa-bed"></i>
+                            All accommodations
+                        </li>
+                        <li>
+                            <i class="fas fa-route"></i>
+                            <li><i class="fas fa-umbrella-beach"></i> Park fees</li>
+                            <li><i class="fas fa-car"></i> Pickup and transfer airport</li>
+                         </li>
+                    </ul>
+                    <div class="tour-actions">
+                        <a href="../Home/View-more/9-days-kilimanjaro-general.html" class="btn btn-primary">
+                            <i class="fas fa-eye"></i> View Trip
+                        </a>
+                        <a href="book-now.html" class="btn btn-outline">Book Now</a>
+                    </div>
+                </div>
+            </div>
+
+            <!--Tour Card 6-->
+            <div class="tour-card">
+                <div class="tour-image">
+                    <img src="../HomeImage/Mount Kilimanjaro National Park hiking to Kibo.jpg" alt="Lemosho Route">
+                    <div class="price-badge">
+                        <i class="fas fa-tag"></i> FROM $2926 USD
+                    </div>
+                </div>
+                <div class="tour-content">
+                    <span class="tour-type">Climbing</span>
+                    <h2 class="tour-title"> <h2>9-Day Kilimanjaro Climb – Lemosho-Shira Route (6-Day)</h2>
+                
+                    <ul class="tour-features">
+                        <li>
+                            <i class="fas fa-headset"></i>
+                            24/7 service
+                        </li>
+                        <li>
+                            <i class="fas fa-bed"></i>
+                            All accommodations
+                        </li>
+                        <li>
+                            <i class="fas fa-route"></i>
+                            <li><i class="fas fa-umbrella-beach"></i> Park fees</li>
+                            <li><i class="fas fa-car"></i> Pickup and transfer airport</li>
+                         </li>
+                    </ul>
+                    <div class="tour-actions">
+                        <a href="../Home/View-more/9-days-kilimanjaro.lemosho-general.html" class="btn btn-primary">
+                            <i class="fas fa-eye"></i> View Trip
+                        </a>
+                        <a href="book-now.html" class="btn btn-outline">Book Now</a>
+                    </div>
+                </div>
+            </div>
+            
+             <!-- Tour Card 7 -->
+             <div class="tour-card">
+                <div class="tour-image">
+                    <img src="../HomeImage/wild b.jpg" alt="Trip Image">
+                 <div class="price-badge">
+                        <i class="fas fa-tag"></i> FROM $2926 USD
+                    </div>
+                </div>
+                <div class="tour-content">
+                    <span class="tour-type">Safari</span>
+                    <h2 class="tour-title">9 Days Safari Vacation [Includes Wildebeest Migration]</h2>
+                    <ul class="tour-features">
+                        <li>
+                            <i class="fas fa-headset"></i>
+                            24/7 service
+                        </li>
+                        <li>
+                            <i class="fas fa-bed"></i>
+                            All accommodations
+                        </li>
+                        <li>
+                            <i class="fas fa-route"></i>
+                            Arusha ➤ Tarangire ➤ Serengeti ➤ Ngorongoro ➤ Moshi
+                        </li>
+                        <li><i class="fas fa-route"></i> 3 days Central Serengeti ➤</li>
+                        <li><i class="fas fa-route"></i> Ngorongoro ➤</li>
+                        <li><i class="fas fa-route"></i> 2 days Moshi</li>
+                    </ul>
+                    <div class="tour-actions">
+                        <a href="../Home/View-more/9-days-general.html" class="btn btn-primary">
+                            <i class="fas fa-eye"></i> View Trip
+                        </a>
+                        <a href="book-now.html" class="btn btn-outline">Book Now</a>
+                    </div>
+                </div>
+            </div>
+
+              <!-- Tour Card 8 -->
+              <div class="tour-card">
+                <div class="tour-image">
+                    <img src="../HomeImage/Lion2car.jpg" alt="Safari Trip">
+                   <div class="price-badge">
+                        <i class="fas fa-tag"></i> FROM $2926 USD
+                    </div>
+                </div>
+                <div class="tour-content">
+                    <span class="tour-type">Safari</span>
+                    <h2 class="tour-title">9 Days Safari Vacation [Witness the famous Wildebeest Migration at Mara River crossing.]</h2>
+                    <ul class="tour-features">
+                        <li>
+                            <i class="fas fa-headset"></i>
+                            24/7 service
+                        </li>
+                        <li>
+                            <i class="fas fa-bed"></i>
+                            All accommodations
+                        </li>
+                        <li>
+                            <i class="fas fa-route"></i>
+                            Arusha ➤ Tarangire ➤ Serengeti ➤ Ngorongoro ➤ Moshi
+                        </li>
+                        <li><i class="fas fa-route"></i> 3 days Central Serengeti ➤</li>
+                        <li><i class="fas fa-route"></i> Ngorongoro ➤</li>
+                        <li><i class="fas fa-route"></i> 2 days Moshi</li>
+                    </ul>
+                    <div class="tour-actions">
+                        <a href="../Home/View-more/9sec-days-general.html" class="btn btn-primary">
+                            <i class="fas fa-eye"></i> View Trip
+                        </a>
+                        <a href="book-now.html" class="btn btn-outline">Book Now</a>
+                    
+                    </div>
+                </div>
+            </div>
+
+            
+            <!-- Tour Card 9 -->
+            <div class="tour-card">
+                <div class="tour-image">
+                    <img src="../HomeImage/Mount Kilimanjaro National Park peak.jpg" alt="Kilimanjaro National Park peak">
+                    <div class="price-badge">
+                        <i class="fas fa-tag"></i> FROM $2926 USD
+                    </div>
+                </div>
+                <div class="tour-content">
+                    <span class="tour-type">Climbing/span>
+                    <h2 class="tour-title">10-Day Kilimanjaro Climb – Machame Route (7-Day)</h2>
+                    <ul class="tour-features">
+                        <li>
+                            <i class="fas fa-headset"></i>
+                            24/7 service
+                        </li>
+                        <li>
+                            <i class="fas fa-bed"></i>
+                            All accommodations
+                        </li>
+                        <li><i class="fas fa-umbrella-beach"></i> Park fees</li>
+                        <li><i class="fas fa-car"></i> Pickup and transfer airport</li>
+                   
+                    </ul>
+                    <div class="tour-actions">
+                        <a href="../Home/View-more/10-days-kilimanjaro-machame-general.html" class="btn btn-primary">
+                            <i class="fas fa-eye"></i> View Trip
+                        </a>
+                        <a href="book-now.html" class="btn btn-outline">Book Now</a>
+                    
+                    </div>
+                </div>
+            </div>
+            
+            
+            <!-- Tour Card 10 -->
+            
+            <div class="tour-card">
+                <div class="tour-image">
+                    <img src="../HomeImage/Lion-N.jpg" alt="Trip Image">
+                    <div class="price-badge">
+                        <i class="fas fa-tag"></i> FROM $2926 USD
+                    </div>
+                </div>
+                <div class="tour-content">
+                    <span class="tour-type">Safari</span>
+                    <h2 class="tour-title">10 Days Tanzania Safari [All Northern Parks in 1 Trip! Suitable for the Wildebeest Migration]</h2>
+                    <ul class="tour-features">
+                        <li>
+                            <i class="fas fa-headset"></i>
+                            24/7 service
+                        </li>
+                        <li>
+                            <i class="fas fa-bed"></i>
+                            All accommodations
+                        </li>
+                        <li>
+                            <i class="fas fa-route"></i>
+                            Arusha ➤ Tarangire ➤ Serengeti ➤ Ngorongoro ➤ Moshi
+                        </li>         
+                        <li><i class="fas fa-route"></i> 2 days Arusha ➤ Tarangire ➤ Lake Manyara ➤</li>
+                        <li><i class="fas fa-route"></i> 3 days Central Serengeti ➤</li>
+                        <li><i class="fas fa-route"></i> Ngorongoro ➤</li>
+                        <li><i class="fas fa-route"></i> 2 days Moshi</li>
+                    </ul>
+                    <div class="tour-actions">
+                        <a href="../Home/View-more/10 Days-Tanzania-safari-all-northern-parks-general.html" class="btn btn-primary">
+                            <i class="fas fa-eye"></i> View Trip
+                        </a>
+                        <a href="book-now.html" class="btn btn-outline">Book Now</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tour Card 11 -->
+            
+            <div class="tour-card">
+                <div class="tour-image">
+                    <img src="../HomeImage/activities/Zanzibar/beach-coconut-1.jpg" alt="Safari and Zanzibar Trip">
+                    <div class="price-badge">
+                        <i class="fas fa-tag"></i> FROM $2926 USD
+                    </div>
+                </div>
+                <div class="tour-content">
+                    <span class="tour-type">zanzibar & Beach</span>
+                    <h2 class="tour-title">12 Days Safari & Beach</h2>
+                    <p>See the Mara River crossing, then relax on Zanzibar's beaches.</p>
+      
+                    <ul class="tour-features">
+                        <li>
+                            <i class="fas fa-headset"></i>
+                            24/7 service
+                        </li>
+                        <li>
+                            <i class="fas fa-bed"></i>
+                            All accommodations
+                        </li>
+                        <li>
+                            <li><i class="fas fa-route"></i> Arusha ➤ Tarangire ➤ Serengeti ➤ Zanzibar</li>
+                        </li>         
+                        </ul>
+                    <div class="tour-actions">
+                        <a href="../Home/View-more/12-days-safari-and-beach-general.html" class="btn btn-primary">
+                            <i class="fas fa-eye"></i> View Trip
+                        </a>
+                        <a href="book-now.html" class="btn btn-outline">Book Now</a>
+                    </div>
+                </div>
+            </div>
+
+            
+            <!-- Tour Card 12 -->
+            
+            <div class="tour-card">
+                <div class="tour-image">
+                    <img src="../HomeImage/activities/Zanzibar/boat.jpg" alt="Trip Image">
+                    <div class="price-badge">
+                        <i class="fas fa-tag"></i> FROM $2926 USD
+                    </div>
+                </div>
+                <div class="tour-content">
+                    <span class="tour-type">zanzibar & Beach</span>
+                    <h2 class="tour-title">13 Days Safari + Zanzibar Holida</h2>
+                   
+                    <ul class="tour-features">
+                        <li>
+                            <i class="fas fa-headset"></i>
+                            24/7 service
+                        </li>
+                        <li>
+                            <i class="fas fa-bed"></i>
+                            All accommodations
+                        </li>
+                        <li>
+                            <li><i class="fas fa-bed"></i> All accommodations</li>
+                            <li><i class="fas fa-route"></i> 4 days Arusha ➤ Tarangire ➤</li>
+                            <li><i class="fas fa-route"></i> 2 days Central Serengeti ➤</li>
+                            <li><i class="fas fa-route"></i> Ngorongoro ➤</li>
+                            <li><i class="fas fa-umbrella-beach"></i> 5 days Zanzibar</li>
+                 </li>         
+                        </ul>
+                    <div class="tour-actions">
+                        <a href="../Home/View-more/13 DAYS-SAFARI + ZANZIBAR-GENERAL.html" class="btn btn-primary">
+                            <i class="fas fa-eye"></i> View Trip
+                        </a>
+                        <a href="book-now.html" class="btn btn-outline">Book Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+<!-- Call to Action Section -->
+ 
+<section class="call-to-action" id="bookingSection">
+    <div class="cta-container">
+        <h2 class="cta-title">Begin Your Safari Adventure</h2>
+        <p class="cta-subtitle">Let us help you create memories that will last a lifetime</p>
+        
+        <form class="cta-form" id="bookingForm2" action="save_Packages.php" method="post">
+            <div class="form-group">
+                <label for="name" class="visually-hidden">Your Name</label>
+                <input type="text" id="name" name="name" placeholder="Your Name" required>
+                <div class="form-indicator"></div>
+            </div>
+
+            <div class="form-group">
+                <label for="email" class="visually-hidden">Your Email</label>
+                <input type="email" id="email" name="email" placeholder="Your Email" required>
+                <div class="form-indicator"></div>
+            </div>
+
+            <div class="form-group">
+                <label for="expectations" class="visually-hidden">Adventure Expectations</label>
+                <textarea id="expectations" name="Adventure_Expectations" 
+                    placeholder="Tell us about your dream safari experience..."
+                    rows="4"></textarea>
+                <div class="form-indicator"></div>
+            </div>
+
+            <button type="submit" class="submit-button">
+                <span class="button-text">Begin Your Journey</span>
+                <span class="button-icon">→</span>
+            </button>
+        </form>
+    </div>
+</section>
+
+<!-- Appreciation Section -->
+<section class="appreciation-section" id="appreciationSection" aria-hidden="true">
+    <div class="appreciation-container">
+        <div class="success-icon">✓</div>
+        <h2 class="appreciation-title">Adventure Awaits!</h2>
+        <p class="appreciation-message">Thank you for choosing to explore with us. Our safari experts will be in touch within 24 hours to start planning your perfect adventure.</p>
+        <button class="return-button" onclick="resetBooking(event)">
+            <span class="button-icon">←</span>
+            <span class="button-text">Plan Another Adventure</span>
+        </button>
+    </div>
+</section>
+
+    <!--FOOTER-->
+    
+<!--FOOTER-->
+<footer class="site-footer">
+    <div class="footer-background"></div>
+    <div class="container-footer">
+      <div class="row">
+        <div class="col company">
+          <img src="https://via.placeholder.com/120" alt="Company Logo" class="logo">
+          <p>"The world is a book, and those who do not travel read only one page." – Saint Augustine</p>
+          <div class="social">
+            <a href="#" class="facebook"><i class="fab fa-facebook"></i></a>
+            <a href="#" class="instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="youtube"><i class="fab fa-youtube"></i></a>
+            <a href="#" class="twitter"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="linkedin"><i class="fab fa-linkedin"></i></a>
+          </div>
+        </div>
+        <div class="col services">
+          <h3>Service</h3>
+          <div class="links">
+            <a href="us.html">About</a>
+            <a href="us.html#services">Services</a>
+            <a href="us.html#policies">Our Policy</a>
+            <a href="us.html#help">Help</a>
+          </div>
+        </div>
+        <div class="col useful-links">
+          <h3>Useful Links</h3>
+          <div class="links">
+            <a href="Home.html">Home</a>
+            <a href="#">Destinations</a>
+            <a href="#">Blog</a>
+            <a href="#">Contact</a>
+          </div>
+        </div>
+        <div class="col contact">
+          <h3>Contact</h3>
+          <div class="contact-details">
+            <i class="fas fa-map-marker-alt"></i>
+            <p>123 Arusha, Arusha City</p>
+          </div>
+          <div class="contact-details">
+            <i class="fas fa-phone-alt"></i>
+            <p>+255 7________</p>
+          </div>
+          <div class="contact-details">
+            <i class="fas fa-envelope"></i>
+            <p>info@company.com</p>
+          </div>
+        </div>
+      </div>
+      <div class="partners">
+        <h3>Our Partners</h3>
+        <div class="partner-logos">
+          <img src="https://via.placeholder.com/100" alt="Partner 1">
+          <img src="https://via.placeholder.com/100" alt="Partner 2">
+          <img src="https://via.placeholder.com/100" alt="Partner 3">
+          <img src="https://via.placeholder.com/100" alt="Partner 4">
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2024 YourCompany | <span class="designer">Designed by Nola Inc</span></p>
+    </div>
+  </footer>
+
+    
+
+
+  
+
+
+    <script src="../JS/header.js" defer></script>
+<script src="../JS/Packages.js" defer></script>
+<script src="../JS/spinner.js" defer></script>
+<script src="../JS/CTA.js" defer></script>
+
+
+</body>
+</html>

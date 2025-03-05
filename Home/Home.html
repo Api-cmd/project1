@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts for Better Typography -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    
+      <!-- Flag Icon CSS -->
+       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/6.6.6/css/flag-icons.min.css">
+       
+       <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+       <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&display=swap" rel="stylesheet">
+
+       <!-- Your Custom CSS -->
+   
+    <!-- Link to External CSS -->
+
+    <link rel="stylesheet" href="../CSS/home.css">
+    <link rel="stylesheet" href="../CSS/header-home.css">
+    <link rel="stylesheet" href="../CSS/footer.css">
+    <link rel="stylesheet" href="../CSS/spinner.css">
+    <link rel="stylesheet" href="../CSS/map.css">
+
+
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+    crossorigin=""/>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+    integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+    crossorigin=""></script>
+<body>
+    <!-- Header Section -->
+        
+       
+    <header class="header">
+        <div class="container">
+            <div class="logo-container">
+                <a href="/">
+                    <img src="/api/placeholder/120/40" alt="Logo" class="logo-img">
+                </a>
+            </div>
+
+            <nav class="desktop-nav">
+                <a href="../Home/Packages.html"><i class="fas fa-suitcase"></i> Packages</a>
+                <a href="../Home/Accomodation.html"><i class="fas fa-hotel"></i> Accommodation</a>
+                <a href="../Home/plan-your-tour.html"><i class="fas fa-map-marked-alt"></i> Plan Your Tour</a>
+            </nav>
+
+            <div class="actions">
+                <div class="search-container">
+                    <button id="search-toggle" class="icon-button">
+                        <i class="fas fa-search"></i>
+                    </button>
+                    <div id="search-bar" class="search-bar hidden">
+                        <input type="text" id="search-input" placeholder="Search..." oninput="filterSuggestions()">
+                        <button><i class="fas fa-search"></i></button>
+                        <div id="suggestion-box" class="suggestion-box"></div> <!-- Suggestions container -->
+                    </div>
+                </div>
+
+               
+            <div class="dropdown">
+                <button class="icon-button" id="language-dropdown-toggle">
+                    <img src="https://flagcdn.com/w20/gb.png" alt="English" id="language-flag">
+                    <span class="hidden-mobile">Language</span>
+                </button>
+                    <div id="language-dropdown" class="dropdown-content hidden">
+                        <a href="#" data-lang="en"><img src="https://flagcdn.com/w20/gb.png" alt="English"> English</a>
+                        <a href="#" data-lang="fr"><img src="https://flagcdn.com/w20/fr.png" alt="Français"> Français</a>
+                        <a href="#" data-lang="es"><img src="https://flagcdn.com/w20/es.png" alt="Español"> Español</a>
+                        <a href="#" data-lang="de"><img src="https://flagcdn.com/w20/de.png" alt="Deutsch"> Deutsch</a>
+                        <a href="#" data-lang="de"><img src="https://flagcdn.com/w20/de.png" alt="Deutsch"> Deutsch</a>
+                        <a href="#" data-lang="it"><img src="https://flagcdn.com/w20/it.png" alt="Italiano"> Italiano</a>
+                        <a href="#" data-lang="sa"><img src="https://flagcdn.com/w20/sa.png" alt="العربية"> العربية</a>
+                        <a href="#" data-lang="ru"><img src="https://flagcdn.com/w20/ru.png" alt="Русский"> Русский</a>
+                        <a href="#" data-lang="cn"><img src="https://flagcdn.com/w20/cn.png" alt="中文"> 中文</a>
+                        <a href="#" data-lang="jp"><img src="https://flagcdn.com/w20/jp.png" alt="日本語"> 日本語</a>
+                        <a href="#" data-lang="kr"><img src="https://flagcdn.com/w20/kr.png" alt="한국어"> 한국어</a>
+                        <a href="#" data-lang="no"><img src="https://flagcdn.com/w20/no.png" alt="Norsk"> Norsk</a>
+                    </div>
+                </div>
+
+                <div class="dropdown">
+                    <button class="icon-button" id="theme-dropdown-toggle">
+                        <i class="fas fa-palette"></i>
+                        <span class="hidden-mobile">Theme</span>
+                    </button>
+                    <div id="theme-dropdown" class="dropdown-content hidden">
+                        <a href="#" data-theme="light"><i class="fas fa-sun"></i> Light</a>
+                        
+                        <a href="#" data-theme="soft"><i class="fas fa-leaf"></i> Soft</a>
+                        <a href="#" data-theme="nature"><i class="fas fa-leaf"></i> Nature</a>
+                        <a href="#" data-theme="dark"><i class="fas fa-moon"></i> Dark</a>
+                        
+                        <a href="#" data-theme="contrast"><i class="fas fa-sunset"></i> Contrast</a>
+                    </div>
+
+                <button id="mobile-menu-toggle" class="icon-button mobile-only">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+
+        <div id="mobile-menu" class="mobile-menu hidden">
+            <a href="../Home/Packages.html"><i class="fas fa-suitcase"></i> Packages</a>
+            <a href="../Home/Accomodation.html"><i class="fas fa-hotel"></i> Accommodation</a>
+            <a href="../Home/plan-your-tour.html"><i class="fas fa-map-marked-alt"></i> Plan Your Tour</a>
+        </div>
+    </header> 
+    
+     <div class="spinner-container spinner-overlay">
+        <div class="spinner">
+            <div class="spinner-ring"></div>
+            <div class="spinner-ring"></div>
+            <div class="spinner-ring"></div>
+            <div class="spinner-pulse"></div>
+            <div class="spinner-dots">
+                <div class="spinner-dot"></div>
+                <div class="spinner-dot"></div>
+                <div class="spinner-dot"></div>
+                <div class="spinner-dot"></div>
+            </div>
+        </div>
+        <div class="spinner-text">Loading...</div>
+    </div>
+    
+   
+    <div class="hero-section">
+        <div class="hero-image active">
+            <img src="../HomeImage/Mount Kilimanjaro National Park aireal view.jpg" alt="Hero 1">
+        </div>
+        <div class="hero-image">
+            <img src="../HomeImage/elepha.jpg" alt="Hero 2">
+        </div>
+        <div class="hero-image">
+            <img src="../HomeImage/wild b.jpg" alt="Hero 3">
+        </div>
+        <div class="hero-image">
+            <img src="../HomeImage/elephant.jpg" alt="Hero 4">
+        </div>
+        <div class="hero-image">
+            <img src="../HomeImage/Lion-N.jpg" alt="Hero 5">
+        </div>
+        <div class="hero-image">
+            <img src="../HomeImage/zanzi.jpg" alt="Hero 6">
+        </div>
+        <div class="hero-image">
+            <img src="../HomeImage/game-reserve-serengeti.jpg" alt="Hero 7">
+        </div>
+        <div class="hero-image">
+            <img src="../HomeImage/zebraa.jpg" alt="Hero 8">  
+        </div>
+        <div class="hero-image">
+            <img src="../HomeImage/Mount Kilimanjaro National Park tents.jpg" alt="Hero 9">
+        </div>
+        <div class="hero-image">
+            <img src="../HomeImage/cheetah.jpg" alt="Hero 10">
+        </div>
+
+        <div class="gradient-overlay"></div>
+
+        <div class="content">
+            <h1>Welcome to Hyver Tours & Safari</h1>
+            <p>Discover the untamed beauty of Tanzania with Hyver Tours & Safari. Explore breathtaking landscapes, thrilling wildlife encounters, and unforgettable adventures. Book your dream safari today and let us bring your journey to life with seamless transitions and dynamic experiences.</p>
+            <div class="button-container">
+                <button class="button" onclick="window.location.href='book-now.html'">Book Now</button>
+            </div>
+            
+
+        <div class="progress-indicators">
+            <div class="indicator active"></div>
+            <div class="indicator"></div>
+            <div class="indicator"></div>
+            <div class="indicator"></div>
+            <div class="indicator"></div>
+            <div class="indicator"></div>
+            <div class="indicator"></div>
+            <div class="indicator"></div>
+            <div class="indicator"></div>
+            <div class="indicator"></div>
+        </div>
+    </div>
+    </div>
+    
+    
+    
+
+    <section id="about">
+        <div class="map-content">
+            <header>
+                <h1>Explore Tanzania</h1>
+                <p>Discover the natural wonders and attractions of Tanzania</p>
+            </header>
+            <div class="search-container-map">
+                <input type="text" class="search-box-map" placeholder="Search locations...">
+            </div>
+            <button class="toggle-sidebar">☰ Toggle Sidebar</button>
+            <div class="content-map">
+                <div class="sidebar">
+                    <div class="location-filter">
+                        <h3>Filter by Type</h3>
+                        <button class="filter-btn national-park active" data-type="national-park">National Parks</button>
+                        <button class="filter-btn mountain active" data-type="mountain">Mountains</button>
+                        <button class="filter-btn beach active" data-type="beach">Beaches</button>
+                        <button class="filter-btn attraction active" data-type="attraction">Attractions</button>
+                    </div>
+                    <div class="location-list"></div>
+                </div>
+                <div id="map"></div>
+            </div>
+        </div>
+         
+    
+</section>
+
+
+
+<!--FOOTER-->
+<footer class="site-footer">
+    <div class="footer-background"></div>
+    <div class="container-footer">
+      <div class="row">
+        <div class="col company">
+          <img src="https://via.placeholder.com/120" alt="Company Logo" class="logo">
+          <p>"The world is a book, and those who do not travel read only one page." – Saint Augustine</p>
+          <div class="social">
+            <a href="#" class="facebook"><i class="fab fa-facebook"></i></a>
+            <a href="#" class="instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="youtube"><i class="fab fa-youtube"></i></a>
+            <a href="#" class="twitter"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="linkedin"><i class="fab fa-linkedin"></i></a>
+          </div>
+        </div>
+        <div class="col services">
+          <h3>Service</h3>
+          <div class="links">
+            <a href="us.html">About</a>
+            <a href="us.html#services">Services</a>
+            <a href="us.html#policies">Our Policy</a>
+            <a href="us.html#help">Help</a>
+          </div>
+        </div>
+        <div class="col useful-links">
+          <h3>Useful Links</h3>
+          <div class="links">
+            <a href="Home.html">Home</a>
+            <a href="#">Destinations</a>
+            <a href="#">Blog</a>
+            <a href="#">Contact</a>
+          </div>
+        </div>
+        <div class="col contact">
+          <h3>Contact</h3>
+          <div class="contact-details">
+            <i class="fas fa-map-marker-alt"></i>
+            <p>123 Arusha, Arusha City</p>
+          </div>
+          <div class="contact-details">
+            <i class="fas fa-phone-alt"></i>
+            <p>+255 7________</p>
+          </div>
+          <div class="contact-details">
+            <i class="fas fa-envelope"></i>
+            <p>info@company.com</p>
+          </div>
+        </div>
+      </div>
+      <div class="partners">
+        <h3>Our Partners</h3>
+        <div class="partner-logos">
+          <img src="https://via.placeholder.com/100" alt="Partner 1">
+          <img src="https://via.placeholder.com/100" alt="Partner 2">
+          <img src="https://via.placeholder.com/100" alt="Partner 3">
+          <img src="https://via.placeholder.com/100" alt="Partner 4">
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2024 YourCompany | <span class="designer">Designed by Nola Inc</span></p>
+    </div>
+  </footer>
+
+
+    
+
+
+    <!-- Link to External JavaScript -->
+    <script src="../JS/header.js"></script>
+    
+    <script src="../JS/spinner.js" defer></script>
+    <script src="../JS/map.js"></script>
+    <script src="../JS/home.js"></script>
+
+</body>
+</html>

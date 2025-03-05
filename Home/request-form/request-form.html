@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tanzania Safari Experience | Trip Request</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+        * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+:root {
+    --primary: #2D4B3E;
+    --secondary: #D4A373;
+    --accent: #95A78D;
+    --background: #F5F5F5;
+    --error: #DC2626;
+    --success: #059669;
+    --spacing-base: clamp(0.5rem, 1vw, 1rem);
+    --spacing-large: clamp(1rem, 2vw, 2rem);
+    --spacing-xl: clamp(1.5rem, 3vw, 3rem);
+    --font-small: clamp(0.875rem, 1.2vw, 1rem);
+    --font-base: clamp(1rem, 1.5vw, 1.125rem);
+    --font-large: clamp(1.25rem, 2vw, 1.5rem);
+    --font-xl: clamp(1.5rem, 3vw, 2.25rem);
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes shimmer {
+    0% {
+        background-position: -1000px 0;
+    }
+    100% {
+        background-position: 1000px 0;
+    }
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+body {
+    background-color: var(--background);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: var(--spacing-large);
+    background-image: 
+        linear-gradient(rgba(45, 75, 62, 0.9), rgba(45, 75, 62, 0.9)),
+        url('/api/placeholder/1920/1080');
+    background-size: cover;
+    background-position: center;
+}
+
+.form-container {
+    width: min(100%, 800px);
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-radius: clamp(12px, 2vw, 20px);
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    overflow: hidden;
+    animation: fadeIn 0.6s ease-out;
+    position: relative; /* To position the close button */
+}
+
+.form-header {
+    background-color: var(--primary);
+    color: white;
+    padding: var(--spacing-xl);
+    text-align: center;
+    position: relative;
+}
+
+.form-header::after {
+    content: '';
+    position: absolute;
+    bottom: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-top: 20px solid var(--primary);
+    border-left: 20px solid transparent;
+    border-right: 20px solid transparent;
+}
+
+.form-header h1 {
+    font-size: var(--font-xl);
+    margin-bottom: var(--spacing-base);
+    color: var(--secondary);
+}
+
+.form-header p {
+    color: var(--accent);
+    font-size: var(--font-base);
+}
+
+/* Close button styles */
+.close-btn {
+    position: absolute;
+    top: 16px; /* Adjust as needed */
+    right: 16px; /* Adjust as needed */
+    background: transparent;
+    border: none;
+    font-size: 1.5rem;
+    color: white;
+    cursor: pointer;
+    transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.close-btn:hover {
+    color: var(--accent);
+    transform: scale(1.2);
+}
+
+.form-content {
+    padding: var(--spacing-xl) var(--spacing-large);
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr));
+    gap: var(--spacing-large);
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: calc(var(--spacing-base) * 0.5);
+    opacity: 0;
+    animation: fadeIn 0.4s ease-out forwards;
+}
+
+.form-group:nth-child(1) { animation-delay: 0.1s; }
+.form-group:nth-child(2) { animation-delay: 0.2s; }
+.form-group:nth-child(3) { animation-delay: 0.3s; }
+.form-group:nth-child(4) { animation-delay: 0.4s; }
+
+.full-width {
+    grid-column: 1 / -1;
+}
+
+label {
+    color: var(--primary);
+    font-weight: 500;
+    font-size: var(--font-small);
+}
+
+input, select, textarea {
+    width: 100%;
+    padding: calc(var(--spacing-base) * 1.2);
+    border: 2px solid #E5E7EB;
+    border-radius: 8px;
+    font-size: var(--font-small);
+    transition: all 0.3s ease;
+}
+
+input:focus, select:focus, textarea:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(45, 75, 62, 0.2);
+    transform: translateY(-1px);
+}
+
+textarea {
+    min-height: clamp(100px, 15vh, 150px);
+    resize: vertical;
+}
+
+.checkbox-group {
+    display: flex;
+    gap: var(--spacing-large);
+    flex-wrap: wrap;
+}
+
+.checkbox-wrapper {
+    display: flex;
+    align-items: center;
+    gap: calc(var(--spacing-base) * 0.75); /* Adjusted for better spacing */
+}
+
+.checkbox-wrapper input[type="checkbox"] {
+    display: none; /* Hide the default checkbox */
+}
+
+.checkbox-wrapper label {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    font-size: 14px;
+    color: #333;
+}
+
+/* Custom checkbox design */
+.checkbox-wrapper label::before {
+    content: '';
+    display: inline-block;
+    width: 14px; /* Reduced size */
+    height: 14px; /* Reduced size */
+    border: 2px solid #444; /* Unchecked border color */
+    border-radius: 4px; /* Rounded corners */
+    background-color: transparent; /* Background when unchecked */
+    transition: all 0.2s ease;
+    margin-right: 8px; /* Add spacing between the checkbox and the label text */
+}
+
+/* Checked state */
+.checkbox-wrapper input[type="checkbox"]:checked + label::before {
+    background-color: #1a3429; /* Checked background color */
+    border-color: #1a3429; /* Checked border color */
+    content: '✔'; /* Checkmark symbol */
+    color: white;
+    font-size: 10px; /* Adjusted size for checkmark */
+    text-align: center;
+    line-height: 14px; /* Matches the height of the checkbox */
+}
+
+/* Hover effect */
+.checkbox-wrapper label:hover::before {
+    border-color: #555; /* Hover border color */
+}
+
+/* Scale effect on checked */
+.checkbox-wrapper input[type="checkbox"]:checked + label::before {
+    transform: scale(1.1);
+    transition: transform 0.2s ease;
+}
+
+.country-phone {
+    display: grid;
+    grid-template-columns: minmax(120px, auto) 1fr;
+    gap: var(--spacing-base);
+}
+
+.submit-button {
+    background-color: var(--primary);
+    color: white;
+    padding: calc(var(--spacing-large) * 0.75) var(--spacing-large);
+    border: none;
+    border-radius: 8px;
+    font-size: var(--font-base);
+    font-weight: 500;
+    cursor: pointer;
+    width: 100%;
+    transition: all 0.3s ease;
+}
+
+.submit-button:hover {
+    background-color: #1a3429;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.submit-button.loading {
+    opacity: 0.7;
+    cursor: wait;
+    background-image: linear-gradient(
+        90deg,
+        var(--primary) 0px,
+        rgba(45, 75, 62, 0.8) 40px,
+        var(--primary) 80px
+    );
+    background-size: 1000px 100%;
+    animation: shimmer 2s infinite linear;
+}
+
+.package-card {
+    background: var(--primary);
+    color: white;
+    padding: var(--spacing-large);
+    border-radius: 8px;
+    margin-bottom: var(--spacing-large);
+    transition: transform 0.3s ease;
+}
+
+.package-card:hover {
+    transform: translateY(-4px);
+}
+
+.package-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--spacing-base);
+    flex-wrap: wrap;
+    gap: var(--spacing-base);
+}
+
+.package-name {
+    font-size: var(--font-large);
+    font-weight: 600;
+    color: var(--secondary);
+}
+
+.package-price {
+    background: var(--secondary);
+    padding: calc(var(--spacing-base) * 0.75) var(--spacing-large);
+    border-radius: 20px;
+    font-weight: 500;
+    font-size: var(--font-small);
+}
+
+.package-details {
+    color: var(--accent);
+    font-size: var(--font-small);
+    line-height: 1.6;
+}
+
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.modal-content {
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    width: 90%;
+    max-width: 500px;
+    text-align: center;
+}
+
+.modal-actions button {
+    margin: 10px;
+}
+
+.error-message {
+    display: none;
+    color: var(--error);
+    font-size: calc(var(--font-small) * 0.9);
+    margin-top: calc(var(--spacing-base) * 0.5);
+}
+
+.error-message.visible {
+    display: block;
+    animation: fadeIn 0.3s ease-out;
+}
+
+.success-message {
+    display: none;
+    position: fixed;
+    top: var(--spacing-large);
+    right: var(--spacing-large);
+    background: var(--success);
+    color: white;
+    padding: var(--spacing-large);
+    border-radius: 8px;
+    animation: slideIn 0.3s ease, pulse 2s infinite;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@media (max-width: 480px) {
+    .package-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .country-phone {
+        grid-template-columns: 1fr;
+    }
+
+    .checkbox-group {
+        flex-direction: column;
+        gap: calc(var(--spacing-base) * 0.75);
+    }
+}
+  </style>
+</head>
+
+
+<body>
+    <div class="form-container">
+        <div class="form-header">
+            <h1>Tanzania Safari Experience</h1>
+            <p>Begin your adventure with us</p>
+            <button class="close-btn" onclick="window.location.href='../Home/View-more/4-days-general.html';">✖</button>
+
+        </div>
+        <div class="form-content">
+            <!-- Package Information -->
+            <div class="package-card">
+                <div class="package-header">
+                    
+                    <span class="package-name">Safari Adventure Package</span>
+                    <span class="package-price">$1,299</span>
+                    
+                </div>
+                
+                <p class="package-details">
+                    Experience the magic of Tanzania with our premium safari package. 
+                    Includes guided tours, luxury accommodation, and authentic local experiences.
+                </p>
+            </div>
+        
+            
+            <!-- Form Section -->
+            <form id="tripRequestForm" class="form-grid" action="save_requests.php" method="POST">
+                <input type="hidden" name="package_id" value="1">
+                 <!-- Hidden Inputs for Package Details -->
+        <input type="hidden" name="package_name" value="4 Days Safari: All Northern Tanzania Parks">
+        <input type="hidden" name="package_price" value="1299">
+
+        
+                <!-- Full Name -->
+                <div class="form-group">
+                    <label for="name">Full Name *</label>
+                    <input type="text" id="name" name="name" required placeholder="Enter your full name" autocomplete="name">
+                    <div class="error-message" id="nameError">Please enter your full name</div>
+                </div>
+        
+                <!-- Email Address -->
+                <div class="form-group">
+                    <label for="email">Email Address *</label>
+                    <input type="email" id="email" name="email" required placeholder="your.email@example.com" autocomplete="email">
+                    <div class="error-message" id="emailError">Please enter a valid email address</div>
+                </div>
+        
+                <!-- Communication Preferences -->
+                <div class="form-group full-width">
+                    <label>Preferred Communication *</label>
+                    <div class="checkbox-group">
+                        <div class="checkbox-wrapper">
+                            <input type="checkbox" id="emailCheck" name="communication[]" value="email" checked>
+                            <label for="emailCheck">Email</label>
+                        </div>
+                        <div class="checkbox-wrapper">
+                            <input type="checkbox" id="whatsappCheck" name="communication[]" value="whatsapp">
+                            <label for="whatsappCheck">WhatsApp</label>
+                        </div>
+                    </div>
+                </div>
+        
+                <!-- WhatsApp Number -->
+                <div class="form-group full-width" id="whatsappGroup" style="display: none;">
+                    <label>WhatsApp Number *</label>
+                    <div class="country-phone">
+                        <select id="countryCode" name="country_code">
+                            <option value="+255">🇹🇿 Tanzania (+255)</option>
+                            <option value="+1">🇺🇸 USA (+1)</option>
+                            <option value="+44">🇬🇧 UK (+44)</option>
+                            <option value="+49">🇩🇪 Germany (+49)</option>
+                            <option value="+61">🇦🇺 Australia (+61)</option>
+                            <option value="+91">🇮🇳 India (+91)</option>
+                        </select>
+                        <input type="tel" id="phone" name="phone" placeholder="Phone number">
+                    </div>
+                    <div class="error-message" id="phoneError">Please enter a valid phone number</div>
+                </div>
+        
+                <!-- Start Date -->
+                <div class="form-group">
+                    <label for="startDate">Preferred Start Date *</label>
+                    <input type="date" id="startDate" name="start_date" required>
+                    <div class="error-message" id="dateError">Please select a start date</div>
+                </div>
+        
+                <!-- Group Size -->
+                <div class="form-group">
+                    <label for="groupSize">Number of Travelers *</label>
+                    <input type="number" id="groupSize" name="group_size" required min="1" max="100" placeholder="Enter number of travelers">
+                    <div class="error-message" id="groupSizeError">Please enter a valid group size (1-100)</div>
+                </div>
+        
+                <!-- Accommodation Type -->
+                <div class="form-group full-width">
+                    <label for="accommodationType">Preferred Accommodation</label>
+                    <select id="accommodationType" name="accommodation_type">
+                        <option value="">Select accommodation type</option>
+                        <option value="Luxury Lodge">Luxury Lodge</option>
+                        <option value="Standard Hotel">Standard Hotel</option>
+                        <option value="Luxury Camping">Luxury Camping</option>
+                    </select>
+                </div>
+        
+                <!-- Special Requests -->
+                <div class="form-group full-width">
+                    <label for="specialRequests">Special Requests or Notes</label>
+                    <textarea id="specialRequests" name="special_requests" rows="4" 
+                              placeholder="Tell us about any special requirements or questions..."></textarea>
+                </div>
+        
+                <!-- Submit Button -->
+                <div class="form-group full-width">
+                    <button type="submit" class="submit-button">Submit Request</button>
+                </div>
+            </form>
+            <!-- Confirmation Modal -->
+            <div id="confirmationModal" class="modal" style="display: none;">
+                <div class="modal-content">
+                    <h2>Confirm Your Details</h2>
+                    <p>Review your information before submitting.</p>
+                    <div class="modal-details">
+                        <p><strong>Package:</strong> <span id="confirmPackage"></span></p>
+                        <p><strong>Price:</strong> <span id="confirmPrice"></span></p>
+                        <p><strong>Name:</strong> <span id="confirmName"></span></p>
+                        <p><strong>Email:</strong> <span id="confirmEmail"></span></p>
+                        <p><strong>Start Date:</strong> <span id="confirmStartDate"></span></p>
+                        <p><strong>Number of Travelers:</strong> <span id="confirmGroupSize"></span></p>
+                        <p><strong>Preferred Communication:</strong> <span id="confirmCommunication"></span></p>
+                        <p><strong>WhatsApp Number:</strong> <span id="confirmWhatsApp"></span></p>
+                        <p><strong>Preferred Accommodation:</strong> <span id="confirmPreferredAccommodation"></span></p>
+                        <p><strong>Special Requests:</strong> <span id="confirmSpecialRequest"></span></p>
+                    </div>
+                    <div class="modal-actions">
+                        <button id="confirmSubmit" class="submit-button">Submit</button>
+                        <button id="cancelSubmit" class="cancel-button">Cancel</button>
+                    </div>
+                </div>
+            </div>
+            
+
+        
+            <!-- Success Message -->
+            <div class="success-message" id="successMessage" style="display: none;">
+                Request submitted successfully!
+            </div>
+        </div>
+
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                const form = document.getElementById('tripRequestForm');
+                const successMessage = document.getElementById('successMessage');
+                const whatsappCheck = document.getElementById('whatsappCheck');
+                const whatsappGroup = document.getElementById('whatsappGroup');
+                const whatsappNumberInput = document.getElementById('phone');
+                const submitButton = form.querySelector('.submit-button');
+            
+                // Modal elements
+                const confirmationModal = document.getElementById('confirmationModal');
+                const confirmSubmit = document.getElementById('confirmSubmit');
+                const cancelSubmit = document.getElementById('cancelSubmit');
+            
+                // Function to populate the modal with form data
+                function populateConfirmationModal() {
+                    document.getElementById('confirmPackage').textContent = document.querySelector('.package-name').textContent.trim();
+                    document.getElementById('confirmPrice').textContent = document.querySelector('.package-price').textContent.trim();
+                    document.getElementById('confirmName').textContent = document.getElementById('name').value.trim();
+                    document.getElementById('confirmEmail').textContent = document.getElementById('email').value.trim();
+                    document.getElementById('confirmStartDate').textContent = document.getElementById('startDate').value.trim();
+                    document.getElementById('confirmGroupSize').textContent = document.getElementById('groupSize').value.trim();
+        
+                    // Collect preferred communication methods
+                    const communication = Array.from(document.querySelectorAll('input[name="communication[]"]:checked'))
+                        .map(el => el.labels[0].textContent)
+                        .join(', ');
+                    document.getElementById('confirmCommunication').textContent = communication;
+        
+                    // Get the country code and phone number, then combine them for WhatsApp
+                    const countryCode = document.getElementById('countryCode').value;
+                    const phoneNumber = document.getElementById('phone').value.trim();
+                    document.getElementById('confirmWhatsApp').textContent = whatsappCheck.checked && phoneNumber
+                        ? countryCode + ' ' + phoneNumber
+                        : 'N/A';
+        
+                    // Get Preferred Accommodation and Special Requests
+                    document.getElementById('confirmPreferredAccommodation').textContent = document.getElementById('accommodationType').value.trim() || 'N/A';
+                    document.getElementById('confirmSpecialRequest').textContent = document.getElementById('specialRequests').value.trim() || 'N/A';
+                }
+            
+                // Functions to show and hide the modal
+                function showModal() {
+                    confirmationModal.style.display = 'flex';
+                }
+            
+                function hideModal() {
+                    confirmationModal.style.display = 'none';
+                }
+            
+                // Prevent default form submission and show modal
+                form.addEventListener('submit', function (e) {
+                    e.preventDefault();
+                    populateConfirmationModal();
+                    showModal();
+                });
+            
+                // Handle modal confirmation for final submission
+                confirmSubmit.addEventListener('click', async function () {
+                    hideModal();
+                    submitButton.classList.add('loading');
+                    submitButton.textContent = 'Submitting...';
+            
+                    const formData = new FormData(form);
+            
+                    try {
+                        const response = await fetch('save_requests.php', {
+                            method: 'POST',
+                            body: formData,
+                        });
+            
+                        const result = await response.json();
+            
+                        if (result.success) {
+                            successMessage.style.display = 'block';
+                            successMessage.textContent = result.message;
+            
+                            form.reset();
+                            toggleWhatsappInput(); // Reset WhatsApp visibility
+                            setTimeout(() => successMessage.style.display = 'none', 3000);
+                        } else {
+                            alert(result.message || 'An error occurred. Please try again.');
+                        }
+                    } catch (error) {
+                        console.error('Error submitting form:', error);
+                        alert('An error occurred. Please try again.');
+                    } finally {
+                        submitButton.classList.remove('loading');
+                        submitButton.textContent = 'Submit Request';
+                    }
+                });
+            
+                // Handle modal cancellation
+                cancelSubmit.addEventListener('click', hideModal);
+            
+                // Function to toggle WhatsApp input visibility
+                function toggleWhatsappInput() {
+                    whatsappGroup.style.display = whatsappCheck.checked ? 'block' : 'none';
+                    if (!whatsappCheck.checked) whatsappNumberInput.value = '';
+                }
+            
+                whatsappCheck.addEventListener('change', toggleWhatsappInput);
+                toggleWhatsappInput(); // Initialize on page load
+
+                function goBack() {
+    // Navigate back to the previous page
+    window.history.back(); // Uses browser history to go back
+}
+
+            });
+        </script>
+        
+    
+</body>

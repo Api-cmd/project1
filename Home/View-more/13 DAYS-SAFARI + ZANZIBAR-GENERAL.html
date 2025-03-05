@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>13 days safari & Beach activities</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+   
+    <link rel="stylesheet" href="../../CSS/header.css">
+    <link rel="stylesheet" href="../../CSS/nav.css">
+    <link rel="stylesheet" href="../../CSS/view more.css">
+    
+    
+    <link rel="stylesheet" href="../../CSS/Activites2.css">
+
+    <link rel="stylesheet" href="../../CSS/footer.css">
+    <link rel="stylesheet" href="../../CSS/CTA.css">
+    
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+ 
+
+</head>
+<body>
+    
+
+ <!-- Header Section -->
+      
+ 
+  
+ <header class="header">
+    <div class="header-container">
+        <div class="logo-container">
+            <a href="/">
+                <img src="/api/placeholder/120/40" alt="Logo" class="logo-img">
+            </a>
+        </div>
+
+        <nav class="desktop-nav">
+            <a href="../../Home/Packages.html"><i class="fas fa-suitcase"></i> Packages</a>
+            <a href="../../Home/Accomodation.html"><i class="fas fa-hotel"></i> Accommodation</a>
+            <a href="../../Home/plan your tour.html"><i class="fas fa-map-marked-alt"></i> Plan Your Tour</a>
+        </nav>
+
+        <div class="actions">
+            <div class="search-container">
+                <button id="search-toggle" class="icon-button">
+                    <i class="fas fa-search"></i>
+                </button>
+                <div id="search-bar" class="search-bar hidden">
+                    <input type="text" id="search-input" placeholder="Search..." oninput="filterSuggestions()">
+                    <button><i class="fas fa-search"></i></button>
+                    <div id="suggestion-box" class="suggestion-box"></div> <!-- Suggestions container -->
+                </div>
+            </div>
+
+           
+        <div class="dropdown">
+            <button class="icon-button" id="language-dropdown-toggle">
+                <img src="https://flagcdn.com/w20/gb.png" alt="English" id="language-flag">
+                <span class="hidden-mobile">Language</span>
+            </button>
+                <div id="language-dropdown" class="dropdown-content hidden">
+                    <a href="#" data-lang="en"><img src="https://flagcdn.com/w20/gb.png" alt="English"> English</a>
+                    <a href="#" data-lang="fr"><img src="https://flagcdn.com/w20/fr.png" alt="Français"> Français</a>
+                    <a href="#" data-lang="es"><img src="https://flagcdn.com/w20/es.png" alt="Español"> Español</a>
+                    <a href="#" data-lang="de"><img src="https://flagcdn.com/w20/de.png" alt="Deutsch"> Deutsch</a>
+                    <a href="#" data-lang="it"><img src="https://flagcdn.com/w20/it.png" alt="Italiano"> Italiano</a>
+                    <a href="#" data-lang="sa"><img src="https://flagcdn.com/w20/sa.png" alt="العربية"> العربية</a>
+                    <a href="#" data-lang="ru"><img src="https://flagcdn.com/w20/ru.png" alt="Русский"> Русский</a>
+                    <a href="#" data-lang="cn"><img src="https://flagcdn.com/w20/cn.png" alt="中文"> 中文</a>
+                    <a href="#" data-lang="jp"><img src="https://flagcdn.com/w20/jp.png" alt="日本語"> 日本語</a>
+                    <a href="#" data-lang="kr"><img src="https://flagcdn.com/w20/kr.png" alt="한국어"> 한국어</a>
+                    <a href="#" data-lang="no"><img src="https://flagcdn.com/w20/no.png" alt="Norsk"> Norsk</a>
+
+                </div>
+            </div>
+
+            <div class="dropdown">
+                <button class="icon-button" id="theme-dropdown-toggle">
+                    <i class="fas fa-palette"></i>
+                    <span class="hidden-mobile">Theme</span>
+                </button>
+                <div id="theme-dropdown" class="dropdown-content hidden">
+                    <a href="#" data-theme="light"><i class="fas fa-sun"></i> Light</a>
+                    
+                    <a href="#" data-theme="soft"><i class="fas fa-leaf"></i> Soft</a>
+                    <a href="#" data-theme="nature"><i class="fas fa-leaf"></i> Nature</a>
+                    <a href="#" data-theme="dark"><i class="fas fa-moon"></i> Dark</a>
+                    
+                    <a href="#" data-theme="contrast"><i class="fas fa-sunset"></i> Contrast</a>
+                </div>
+
+            <button id="mobile-menu-toggle" class="icon-button mobile-only">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </div>
+
+    <div id="mobile-menu" class="mobile-menu hidden">
+        <a href="../../Home/Accomodation.html"><i class="fas fa-hotel"></i> Accommodation</a>
+        <a href="../../Home/plan-your-tour.html"><i class="fas fa-map-marked-alt"></i> Plan Your Tour</a>
+        <a href="../../Home/Packages.html"><i class="fas fa-suitcase"></i> Packages</a>
+    </div>
+</header>
+
+
+<!-- Hero Section -->
+<header class="hero">
+    <video autoplay muted loop playsinline class="bg-video">
+        <source src="../../HomeImage/Videos/beach2.crdownload" type="video/mp4">
+    </video>
+    <div class="overlay">
+        <div class="hero-content">
+            <h1>Tanzania Unveiled: The Call of the Wild and the Whisper of Waves</h1>
+            <p>13 Days Safari & Beach </p>
+        </div>
+    </div>
+</header>
+
+
+ <!-- Navbar -->
+ <nav class="navbar">
+    <div class="nav-container">
+        <a href="#" class="logoB">
+            <span class="logo-text">HYVERTOURS</span>
+            <span class="logo-arrow">&#8594;</span> <!-- Right arrow symbol -->
+        </a>
+        <button class="menu-toggle" aria-label="Toggle Menu">
+            <i class="fas fa-bars"></i>
+        </button>
+        <div id="nav-links" class="nav-links">
+            <a href="13 DAYS-SAFARI + ZANZIBAR-GENERAL.html"class="active" >Overview</a>
+            <a href="13 DAYS-SAFARI + ZANZIBAR-ITENENARY.html">Itinerary</a>
+            <a href="#.html">Pricing</a>
+            <a href="13 DAYS-SAFARI + ZANZIBAR-act.html" >Activities</a>
+            <a href="../request-form/request-form-13-Days-Safari&Zanzibar.html" class="request-btn">Request This Trip</a>
+        </div>
+    </div>
+</nav>
+ 
+
+<div class="main-content">
+    <div class="content-left">
+        <!-- Itinerary Section -->
+        <section id="itinerary">
+            <h2>Your Journey</h2>
+
+            <div class="itinerary-day">
+                <div class="day-number">01</div>
+                <div class="day-content">
+                    <h3>Arrival at Kilimanjaro International Airport</h3>
+                    <p>Welcome to Tanzania! Our team will meet you at the airport and transfer you to your comfortable accommodation.</p>
+                </div>
+            </div>
+
+            <div class="itinerary-day">
+                <div class="day-number">02</div>
+                <div class="day-content">
+                    <h3>Tarangire National Park</h3>
+                    <p>Explore the stunning landscapes and wildlife of Tarangire National Park.</p>
+                </div>
+            </div>
+
+            <div class="itinerary-day">
+                <div class="day-number">03</div>
+                <div class="day-content">
+                    <h3>Ngorongoro Conservation Area</h3>
+                    <p>Discover the renowned Ngorongoro Crater and its diverse wildlife.</p>
+                </div>
+            </div>
+
+            <div class="itinerary-day">
+                <div class="day-number">04</div>
+                <div class="day-content">
+                    <h3>Serengeti National Park (Central West/East)</h3>
+                    <p>Witness the breathtaking landscapes and abundant wildlife of the Serengeti.</p>
+                </div>
+            </div>
+
+            <div class="itinerary-day">
+                <div class="day-number">05</div>
+                <div class="day-content">
+                    <h3>Northern Serengeti & the Great Migration</h3>
+                    <p>Experience the thrill of the Great Migration and possibly see the famous Mara River crossing.</p>
+                </div>
+            </div>
+
+            <div class="itinerary-day">
+                <div class="day-number">06</div>
+                <div class="day-content">
+                    <h3>Northern Serengeti & the Great Migration</h3>
+                    <p>Another day to explore the wonders of the Great Migration and the Mara River crossing.</p>
+                </div>
+            </div>
+
+            <div class="itinerary-day">
+                <div class="day-number">07</div>
+                <div class="day-content">
+                    <h3>Flight to Zanzibar</h3>
+                    <p>Take a flight to Zanzibar, the stunning archipelago known for its beaches and cultural heritage. Flight is included in the price.</p>
+                </div>
+            </div>
+
+            <div class="itinerary-day">
+                <div class="day-number">08</div>
+                <div class="day-content">
+                    <h3>Zanzibar</h3>
+                    <p>Relax on the pristine beaches of Zanzibar and explore its vibrant history and culture.</p>
+                </div>
+            </div>
+
+            <div class="itinerary-day">
+                <div class="day-number">09</div>
+                <div class="day-content">
+                    <h3>Zanzibar</h3>
+                    <p>Enjoy another day in paradise, soaking in the beauty of Zanzibar.</p>
+                </div>
+            </div>
+
+            <div class="itinerary-day">
+                <div class="day-number">10</div>
+                <div class="day-content">
+                    <h3>Zanzibar</h3>
+                    <p>Conclude your journey with one final day in Zanzibar before departure.</p>
+                </div>
+            </div>
+        </section>
+    
+      
+            
+        <!-- Accommodations Section -->
+        <section id="accommodations">
+            <h2>Accommodations</h2>
+            <div class="accommodation-grid">
+                <div class="accommodation-card" onclick="showAccommodation('silver')">
+                    <div class="accommodation-img" style="background-image: url('../../HomeImage/Accomodation/silver1.jpg')"></div>
+                    <div class="accommodation-content">
+                        <h3>Silver Tier</h3>
+                        <p>Essential comfort with authentic charm</p>
+                    </div>
+                </div>
+                <div class="accommodation-card" onclick="showAccommodation('gold')">
+                    <div class="accommodation-img" style="background-image: url('../../HomeImage/Accomodation/gold1.jpg')"></div>
+                    <div class="accommodation-content">
+                        <h3>Gold Tier</h3>
+                        <p>Premium comfort with enhanced amenities</p>
+                    </div>
+                </div>
+                <div class="accommodation-card" onclick="showAccommodation('platinum')">
+                    <div class="accommodation-img" style="background-image: url('../../HomeImage/Accomodation/platinum1.jpg')"></div>
+                    <div class="accommodation-content">
+                        <h3>Platinum Tier</h3>
+                        <p>Luxury experience with exclusive services</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    
+        <section id="activities">
+            <div class="activities-container">
+                <!-- Arusha -->
+                <div class="region">
+                    <h3>🏔️ Arusha</h3>
+                    <ul class="activities-list">
+                        <li><span class="activity-icon">👣</span> Walking Safari in Arusha National Park – Full Day</li>
+                        <li><span class="activity-icon">👣</span> Walking Safari in Arusha National Park – Half Day</li>
+                        <li><span class="activity-icon">🚲</span> Mountain Bike Tour Outside Arusha</li>
+                        <li><span class="activity-icon">🛶</span> Canoeing in Arusha National Park</li>
+                        <li><span class="activity-icon">🗻</span> Kilimanjaro Scenic Tour</li>
+                        <li><span class="activity-icon">🛍️</span> Souvenir Market (Duration: 2-3 hours)</li>
+                        <li><span class="activity-icon">⛰️</span> Climb Mount Longido</li>
+                        <li><span class="activity-icon">💦</span> Hike to the Mount Meru Waterfalls</li>
+                        <li><span class="activity-icon">🏙️</span> Arusha City Tour – Full Day</li>
+                        <li><span class="activity-icon">🌇</span> Arusha City Tour – Half Day</li>
+                        <li><span class="activity-icon">💎</span> Tanzanite Museum Arusha</li>
+                        <li><span class="activity-icon">🧍‍♂️</span> Visit a Maasai Village</li>
+                        <li><span class="activity-icon">☕</span> Visit a Coffee Plantation in Arusha</li>
+                    </ul>
+                </div>
+                <!-- Manyara -->
+                <div class="region hidden">
+                    <h3>🏞️ Manyara</h3>
+                    <ul class="activities-list">
+                        <li><span class="activity-icon">🛌</span> Relaxing Day in Manyara Best View Lodge</li>
+                        <li><span class="activity-icon">🚲</span> Mountain Bike Ride & Maasai Village in Mto wa Mbu</li>
+                        <li><span class="activity-icon">👣</span> Walking Safari in Lake Manyara National Park</li>
+                        <li><span class="activity-icon">🌳</span> Treetop Walk in Lake Manyara National Park</li>
+                        <li><span class="activity-icon">🌙</span> Night Game Drive in Lake Manyara National Park</li>
+                    </ul>
+                </div>
+                <!-- Tarangire -->
+                <div class="region hidden">
+                    <h3>🦁 Tarangire National Park</h3>
+                    <ul class="activities-list">
+                        <li><span class="activity-icon">🌙</span> Night Game Drive in Tarangire National Park</li>
+                        <li><span class="activity-icon">👣</span> Walking Safari in Tarangire National Park</li>
+                    </ul>
+                </div>
+                <!-- Serengeti -->
+                <div class="region hidden">
+                    <h3>🌍 Serengeti</h3>
+                    <ul class="activities-list">
+                        <li><span class="activity-icon">🍴</span> Bush Dinner in the Serengeti</li>
+                        <li><span class="activity-icon">🎈</span> Hot Air Balloon Flight in Serengeti</li>
+                    </ul>
+                </div>
+                <!-- Ngorongoro -->
+                <div class="region hidden">
+                    <h3>🌋 Ngorongoro</h3>
+                    <ul class="activities-list">
+                        <li><span class="activity-icon">🏃</span> Empakaai Crater Hike</li>
+                        <li><span class="activity-icon">⛰️</span> Two-day Hike from Ngorongoro to Lake Natron</li>
+                        <li><span class="activity-icon">🦿</span> Visit Olduvai Gorge</li>
+                    </ul>
+                </div>
+                <!-- Zanzibar -->
+                <div class="region hidden">
+                    <h3>🌴 Zanzibar</h3>
+                    <ul class="activities-list">
+                        <li><span class="activity-icon">🌊</span> Safari Blue Experience</li>
+                        <li><span class="activity-icon">🍴</span> Sunset Dinner Cruise</li>
+                        <li><span class="activity-icon">🏝️</span> Visit the Islands near Unguja Ukuu</li>
+                        <li><span class="activity-icon">🎣</span> Deep Sea Fishing – Half Day</li>
+                        <li><span class="activity-icon">🍳</span> Zanzibar Cooking Lesson</li>
+                        <li><span class="activity-icon">🚴</span> Take a Bike Tour in Zanzibar</li>
+                        <li><span class="activity-icon">🐎</span> Horseback Riding in Zanzibar</li>
+                        <li><span class="activity-icon">🌅</span> Sunset Dhow Cruise</li>
+                        <li><span class="activity-icon">🎣</span> Deep Sea Fishing – Full Day</li>
+                        <li><span class="activity-icon">🌕</span> Sunset & Moon Tour – Semi-Submarine</li>
+                        <li><span class="activity-icon">🐠</span> Classic Reef Tour – Semi-Submarine</li>
+                        <li><span class="activity-icon">🌳</span> Jozani Forest – Half Day</li>
+                        <li><span class="activity-icon">🏛️</span> Stone Town Tour – Half Day</li>
+                        <li><span class="activity-icon">🏝️</span> Prison Island Tour – Half Day</li>
+                        <li><span class="activity-icon">⛵</span> Sunset Cruise on a Yacht Charter (50ft Voyage Yacht) at Nungwi Bay</li>
+                    </ul>
+                </div>
+            </div>
+            <button class="show-more-btn">Show More</button>
+        </section>
+    </div>      
+
+         <!-- Sidebar -->
+    <div class="sidebar">
+        <div class="pricing-card">
+            <h2>Tour Pricing</h2>
+            <div class="pricing-season">
+                <h3>Low Season</h3>
+                <p>April 1st - May 19th</p>
+                <h4>$2,288 per person</h4>
+            </div>
+            <div class="pricing-season">
+                <h3>Mid Season</h3>
+                <p>Rest of the Year</p>
+                <h4>$2,397 per person</h4>
+            </div>
+            <div class="pricing-season">
+                <h3>High Season</h3>
+                <p>July, August, Dec 20 - Jan 10</p>
+                <h4>$2,624 per person</h4>
+            </div>
+        </div>
+
+        <div class="included-excluded">
+            <div class="included">
+                <h3>Included</h3>
+                <ul>
+                    <li><i class="fas fa-check-circle include-icon"></i>24/7 Service</li>
+                    <li><i class="fas fa-check-circle include-icon"></i>All Accommodations</li>
+                    <li><i class="fas fa-check-circle include-icon"></i>Game Drives</li>
+                    <li><i class="fas fa-check-circle include-icon"></i>Park Fees</li>
+                    <li><i class="fas fa-check-circle include-icon"></i>Airport Transfers</li>
+                </ul>
+            </div>
+            <div class="excluded">
+                <h3>Excluded</h3>
+                <ul>
+                    <li><i class="fas fa-times-circle exclude-icon"></i>International Flights</li>
+                    <li><i class="fas fa-times-circle exclude-icon"></i>Travel Insurance</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Accommodation Modal -->
+<div id="accommodationModal" class="modal">
+    <span class="close-modal">&times;</span>
+    <div class="modal-content">
+        <h2 id="modalTitle"></h2>
+        <img src="" id="modalImage" alt="Accommodation" style="width: 100%; height: auto; margin-bottom: 1rem;">
+        <div id="modalDescription"></div>
+    </div>
+</div>
+
+<!-- Call to Action Section -->
+ 
+<section class="call-to-action" id="bookingSection">
+    <div class="cta-container">
+        <h2 class="cta-title">Begin Your Safari Adventure</h2>
+        <p class="cta-subtitle">Let us help you create memories that will last a lifetime</p>
+        
+        <form class="cta-form" id="bookingForm2" action="save_Packages.php" method="post">
+            <div class="form-group">
+                <label for="name" class="visually-hidden">Your Name</label>
+                <input type="text" id="name" name="name" placeholder="Your Name" required>
+                <div class="form-indicator"></div>
+            </div>
+
+            <div class="form-group">
+                <label for="email" class="visually-hidden">Your Email</label>
+                <input type="email" id="email" name="email" placeholder="Your Email" required>
+                <div class="form-indicator"></div>
+            </div>
+
+            <div class="form-group">
+                <label for="expectations" class="visually-hidden">Adventure Expectations</label>
+                <textarea id="expectations" name="Adventure_Expectations" 
+                    placeholder="Tell us about your dream safari experience..."
+                    rows="4"></textarea>
+                <div class="form-indicator"></div>
+            </div>
+
+            <button type="submit" class="submit-button">
+                <span class="button-text">Begin Your Journey</span>
+                <span class="button-icon">→</span>
+            </button>
+        </form>
+    </div>
+</section>
+
+<!-- Appreciation Section -->
+<section class="appreciation-section" id="appreciationSection" aria-hidden="true">
+    <div class="appreciation-container">
+        <div class="success-icon">✓</div>
+        <h2 class="appreciation-title">Adventure Awaits!</h2>
+        <p class="appreciation-message">Thank you for choosing to explore with us. Our safari experts will be in touch within 24 hours to start planning your perfect adventure.</p>
+        <button class="return-button" onclick="resetBooking(event)">
+            <span class="button-icon">←</span>
+            <span class="button-text">Plan Another Adventure</span>
+        </button>
+    </div>
+</section>
+
+<script src="../../JS/header.js" defer></script>
+<script src="../../JS/view-more.js" defer></script>
+<script src="../../JS/spinner.js" defer></script>
+<script src="../../JS/nav.js" defer></script>
+<script src="../../JS/CTA.js" defer></script>
+</body>
+
+    <!--FOOTER-->
+    <footer class="site-footer">
+        <div class="footer-background"></div>
+        <div class="container-footer">
+            <div class="row">
+                <div class="col company" id="company">
+                    <img src="images/logo.png" alt="Company Logo" class="logo">
+                    <p>"The world is a book, and those who do not travel read only one page." – Saint Augustine</p>
+                    <div class="social">
+                        <a href="#" class="facebook"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="youtube"><i class="fab fa-youtube"></i></a>
+                        <a href="#" class="twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="linkedin"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+                <div class="col services" id="services">
+                    <h3>Service</h3>
+                    <div class="links">
+                        <a href="us.html">About</a>
+                        <a href="us.html#services">Services</a>
+                        <a href="us.html#policies">Our Policy</a>
+                        <a href="us.html#help">Help</a>
+                    </div>
+                </div>
+                <div class="col useful-links" id="useful-links">
+                    <h3>Useful Links</h3>
+                    <div class="links">
+                        <a href="#">Home</a>
+                        <a href="#">Destinations</a>
+                        <a href="#">Blog</a>
+                        <a href="#">Contact</a>
+                    </div>
+                </div>
+                <div class="col contact" id="contact">
+                    <h3>Contact</h3>
+                    <div class="contact-details">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <p>123 Arusha, <br>Arusha City,</p>
+                    </div>
+                    <div class="contact-details">
+                        <i class="fas fa-phone-alt"></i>
+                        <p>+255 7________</p>
+                    </div>
+                    <div class="contact-details">
+                        <i class="fas fa-envelope"></i>
+                        <p>info@company.com</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row partners">
+                <h3>Our Partners</h3>
+                <div class="partner-logos">
+                    <a href="#"><img src="images/partner1.png" alt="Partner 1"></a>
+                    <a href="#"><img src="images/partner2.png" alt="Partner 2"></a>
+                    <a href="#"><img src="images/partner3.png" alt="Partner 3"></a>
+                    <a href="#"><img src="images/partner4.png" alt="Partner 4"></a>
+                    <a href="#"><img src="images/partner5.png" alt="Partner 5"></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 YourCompany | <span class="designer">Designed by Nola Inc</span></p>
+        </div>
+    </footer>
+    
+
+</html>

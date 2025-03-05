@@ -1,0 +1,782 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>9 Days Safari Activities</title>
+    <link rel="stylesheet" href="../CSS/Activites2.css">
+    <link rel="stylesheet" href="../CSS/header.css">
+    <link rel="stylesheet" href="../CSS/footer.css">
+    <link rel="stylesheet" href="../CSS/nav.css">
+
+    <link rel="stylesheet" href="../CSS/spinner.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Dancing+Script&display=swap" rel="stylesheet">
+
+
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&display=swap" rel="stylesheet">
+
+    <!-- AOS Library CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+    <!-- Swiper.js CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+</head>
+<body>
+    <header>
+        <div class="header">
+            <div class="top-bar">
+                <a href="Home.html"> <div class="logo">Your Brand</div></a>
+                <div class="actions">
+                   <!-- Search Bar -->
+    <!-- Search Bar -->
+    <div class="search-bar">
+        <input type="text" placeholder="Search..." id="search-input" style="display: none;" aria-label="Search">
+        <button onclick="toggleSearchInput()"><i class="fas fa-search"></i></button>
+        <button id="clear-button" onclick="clearSearch()" style="display: none;">&times;</button> <!-- Clear button -->
+        <div id="autocomplete-suggestions" class="autocomplete-suggestions"></div> <!-- Suggestions container -->
+    </div>
+    
+    
+                    <!-- Language Dropdown -->
+                    <div class="dropdown-container" data-label="Language">
+                        <button class="dropdown-trigger" onclick="toggleDropdown('language-dropdown')" aria-haspopup="true" aria-expanded="false">
+                            <img src="https://flagcdn.com/w20/gb.png" alt="English (UK)">
+                            English
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="dropdown-content language-dropdown" id="language-dropdown">
+                            <a href="#"><img src="https://flagcdn.com/w20/gb.png" alt="English (UK)"> English</a>
+                            <a href="#"><img src="https://flagcdn.com/w20/fr.png" alt="Français"> Français</a>
+                            <a href="#"><img src="https://flagcdn.com/w20/es.png" alt="Español"> Español</a>
+                            <a href="#"><img src="https://flagcdn.com/w20/de.png" alt="Deutsch"> Deutsch</a>
+                            <a href="#"><img src="https://flagcdn.com/w20/nl.png" alt="Nederlands"> Nederlands</a>
+                            <a href="#"><img src="https://flagcdn.com/w20/jp.png" alt="日本語"> 日本語</a>
+                            <a href="#"><img src="https://flagcdn.com/w20/it.png" alt="Italiano"> Italiano</a>
+                            <a href="#"><img src="https://flagcdn.com/w20/ru.png" alt="Русский"> Русский</a>
+                            <a href="#"><img src="https://flagcdn.com/w20/no.png" alt="Norsk"> Norsk</a>
+                            <a href="#"><img src="https://flagcdn.com/w20/sa.png" alt="العربية"> العربية</a>
+                            <a href="#"><img src="https://flagcdn.com/w20/ua.png" alt="Українська"> Українська</a>       
+                        </div>
+                    </div>
+                </div>
+            </div>
+    
+            <!-- Main Navigation -->
+            <nav id="nav-menu">
+                <a href="#"><i class="fas fa-route"></i> Trips</a>
+                <a href="Packages.html"><i class="fas fa-suitcase"></i> Packages</a>
+                <a href="Accomodation.html"><i class="fas fa-hotel"></i> Accommodation</a>
+                <a href="#"><i class="fas fa-map-marked-alt"></i> Plan Your Tour</a>
+    
+            </nav>
+    
+            <!-- Hamburger Menu for Small Devices -->
+            <div class="menu-bar">
+                <button onclick="toggleMenu()" aria-label="Toggle Menu" id="hamburger-menu">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+        <div id="menu-content" class="menu-content">
+            <a href="#"><i class="fas fa-map-marked-alt"></i> Plan Your Tour</a>
+            <a href="#"><i class="fas fa-route"></i> Trips</a>
+            <a href="Packages.html"><i class="fas fa-suitcase"></i> Packages</a>
+    
+            <a href="Accomodation.html"><i class="fas fa-hotel"></i> Accommodation</a>
+        </div>
+    </header>
+    
+    <div class="loading">
+        <div class="spinner">
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+        </div>
+    </div>
+    
+
+    <!-- Header Section -->
+    <header class="hero">
+        <div class="overlay">
+            <h1>9 Days Safari: Witness the Great Migration</h1>
+            <p>From $2,288 USD / 24/7 Service / 9 Days</p>
+        </div>
+    </header>
+
+    <!-- Navigation Section -->
+    <nav class="main-nav">
+        <a href="#" class="nav-brand">Brand</a>
+        <div class="hamburger" id="hamburger">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <div class="nav-links" id="nav-links">
+            <ul>
+                <li><a href="view-more-4-trip.html">General</a></li>
+               
+                <li><a href="Itenenary.html">Itinerary</a></li>
+               
+                <li><a href="activites2.html" class="active">Activities</a></li>
+            </ul>
+        </div>
+        <button class="request-btn">Request</button>
+    </nav>
+ </header>
+
+
+
+    <!-- Main Title -->
+    <h1 data-aos="fade-down"> Great Migration</h1>
+
+    <!-- Featured Activities Carousel -->
+    <section class="featured-carousel" data-aos="fade-up">
+        <h2>Featured Activities in Central Serengeti</h2>
+        <div class="swiper-container">
+            <div class="swiper-wrapper">
+                <!-- Slide 1 -->
+                <div class="swiper-slide">
+                   
+                    <h3>Bush Dinner in the Serengeti</h3>
+                </div>
+                <!-- Slide 2 -->
+                <div class="swiper-slide">
+                    <img src="../HomeImage/Hotairballon.jpeg" alt="Hot Air Balloon Flight">
+                    <h3>Hot Air Balloon Flight</h3>
+                </div>
+                <!-- Slide 3 -->
+                <div class="swiper-slide">
+                    <img src="images/night-drive.jpg" alt="Night Game Drive">
+                    <h3>Night Game Drive</h3>
+                </div>
+                <!-- Add more slides as needed -->
+            </div>
+            <!-- Add Pagination -->
+            <div class="swiper-pagination"></div>
+            <!-- Add Navigation -->
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+        </div>
+        <!-- Static Activity List (for large screens) -->
+<div class="static-activity-list">
+    <div class="activity-item">
+       
+        <div class="details">
+            <p>Bush Dinner in the Serengeti</p>
+        
+            <p>Hot Air Balloon Flight in Serengeti</p>
+           </div>
+    </div>
+    <!-- Add more static activities if needed -->
+</div>
+
+    </section>
+
+
+    <!-- Safari Activities -->
+    <section class="location" id="central-serengeti" data-aos="fade-up">
+        <h2>Central Serengeti</h2>
+        <div class="activity" 
+             data-id="serengeti-dinner" 
+             data-title="Bush Dinner in the Serengeti" 
+             data-img="../HomeImage/Bush dinner.jpeg" 
+             data-description="A romantic dining experience on the Serengeti plains under a starry sky. Enjoy a delicious meal with the sounds of the wild around you." 
+             tabindex="0" 
+             role="button" 
+             aria-pressed="false">
+            <img src="../HomeImage/Bush dinner.jpeg" alt="Bush Dinner in Serengeti">
+            <div class="details">
+                <h3>Bush Dinner in the Serengeti</h3>
+                <p>A romantic dining experience on the Serengeti plains under a starry sky. Enjoy a delicious meal with the sounds of the wild around you.</p>
+            </div>
+        </div>
+        <div class="activity" 
+             data-id="balloon-safari" 
+             data-title="Hot Air Balloon Flight in Serengeti" 
+             data-img="../HomeImage/Hotairballon.jpeg" 
+             data-description="A memorable balloon safari at sunrise, floating over the iconic Serengeti and watching wildlife below." 
+             tabindex="0" 
+             role="button" 
+             aria-pressed="false">
+            <img src="../HomeImage/Hotairballon.jpeg" alt="Hot Air Balloon Flight">
+            <div class="details">
+                <h3>Hot Air Balloon Flight in Serengeti</h3>
+                <p>A memorable balloon safari at sunrise, floating over the iconic Serengeti and watching wildlife below.</p>
+            </div>
+            
+        </div>
+    </section>
+
+    <!-- Repeat similar structure for other locations like Tarangire, Arusha, Ngorongoro -->
+    <!-- Arusha -->
+    <section class="featured-carousel" data-aos="fade-up">
+        <h2>Featured Activities in Arusha</h2>
+        <div class="swiper-container">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <img src="../HomeImage/Walking safari.jpeg" alt="Walking Safari in Arusha National Park">
+                    <h3>Walking Safari in Arusha National Park</h3>
+                </div>
+                <div class="swiper-slide">
+                    <img src="../HomeImage/Arusha City.jpeg" alt="Arusha City Tour">
+                    <h3>Arusha City Tour</h3>
+                </div>
+                <div class="swiper-slide">
+                    <img src="../HomeImage/Canoeing.jpeg" alt="Canoeing in Arusha National Park">
+                    <h3>Canoeing in Arusha National Park</h3>
+                </div>
+                <div class="swiper-slide">
+                    <img src="../HomeImage/Souvenir.jpeg" alt="Tanzanian Souvenir Market">
+                    <h3>Tanzanian Souvenir Market</h3>
+                 </div>
+                <div class="swiper-slide">
+                    <img src="images/mount-longido.jpg" alt="Climb Mount Longido">
+                    <h3>Climb Mount Longido</h3>
+                </div>
+                <div class="swiper-slide">
+                    <img src="../HomeImage/Mountain Biking Tour Arusha.jpeg" alt="Mountain Bike Tour Outside Arusha">
+                    <h3>Mountain Bike Tour Outside Arusha</h3>
+             
+                </div>
+                <div class="swiper-slide">
+                    <img src="images/horseback-riding.jpg" alt="Horseback Riding in Arusha">
+                    <h3>Horseback Riding in Arusha</h3>
+                    </div>
+                <div class="swiper-slide">
+                    <img src="images/meserani-snake-park.jpg" alt="Meserani Snake Park">
+                    <h3>Meserani Snake Park & Maasai Museum</h3>
+                    </div>
+                <div class="swiper-slide">
+                    <img src="images/tanzanite-museum.jpg" alt="Tanzanite Museum in Arusha">
+                    <h3>Tanzanite Museum Arusha</h3>
+                </div>
+                <div class="swiper-slide">
+                    <img src="images/coffee-plantation.jpg" alt="Visit a Coffee Plantation in Arusha">
+                    <h3>Visit a Coffee Plantation in Arusha</h3>
+                </div>
+                <div class="swiper-slide">
+                    <img src="images/mount-meru-waterfalls.jpg" alt="Hike to the Mount Meru Waterfalls">
+                    <h3>Hike to the Mount Meru Waterfalls</h3>
+                </div>
+            </div>
+            <div class="swiper-pagination"></div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+        </div>
+
+        <!-- Static Activity List (for large screens) -->
+<div class="static-activity-list">
+    <div class="activity-item">
+        <div class="details">
+            <p>Walking Safari in Arusha National Park</p>
+            <p>Arusha City Tour</p>
+            <p>Canoeing in Arusha National Park</p>
+            <p>Tanzanian Souvenir Market</p>
+            <p>Climb Mount Longido</p>
+            <p>Mountain Bike Tour Outside Arusha</p>
+            <p>Horseback Riding in Arusha</p>
+            <p>Meserani Snake Park & Maasai Museum</p>
+            <p>Tanzanite Museum Arusha</p>
+            <p>Visit a Coffee Plantation in Arusha</p>
+            <p>Hike to the Mount Meru Waterfalls</p>
+            <p>Bush Dinner in the Serengeti</p>
+            <p>Hot Air Balloon Flight in Serengeti</p>
+        </div>
+    </div>
+    <!-- Add more static activities if needed -->
+</div>
+
+    </section>
+
+
+    <!-- Arusha Activities -->
+
+    <section class="location" id="central-serengeti" data-aos="fade-up">
+        <h2>Arusha</h2>
+        
+        <div class="activity" 
+             data-id="walking-safari-arusha" 
+             data-title="Walking Safari in Arusha National Park" 
+             data-img="../HomeImage/Walking safari.jpeg" 
+             data-description="Experience an unforgettable walking safari lasting 6 to 8 hours through Arusha National Park. Guided by an experienced ranger, get up close with giraffes, buffaloes, zebras, warthogs, and blue monkeys while learning about the park's unique flora and fauna." 
+             tabindex="0" 
+             role="button" 
+             aria-pressed="false">
+            <img src="../HomeImage/Walking safari.jpeg" alt="Walking Safari in Arusha National Park">
+            <div class="details">
+                <h3>Walking Safari in Arusha National Park</h3>
+                <p>Experience an unforgettable walking safari lasting 6 to 8 hours through Arusha National Park. Guided by an experienced ranger, get up close with giraffes, buffaloes, zebras, warthogs, and blue monkeys while learning about the park's unique flora and fauna.</p>
+            </div>
+        </div>
+    
+        <div class="activity" 
+             data-id="arusha-city-tour" 
+             data-title="Arusha City Tour" 
+             data-img="../HomeImage/Arusha City.jpeg" 
+             data-description="Explore the vibrant city of Arusha on a half-day city tour, visiting local markets, schools, and churches while enjoying a drink at a local pub." 
+             tabindex="0" 
+             role="button" 
+             aria-pressed="false">
+            <img src="../HomeImage/Arusha City.jpeg" alt="Arusha City Tour">
+            <div class="details">
+                <h3>Arusha City Tour</h3>
+                <p>Explore the vibrant city of Arusha on a half-day city tour, visiting local markets, schools, and churches while enjoying a drink at a local pub.</p>
+            </div>
+        </div>
+    
+        <div class="activity" 
+             data-id="canoeing-arusha" 
+             data-title="Canoeing in Arusha National Park" 
+             data-img="../HomeImage/Canoeing.jpeg" 
+             data-description="Enjoy a peaceful canoe safari on one of the lakes in Arusha National Park, listening to the birds and spotting wildlife." 
+             tabindex="0" 
+             role="button" 
+             aria-pressed="false">
+            <img src="../HomeImage/Canoeing.jpeg" alt="Canoeing in Arusha National Park">
+            <div class="details">
+                <h3>Canoeing in Arusha National Park</h3>
+                <p>Enjoy a peaceful canoe safari on one of the lakes in Arusha National Park, listening to the birds and spotting wildlife.</p>
+            </div>
+        </div>
+    
+        <div class="activity" 
+             data-id="souvenir-market" 
+             data-title="Tanzanian Souvenir Market" 
+             data-img="../HomeImage/Souvenir.jpeg" 
+             data-description="Visit a vibrant souvenir market filled with traditional paintings, woodwork, clothes made from African fabrics, and multi-colored jewelry." 
+             tabindex="0" 
+             role="button" 
+             aria-pressed="false">
+            <img src="../HomeImage/Souvenir.jpeg" alt="Tanzanian Souvenir Market">
+            <div class="details">
+                <h3>Tanzanian Souvenir Market</h3>
+                <p>Visit a vibrant souvenir market filled with traditional paintings, woodwork, clothes made from African fabrics, and multi-colored jewelry.</p>
+            </div>
+        </div>
+    
+        <div class="activity" 
+             data-id="climb-mount-longido" 
+             data-title="Climb Mount Longido" 
+             data-img="images/climb-mount-longido.jpg" 
+             data-description="Experience a thrilling climb on Mount Longido, located near the border with Kenya, with the option to camp overnight." 
+             tabindex="0" 
+             role="button" 
+             aria-pressed="false">
+            <img src="images/climb-mount-longido.jpg" alt="Climb Mount Longido">
+            <div class="details">
+                <h3>Climb Mount Longido</h3>
+                <p>Experience a thrilling climb on Mount Longido, located near the border with Kenya, with the option to camp overnight.</p>
+            </div>
+        </div>
+    
+        <div class="activity" 
+             data-id="mountain-bike-tour" 
+             data-title="Mountain Bike Tour Outside Arusha" 
+             data-img="../HomeImage/Mountain Biking Tour Arusha.jpeg" 
+             data-description="Discover local life on a mountain bike tour through beautiful paths and flat terrain that are relatively easy." 
+             tabindex="0" 
+             role="button" 
+             aria-pressed="false">
+            <img src="../HomeImage/Mountain Biking Tour Arusha.jpeg" alt="Mountain Bike Tour Outside Arusha">
+            <div class="details">
+                <h3>Mountain Bike Tour Outside Arusha</h3>
+                <p>Discover local life on a mountain bike tour through beautiful paths and flat terrain that are relatively easy.</p>
+            </div>
+        </div>
+    
+        <div class="activity" 
+             data-id="horseback-riding" 
+             data-title="Horseback Riding in Arusha" 
+             data-img="images/horseback-riding.jpg" 
+             data-description="Go off the beaten track with a horseback safari through the untouched nature surrounding Mount Meru." 
+             tabindex="0" 
+             role="button" 
+             aria-pressed="false">
+            <img src="images/horseback-riding.jpg" alt="Horseback Riding in Arusha">
+            <div class="details">
+                <h3>Horseback Riding in Arusha</h3>
+                <p>Go off the beaten track with a horseback safari through the untouched nature surrounding Mount Meru.</p>
+            </div>
+        </div>
+    
+        <div class="activity" 
+             data-id="meserani-snake-park" 
+             data-title="Meserani Snake Park & Maasai Museum" 
+             data-img="images/meserani-snake-park.jpg" 
+             data-description="Visit a snake park showcasing Tanzania's snake species, followed by a tour of the Maasai Museum." 
+             tabindex="0" 
+             role="button" 
+             aria-pressed="false">
+            <img src="images/meserani-snake-park.jpg" alt="Meserani Snake Park">
+            <div class="details">
+                <h3>Meserani Snake Park & Maasai Museum</h3>
+                <p>Visit a snake park showcasing Tanzania's snake species, followed by a tour of the Maasai Museum.</p>
+            </div>
+        </div>
+    
+        <div class="activity" 
+             data-id="tanzanite-museum" 
+             data-title="Tanzanite Museum Arusha" 
+             data-img="images/tanzanite-museum.jpg" 
+             data-description="Explore one of the world's rarest gemstones at the Tanzanite Museum and learn about its history and processing." 
+             tabindex="0" 
+             role="button" 
+             aria-pressed="false">
+            <img src="images/tanzanite-museum.jpg" alt="Tanzanite Museum Arusha">
+            <div class="details">
+                <h3>Tanzanite Museum Arusha</h3>
+                <p>Explore one of the world's rarest gemstones at the Tanzanite Museum and learn about its history and processing.</p>
+            </div>
+        </div>
+    
+        <div class="activity" 
+             data-id="coffee-plantation" 
+             data-title="Visit a Coffee Plantation in Arusha" 
+             data-img="images/coffee-plantation.jpg" 
+             data-description="Discover the coffee culture of the region by visiting one of the many coffee plantations around Moshi and Arusha." 
+             tabindex="0" 
+             role="button" 
+             aria-pressed="false">
+            <img src="images/coffee-plantation.jpg" alt="Visit a Coffee Plantation in Arusha">
+            <div class="details">
+                <h3>Visit a Coffee Plantation in Arusha</h3>
+                <p>Discover the coffee culture of the region by visiting one of the many coffee plantations around Moshi and Arusha.</p>
+            </div>
+        </div>
+    
+        <div class="activity" 
+             data-id="mount-meru-waterfalls" 
+             data-title="Hike to the Mount Meru Waterfalls" 
+             data-img="images/mount-meru-waterfalls.jpg" 
+             data-description="Experience a scenic hike to the breathtaking waterfalls of Mount Meru, the second-highest mountain in Tanzania." 
+             tabindex="0" 
+             role="button" 
+             aria-pressed="false">
+            <img src="images/mount-meru-waterfalls.jpg" alt="Hike to the Mount Meru Waterfalls">
+            <div class="details">
+                <h3>Hike to the Mount Meru Waterfalls</h3>
+                <p>Experience a scenic hike to the breathtaking waterfalls of Mount Meru, the second-highest mountain in Tanzania.</p>
+            </div>
+        </div>
+        
+    </section>
+    
+    <!-- Tarangire -->
+    <section class="featured-carousel" data-aos="fade-up"> 
+        <h2>Featured Activities in Tarangire National Park</h2>
+        <div class="swiper-container">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <img src="images/night-game-drive-tarangire.jpg" alt="Night Game Drive in Tarangire National Park">
+                    <h3>Night Game Drive in Tarangire National Park</h3>
+                </div>
+                <div class="swiper-slide">
+                    <img src="images/walking-safari-tarangire.jpg" alt="Walking Safari in Tarangire National Park">
+                    <h3>Walking Safari in Tarangire National Park</h3>
+                 </div>
+                <div class="swiper-slide">
+                    <img src="images/tarangire-safari.jpg" alt="Game Drive in Tarangire National Park">
+                    <h3>Game Drive in Tarangire National Park</h3>
+                </div>
+                <div class="swiper-slide">
+                    <img src="images/bird-watching-tarangire.jpg" alt="Bird Watching in Tarangire National Park">
+                    <h3>Bird Watching in Tarangire National Park</h3>
+                </div>
+                <div class="swiper-slide">
+                    <img src="images/tarangire-picnic.jpg" alt="Picnic in Tarangire National Park">
+                    <h3>Picnic in Tarangire National Park</h3>
+                </div>
+            </div>
+            <div class="swiper-pagination"></div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+        </div>
+        <!-- Static Activity List (for large screens) -->
+<div class="static-activity-list">
+    <div class="activity-item">
+        <div class="details">
+            <p>Night Game Drive in Tarangire National Park</p>
+            <p>Walking Safari in Tarangire National Park</p>
+            <p>Game Drive in Tarangire National Park</p>
+            <p>Bird Watching in Tarangire National Park</p>
+            <p>Picnic in Tarangire National Park</p>
+        </div>
+    </div>
+    <!-- Add more static activities if needed -->
+</div>
+
+    </section>
+     
+    <!-- Tarangire Activities -->
+    <section class="location" id="tarangire-national-park" data-aos="fade-up">
+        <h2>Tarangire National Park</h2>
+        
+        <div class="activity" 
+             data-id="night-game-drive" 
+             data-title="Night Game Drive in Tarangire National Park" 
+             data-img="images/night-game-drive-tarangire.jpg" 
+             data-description="Embark on an exciting night game drive in Tarangire National Park. Experience the thrill of spotting nocturnal wildlife and enjoy the unique sights and sounds of the African bush under the stars." 
+             tabindex="0" 
+             role="button" 
+             aria-pressed="false">
+            <img src="images/night-game-drive-tarangire.jpg" alt="Night Game Drive in Tarangire National Park">
+            <div class="details">
+                <h3>Night Game Drive in Tarangire National Park</h3>
+                <p>Embark on an exciting night game drive in Tarangire National Park. Experience the thrill of spotting nocturnal wildlife and enjoy the unique sights and sounds of the African bush under the stars.</p>
+            </div>
+        </div>
+    
+        <div class="activity" 
+             data-id="walking-safari-tarangire" 
+             data-title="Walking Safari in Tarangire National Park" 
+             data-img="images/walking-safari-tarangire.jpg" 
+             data-description="Experience a guided walking safari in Tarangire National Park, where you can explore the wilderness up close. Encounter diverse wildlife and learn about the ecosystem from knowledgeable guides." 
+             tabindex="0" 
+             role="button" 
+             aria-pressed="false">
+            <img src="images/walking-safari-tarangire.jpg" alt="Walking Safari in Tarangire National Park">
+            <div class="details">
+                <h3>Walking Safari in Tarangire National Park</h3>
+                <p>Experience a guided walking safari in Tarangire National Park, where you can explore the wilderness up close. Encounter diverse wildlife and learn about the ecosystem from knowledgeable guides.</p>
+            </div>
+        </div>
+    
+        <div class="activity" 
+             data-id="game-drive-tarangire" 
+             data-title="Game Drive in Tarangire National Park" 
+             data-img="images/tarangire-safari.jpg" 
+             data-description="Join a thrilling game drive through Tarangire National Park, famous for its large herds of elephants and spectacular baobab trees. Witness the stunning wildlife and breathtaking landscapes of this unique park." 
+             tabindex="0" 
+             role="button" 
+             aria-pressed="false">
+            <img src="images/tarangire-safari.jpg" alt="Game Drive in Tarangire National Park">
+            <div class="details">
+                <h3>Game Drive in Tarangire National Park</h3>
+                <p>Join a thrilling game drive through Tarangire National Park, famous for its large herds of elephants and spectacular baobab trees. Witness the stunning wildlife and breathtaking landscapes of this unique park.</p>
+            </div>
+        </div>
+    
+        <div class="activity" 
+             data-id="bird-watching-tarangire" 
+             data-title="Bird Watching in Tarangire National Park" 
+             data-img="images/bird-watching-tarangire.jpg" 
+             data-description="Discover over 500 bird species in Tarangire National Park on a bird-watching tour. From colorful lilac-breasted rollers to majestic ostriches, experience the rich avifauna of this stunning park." 
+             tabindex="0" 
+             role="button" 
+             aria-pressed="false">
+            <img src="images/bird-watching-tarangire.jpg" alt="Bird Watching in Tarangire National Park">
+            <div class="details">
+                <h3>Bird Watching in Tarangire National Park</h3>
+                <p>Discover over 500 bird species in Tarangire National Park on a bird-watching tour. From colorful lilac-breasted rollers to majestic ostriches, experience the rich avifauna of this stunning park.</p>
+            </div>
+        </div>
+    
+        <div class="activity" 
+             data-id="picnic-tarangire" 
+             data-title="Picnic in Tarangire National Park" 
+             data-img="images/tarangire-picnic.jpg" 
+             data-description="Enjoy a relaxing picnic surrounded by the beauty of Tarangire National Park. Take in the sights and sounds of nature while savoring delicious local cuisine." 
+             tabindex="0" 
+             role="button" 
+             aria-pressed="false">
+            <img src="images/tarangire-picnic.jpg" alt="Picnic in Tarangire National Park">
+            <div class="details">
+                <h3>Picnic in Tarangire National Park</h3>
+                <p>Enjoy a relaxing picnic surrounded by the beauty of Tarangire National Park. Take in the sights and sounds of nature while savoring delicious local cuisine.</p>
+            </div>
+        </div>
+        
+    </section>
+
+    <!-- Ngorongoro -->
+    <section class="featured-carousel" data-aos="fade-up"> 
+        <h2>Featured Activities in Ngorongoro</h2>
+        <div class="swiper-container">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <img src="images/empakaai-crater-hike.jpg" alt="Empakaai Crater Hike in Ngorongoro">
+                    <h3>Empakaai Crater Hike</h3>
+              
+                </div>
+                <div class="swiper-slide">
+                    <img src="images/ngorongoro-to-lake-natron.jpg" alt="Two-day Hike from Ngorongoro to Lake Natron">
+                    <h3>Two-day Hike from Ngorongoro to Lake Natron</h3>
+                </div>
+                <div class="swiper-slide">
+                    <img src="images/olduvai-gorge.jpg" alt="Visit Olduvai Gorge">
+                    <h3>Visit Olduvai Gorge</h3>
+                </div>
+            </div>
+            <div class="swiper-pagination"></div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+        </div>
+        <!-- Static Activity List (for large screens) -->
+<div class="static-activity-list">
+    <div class="activity-item">
+        <div class="details">
+            <p>Empakaai Crater Hike</p>
+            <p>Two-day Hike from Ngorongoro to Lake Natron</p>
+            <p>Visit Olduvai Gorge</p>
+        </div>
+    </div>
+    <!-- Add more static activities if needed -->
+</div>
+
+    </section>
+
+    <!-- Ngorongoro Activities -->
+    <section class="location" id="ngorongoro" data-aos="fade-up">
+        <h2>Featured Activities in Ngorongoro</h2>
+    
+        <div class="activity" 
+             data-id="empakaai-crater-hike" 
+             data-title="Empakaai Crater Hike" 
+             data-img="images/empakaai-crater-hike.jpg" 
+             data-description="The Empakaai Crater is located about 40 kilometers northeast of the Ngorongoro Crater. This adventurous hike takes about 45 minutes to descend towards the lake at the bottom of the crater, offering stunning views and the chance to spot flamingos in the lake." 
+             tabindex="0" 
+             role="button" 
+             aria-pressed="false">
+            <img src="images/empakaai-crater-hike.jpg" alt="Empakaai Crater Hike in Ngorongoro">
+            <div class="details">
+                <h3>Empakaai Crater Hike</h3>
+                <p>The Empakaai Crater is located about 40 kilometers northeast of the Ngorongoro Crater. This adventurous hike takes about 45 minutes to descend towards the lake at the bottom of the crater, offering stunning views and the chance to spot flamingos in the lake.</p>
+            </div>
+        </div>
+    
+        <div class="activity" 
+             data-id="ngorongoro-lake-natron-hike" 
+             data-title="Two-day Hike from Ngorongoro to Lake Natron" 
+             data-img="images/ngorongoro-to-lake-natron.jpg" 
+             data-description="Embark on a two-day hike from Ngorongoro's Empakaai Crater to the stunning Lake Natron. Guided by local Maasai and a park ranger, you'll pass through remote Maasai villages and spend the night camping in a tent. This trek offers a deep immersion into the beautiful landscapes of northern Tanzania." 
+             tabindex="0" 
+             role="button" 
+             aria-pressed="false">
+            <img src="images/ngorongoro-to-lake-natron.jpg" alt="Two-day Hike from Ngorongoro to Lake Natron">
+            <div class="details">
+                <h3>Two-day Hike from Ngorongoro to Lake Natron</h3>
+                <p>Embark on a two-day hike from Ngorongoro's Empakaai Crater to the stunning Lake Natron. Guided by local Maasai and a park ranger, you'll pass through remote Maasai villages and spend the night camping in a tent. This trek offers a deep immersion into the beautiful landscapes of northern Tanzania.</p>
+            </div>
+        </div>
+    
+        <div class="activity" 
+             data-id="visit-olduvai-gorge" 
+             data-title="Visit Olduvai Gorge" 
+             data-img="images/olduvai-gorge.jpg" 
+             data-description="Olduvai Gorge is a must-visit site for history lovers, where some of the earliest human remains were discovered. Located between Ngorongoro Crater and Serengeti National Park, the 100-meter deep ravine is an important archaeological site and provides fascinating insights into human evolution." 
+             tabindex="0" 
+             role="button" 
+             aria-pressed="false">
+            <img src="images/olduvai-gorge.jpg" alt="Visit Olduvai Gorge">
+            <div class="details">
+                <h3>Visit Olduvai Gorge</h3>
+                <p>Olduvai Gorge is a must-visit site for history lovers, where some of the earliest human remains were discovered. Located between Ngorongoro Crater and Serengeti National Park, the 100-meter deep ravine is an important archaeological site and provides fascinating insights into human evolution.</p>
+            </div>
+        </div>
+    
+    </section>
+    
+    
+
+    <!-- Submit Request Section -->
+    <section class="call-to-action">
+        <h2>Plan Your Ultimate Adventure with Us</h2>
+        <form class="cta-form" action="#" method="post">
+            <input type="text" name="name" placeholder="Your Name" required>
+            <input type="email" name="email" placeholder="Your Email" required>
+            <textarea name="message" placeholder="Tell us more about your adventure expectations"></textarea>
+            <button type="submit" class="trip-button">Book Your Adventure</button>
+        </form>
+    </section>
+    
+    <!-- Modal Structure -->
+    <div id="activity-modal" class="modal" aria-hidden="true" role="dialog" aria-labelledby="modal-title" aria-describedby="modal-description">
+        <div class="modal-content">
+            <button class="close-btn" aria-label="Close Modal">&times;</button>
+            <h3 id="modal-title">Activity Title</h3>
+            <img id="modal-img" src="" alt="Activity Image">
+            <p id="modal-description">Activity Description</p>
+        </div>
+    </div>
+    <script>
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.getElementById('nav-links');
+    
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('show');
+        });
+    </script>
+    
+    <!-- AOS Library JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <!-- Swiper.js JS -->
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="../JS/Activites2.js"></script>
+    <script src="../JS/" defer></script>
+
+<script src="../JS/spinner.js" defer></script>
+    
+</body>
+
+    <!--FOOTER-->
+    <footer>
+        <div class="container-footer">
+            <div class="row">
+                <div class="col company" id="company">
+                    <img src="images/logo.png" alt="" class="logo">
+                    <p>"The world is a book, and those who do not travel read only one page." – Saint Augustine</p>
+                    <div class="social">
+                        <a href="#" class="facebook"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="youtube"><i class="fab fa-youtube"></i></a>
+                        <a href="#" class="twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="linkedin"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+                <div class="col services" id="services">
+                    <h3>Links</h3>
+                    <div class="links">
+                        <a href="us.html">About</a>
+                        <a href="us.html#services">Services</a>
+                        <a href="us.html#policies">Our Policy</a>
+                        <a href="us.html#help">Help</a>
+                    </div>
+                </div>
+                <div class="col useful-links" id="useful-links">
+                    <h3>Links</h3>
+                    <div class="links">
+                        <a href="#">About</a>
+                        <a href="#">Services</a>
+                        <a href="#">Our Policy</a>
+                        <a href="#">Help</a>
+                    </div>
+                </div>
+                <div class="col contact" id="contact">
+                    <h3>Contact</h3>
+                    <div class="contact-details">
+                        <i class="fa fa-location"></i>
+                        <p>FF-42, Procube Avenue, <br> NY, USA</p>
+                    </div>
+                    <div class="contact-details">
+                        <i class="fa fa-phone"></i>
+                        <p>+1-8755856858</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form">
+                    <form action="">
+                        <input type="text" placeholder="Email here...">
+                        <button><i class="fa fa-paper-plane"></i></button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2024 YourCompany | <span class="designer">Designed by Nola Inc</span>
+        </div>
+    </footer>
+</html>

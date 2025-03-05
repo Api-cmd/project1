@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>7 Days safari itenenary</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+   
+    <link rel="stylesheet" href="../../CSS/header.css">
+    
+    <link rel="stylesheet" href="../../CSS/itenenary.css">
+    <link rel="stylesheet" href="../../CSS/CTA.css">
+    <link rel="stylesheet" href="../../CSS/nav.css">
+   
+
+    <link rel="stylesheet" href="../../CSS/footer.css">
+    
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&display=swap" rel="stylesheet">
+
+</head>
+<body>
+
+
+   <!-- Header Section -->
+      
+   
+    
+   <header class="header">
+    <div class="header-container">
+        <div class="logo-container">
+            <a href="/">
+                <img src="/api/placeholder/120/40" alt="Logo" class="logo-img">
+            </a>
+        </div>
+
+        <nav class="desktop-nav">
+            <a href="../../Home/Packages.html"><i class="fas fa-suitcase"></i> Packages</a>
+            <a href="../../Home/Accomodation.html"><i class="fas fa-hotel"></i> Accommodation</a>
+            <a href="../../Home/plan your tour.html"><i class="fas fa-map-marked-alt"></i> Plan Your Tour</a>
+        </nav>
+
+        <div class="actions">
+            <div class="search-container">
+                <button id="search-toggle" class="icon-button">
+                    <i class="fas fa-search"></i>
+                </button>
+                <div id="search-bar" class="search-bar hidden">
+                    <input type="text" id="search-input" placeholder="Search..." oninput="filterSuggestions()">
+                    <button><i class="fas fa-search"></i></button>
+                    <div id="suggestion-box" class="suggestion-box"></div> <!-- Suggestions container -->
+                </div>
+            </div>
+
+           
+        <div class="dropdown">
+            <button class="icon-button" id="language-dropdown-toggle">
+                <img src="https://flagcdn.com/w20/gb.png" alt="English" id="language-flag">
+                <span class="hidden-mobile">Language</span>
+            </button>
+                <div id="language-dropdown" class="dropdown-content hidden">
+                    <a href="#" data-lang="en"><img src="https://flagcdn.com/w20/gb.png" alt="English"> English</a>
+                    <a href="#" data-lang="fr"><img src="https://flagcdn.com/w20/fr.png" alt="Français"> Français</a>
+                    <a href="#" data-lang="es"><img src="https://flagcdn.com/w20/es.png" alt="Español"> Español</a>
+                    <a href="#" data-lang="de"><img src="https://flagcdn.com/w20/de.png" alt="Deutsch"> Deutsch</a>
+                    <a href="#" data-lang="it"><img src="https://flagcdn.com/w20/it.png" alt="Italiano"> Italiano</a>
+                    <a href="#" data-lang="sa"><img src="https://flagcdn.com/w20/sa.png" alt="العربية"> العربية</a>
+                    <a href="#" data-lang="ru"><img src="https://flagcdn.com/w20/ru.png" alt="Русский"> Русский</a>
+                    <a href="#" data-lang="cn"><img src="https://flagcdn.com/w20/cn.png" alt="中文"> 中文</a>
+                    <a href="#" data-lang="jp"><img src="https://flagcdn.com/w20/jp.png" alt="日本語"> 日本語</a>
+                    <a href="#" data-lang="kr"><img src="https://flagcdn.com/w20/kr.png" alt="한국어"> 한국어</a>
+                    <a href="#" data-lang="no"><img src="https://flagcdn.com/w20/no.png" alt="Norsk"> Norsk</a>
+
+                </div>
+            </div>
+
+            <div class="dropdown">
+                <button class="icon-button" id="theme-dropdown-toggle">
+                    <i class="fas fa-palette"></i>
+                    <span class="hidden-mobile">Theme</span>
+                </button>
+                <div id="theme-dropdown" class="dropdown-content hidden">
+                    <a href="#" data-theme="light"><i class="fas fa-sun"></i> Light</a>
+                    
+                    <a href="#" data-theme="soft"><i class="fas fa-leaf"></i> Soft</a>
+                    <a href="#" data-theme="nature"><i class="fas fa-leaf"></i> Nature</a>
+                    <a href="#" data-theme="dark"><i class="fas fa-moon"></i> Dark</a>
+                    
+                    <a href="#" data-theme="contrast"><i class="fas fa-sunset"></i> Contrast</a>
+                </div>
+
+            <button id="mobile-menu-toggle" class="icon-button mobile-only">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </div>
+
+    <div id="mobile-menu" class="mobile-menu hidden">
+        <a href="../../Home/Packages.html"><i class="fas fa-suitcase"></i> Packages</a>
+        <a href="../../Home/Accomodation.html"><i class="fas fa-hotel"></i> Accommodation</a>
+        <a href="../../Home/plan-your-tour.html"><i class="fas fa-map-marked-alt"></i> Plan Your Tour</a>
+    </div>
+</header> 
+    
+   
+    
+    
+    <!-- Hero Section -->
+    <header class="hero">
+        <video autoplay muted loop playsinline class="bg-video">
+            <source src="../../HomeImage/Videos/monkey.mp4" type="video/mp4">
+        </video>
+        <div class="overlay">
+            <div class="hero-content">
+                <h1>Experience Tanzania's Wilderness</h1>
+                <p>4 Days of Unforgettable Safari Adventures</p>
+            </div>
+        </div>
+    </header>
+     <!-- Navbar -->
+     <nav class="navbar">
+        <div class="nav-container">
+            <a href="#" class="logoB">
+                <span class="logo-text">HYVERTOURS</span>
+                <span class="logo-arrow">&#8594;</span> <!-- Right arrow symbol -->
+            </a>
+            <button class="menu-toggle" aria-label="Toggle Menu"><i class="fas fa-bars"></i></button>
+            <div class="nav-links">
+                <a href="7-days-general.html">Overview</a>
+                <a href="7-days-itenenary.html" class="active">Itinerary</a>
+
+                <a href="#.html">Pricing</a>
+                <a href="7-days-act.html">Activities</a>
+                <a href="../request-form/request-form-7 Days .html" class="request-btn">Request This Trip</a>
+            </div>
+        </div>
+    </nav>
+
+
+<section class="itinerary-container">
+    <div class="timeline" id="timeline">
+        <div class="day" onclick="showDetails(1)">
+            <i class="fas fa-plane-arrival"></i>
+            <h2>Day 1</h2>
+            <p>Arrival & Check-in</p>
+        </div>
+        <div class="day" onclick="showDetails(2)">
+            <i class="fas fa-water"></i>
+            <h2>Day 2</h2>
+            <p>Lake Manyara National Park</p>
+        </div>
+        <div class="day" onclick="showDetails(3)">
+            <i class="fas fa-mountain"></i>
+            <h2>Day 3</h2>
+            <p>Serengeti National Park</p>
+        </div>
+        <div class="day" onclick="showDetails(4)">
+            <i class="fas fa-mountain"></i>
+            <h2>Day 4</h2>
+            <p>Serengeti National Park</p>
+        </div>
+        <div class="day" onclick="showDetails(5)">
+            <i class="fas fa-leaf"></i>
+            <h2>Day 5</h2>
+            <p>Ngorongoro Crater</p>
+        </div>
+        <div class="day" onclick="showDetails(6)">
+            <i class="fas fa-plane-departure"></i>
+            <h2>Days 6 - 7</h2>
+            <p>Return Flight</p>
+        </div>
+    </div>
+
+    <div class="details-container" id="details-container">
+        <div id="day-1" class="day-details active">
+            <h3>Day 1: Arrival at Kilimanjaro International Airport</h3>
+            <p>As you walk out of Kilimanjaro International Airport, your personal Tanzania Specialist guide greets you with a warm welcome: "Karibu Tanzania - welcome to Tanzania!" The guide takes you to your hotel to relax and enjoy the African atmosphere.</p>
+            <img src="../../HomeImage/itinenary/landing.jpg" alt="Arrival at Kilimanjaro Airport" class="detail-img">
+            <div class="nav-buttons">
+                <span class="next-btn" onclick="nextDay()"><i class="fas fa-chevron-right"></i><i class="fas fa-chevron-right"></i></span>
+            </div>
+        </div>
+        <div id="day-2" class="day-details">
+            <h3>Day 2: Lake Manyara National Park</h3>
+            <p>Explore the diverse landscapes of Lake Manyara National Park, famous for its tree-climbing lions, flocks of flamingos, and lush forests. It's a perfect start to your Tanzanian adventure.</p>
+            <img src="../../HomeImage/itinenary/L-manyara.jpeg" alt="Lake Manyara National Park" class="detail-img">
+           
+            <!-- Navigation Buttons -->
+            <div class="nav-buttons">
+                <span class="prev-btn" onclick="prevDay()"><i class="fas fa-chevron-left"></i><i class="fas fa-chevron-left"></i></span>
+                <span class="next-btn" onclick="nextDay()"><i class="fas fa-chevron-right"></i><i class="fas fa-chevron-right"></i></span>
+            </div>
+        </div>
+        <div id="day-3" class="day-details">
+            <h3>Day 3: Serengeti National Park (Central West/East)</h3>
+            <p>Serengeti National Park is renowned for its abundant wildlife and the Great Migration. This day is filled with thrilling game drives where you may spot lions, elephants, and countless other species in their natural habitat.</p>
+            <img src="../../HomeImage/itinenary/S-migration.jpeg" alt="Serengeti National Park" class="detail-img">
+           
+            <!-- Navigation Buttons -->
+            <div class="nav-buttons">
+                <span class="prev-btn" onclick="prevDay()"><i class="fas fa-chevron-left"></i><i class="fas fa-chevron-left"></i></span>
+                <span class="next-btn" onclick="nextDay()"><i class="fas fa-chevron-right"></i><i class="fas fa-chevron-right"></i></span>
+            </div>
+        </div>
+        <div id="day-4" class="day-details">
+            <h3>Day 4: Serengeti National Park (Central West/East)</h3>
+            <p>Continue exploring Serengeti’s expansive plains, tracking wildlife and enjoying the serene landscapes. Another exciting day to witness the park's diverse ecosystems and rich fauna.</p>
+            <img src="../../HomeImage/itinenary/S-ballon.jpg" alt="Serengeti National Park" class="detail-img">
+            
+             <!-- Navigation Buttons -->
+            <div class="nav-buttons">
+                <span class="prev-btn" onclick="prevDay()"><i class="fas fa-chevron-left"></i><i class="fas fa-chevron-left"></i></span>
+                <span class="next-btn" onclick="nextDay()"><i class="fas fa-chevron-right"></i><i class="fas fa-chevron-right"></i></span>
+            </div>
+        </div>
+        <div id="day-5" class="day-details">
+            <h3>Day 5: Ngorongoro Conservation Area (including Crater)</h3>
+            <p>Explore the Ngorongoro Crater, home to a rich variety of wildlife within its walls, including lions, zebras, buffalos, and rare black rhinos. This natural wonder is a highlight of any Tanzanian safari.</p>
+            <img src="../../HomeImage/itinenary/N-crater1.jpeg" alt="Ngorongoro Crater" class="detail-img">
+            
+             <!-- Navigation Buttons -->
+            <div class="nav-buttons">
+                <span class="prev-btn" onclick="prevDay()"><i class="fas fa-chevron-left"></i><i class="fas fa-chevron-left"></i></span>
+                <span class="next-btn" onclick="nextDay()"><i class="fas fa-chevron-right"></i><i class="fas fa-chevron-right"></i></span>
+            </div>
+        </div>
+        <div id="day-6" class="day-details">
+            <h3>Days 6 - 7: Return Flight from Kilimanjaro International Airport</h3>
+            <p>After an unforgettable safari, relax and reflect on your journey before heading back to Kilimanjaro International Airport (JRO) for your flight home.</p>
+            <img src="../../HomeImage/itinenary/depature-2.jpeg" alt="Departure from Kilimanjaro Airport" class="detail-img">
+           
+            <!-- Navigation Buttons -->
+            <div class="nav-buttons">
+                <span class="prev-btn" onclick="prevDay()"><i class="fas fa-chevron-left"></i><i class="fas fa-chevron-left"></i></span>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- Call to Action Section -->
+ 
+<section class="call-to-action" id="bookingSection">
+    <div class="cta-container">
+        <h2 class="cta-title">Begin Your Safari Adventure</h2>
+        <p class="cta-subtitle">Let us help you create memories that will last a lifetime</p>
+        
+        <form class="cta-form" id="bookingForm2" action="save_Packages.php" method="post">
+            <div class="form-group">
+                <label for="name" class="visually-hidden">Your Name</label>
+                <input type="text" id="name" name="name" placeholder="Your Name" required>
+                <div class="form-indicator"></div>
+            </div>
+
+            <div class="form-group">
+                <label for="email" class="visually-hidden">Your Email</label>
+                <input type="email" id="email" name="email" placeholder="Your Email" required>
+                <div class="form-indicator"></div>
+            </div>
+
+            <div class="form-group">
+                <label for="expectations" class="visually-hidden">Adventure Expectations</label>
+                <textarea id="expectations" name="Adventure_Expectations" 
+                    placeholder="Tell us about your dream safari experience..."
+                    rows="4"></textarea>
+                <div class="form-indicator"></div>
+            </div>
+
+            <button type="submit" class="submit-button">
+                <span class="button-text">Begin Your Journey</span>
+                <span class="button-icon">→</span>
+            </button>
+        </form>
+    </div>
+</section>
+
+<!-- Appreciation Section -->
+<section class="appreciation-section" id="appreciationSection" aria-hidden="true">
+    <div class="appreciation-container">
+        <div class="success-icon">✓</div>
+        <h2 class="appreciation-title">Adventure Awaits!</h2>
+        <p class="appreciation-message">Thank you for choosing to explore with us. Our safari experts will be in touch within 24 hours to start planning your perfect adventure.</p>
+        <button class="return-button" onclick="resetBooking(event)">
+            <span class="button-icon">←</span>
+            <span class="button-text">Plan Another Adventure</span>
+        </button>
+    </div>
+</section>
+
+<script src="../../JS/header.js" defer></script>
+<script src="../../JS/itenenary.js" defer></script>
+<script src="../../JS/spinner.js" defer></script>
+<script src="../../JS/view-more.js" defer></script>
+<script src="../../JS/CTA.js" defer></script>
+<script src="../../JS/nav.js" defer></script>
+</body>
+
+    <!--FOOTER-->
+    <footer class="site-footer">
+        <div class="footer-background"></div>
+        <div class="container-footer">
+            <div class="row">
+                <div class="col company" id="company">
+                    <img src="images/logo.png" alt="Company Logo" class="logo">
+                    <p>"The world is a book, and those who do not travel read only one page." – Saint Augustine</p>
+                    <div class="social">
+                        <a href="#" class="facebook"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="youtube"><i class="fab fa-youtube"></i></a>
+                        <a href="#" class="twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="linkedin"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+                <div class="col services" id="services">
+                    <h3>Service</h3>
+                    <div class="links">
+                        <a href="us.html">About</a>
+                        <a href="us.html#services">Services</a>
+                        <a href="us.html#policies">Our Policy</a>
+                        <a href="us.html#help">Help</a>
+                    </div>
+                </div>
+                <div class="col useful-links" id="useful-links">
+                    <h3>Useful Links</h3>
+                    <div class="links">
+                        <a href="#">Home</a>
+                        <a href="#">Destinations</a>
+                        <a href="#">Blog</a>
+                        <a href="#">Contact</a>
+                    </div>
+                </div>
+                <div class="col contact" id="contact">
+                    <h3>Contact</h3>
+                    <div class="contact-details">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <p>123 Arusha, <br>Arusha City,</p>
+                    </div>
+                    <div class="contact-details">
+                        <i class="fas fa-phone-alt"></i>
+                        <p>+255 7________</p>
+                    </div>
+                    <div class="contact-details">
+                        <i class="fas fa-envelope"></i>
+                        <p>info@company.com</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row partners">
+                <h3>Our Partners</h3>
+                <div class="partner-logos">
+                    <a href="#"><img src="images/partner1.png" alt="Partner 1"></a>
+                    <a href="#"><img src="images/partner2.png" alt="Partner 2"></a>
+                    <a href="#"><img src="images/partner3.png" alt="Partner 3"></a>
+                    <a href="#"><img src="images/partner4.png" alt="Partner 4"></a>
+                    <a href="#"><img src="images/partner5.png" alt="Partner 5"></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 YourCompany | <span class="designer">Designed by Nola Inc</span></p>
+        </div>
+    </footer>
+    
+
+</html>

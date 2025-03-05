@@ -1,0 +1,826 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tanzania Safari Booking</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.min.css" />
+  
+  <style>
+    :root {
+      --color-earth: #8B4513;
+      --color-savanna: #DAA520;
+      --color-sunset: #FF7F50;
+      --color-acacia: #556B2F;
+      --color-sky: #4682B4;
+      --color-sand: #F4A460;
+      --color-ivory: #FFFFF0;
+      --gradient-safari: linear-gradient(135deg, var(--color-earth), var(--color-savanna));
+      --border-radius: clamp(8px, 2vw, 16px);
+      --spacing-unit: clamp(0.5rem, 1.5vw, 1.5rem);
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--color-ivory);
+      margin: 0;
+      padding: clamp(1rem, 3vw, 3rem);
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: 
+        radial-gradient(circle at 20% 20%, rgba(139, 69, 19, 0.05) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(218, 165, 32, 0.05) 0%, transparent 50%);
+      z-index: -1;
+    }
+
+    form {
+      background: white;
+      padding: clamp(1.5rem, 4vw, 3rem);
+      border-radius: var(--border-radius);
+      width: 100%;
+      max-width: clamp(300px, 90vw, 600px);
+      position: relative;
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+    }
+
+    form::before,
+    form::after {
+      content: '';
+      position: absolute;
+      width: clamp(30px, 5vw, 50px);
+      height: clamp(30px, 5vw, 50px);
+      border: 3px solid var(--color-savanna);
+    }
+
+    form::before {
+      top: var(--spacing-unit);
+      left: var(--spacing-unit);
+      border-right: 0;
+      border-bottom: 0;
+    }
+
+    form::after {
+      bottom: var(--spacing-unit);
+      right: var(--spacing-unit);
+      border-left: 0;
+      border-top: 0;
+    }
+
+    h2 {
+      font-size: clamp(1.8rem, 4vw, 2.5rem);
+      color: var(--color-earth);
+      text-align: center;
+      margin-bottom: clamp(1.5rem, 4vw, 2.5rem);
+      position: relative;
+    }
+
+    h2::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: clamp(100px, 30%, 150px);
+      height: 3px;
+      background: var(--gradient-safari);
+      border-radius: 2px;
+    }
+
+    .form-group {
+      margin-bottom: clamp(1rem, 3vw, 2rem);
+      position: relative;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 0.5rem;
+      color: var(--color-earth);
+      font-weight: 600;
+      font-size: clamp(0.875rem, 2vw, 1rem);
+    }
+
+    input, select {
+      width: 100%;
+      padding: clamp(0.5rem, 2vw, 1rem);
+      border: 2px solid var(--color-sand);
+      border-radius: calc(var(--border-radius) * 0.75);
+      font-size: clamp(0.875rem, 2vw, 1rem);
+      transition: all 0.3s ease;
+      background: white;
+    }
+
+    input:focus, select:focus {
+      border-color: var(--color-savanna);
+      box-shadow: 0 0 0 3px rgba(218, 165, 32, 0.1);
+      outline: none;
+    }
+
+    .accommodation-options {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: clamp(0.5rem, 2vw, 1rem);
+    }
+
+    .accommodation-card {
+      padding: clamp(0.75rem, 2vw, 1.25rem);
+      border: 2px solid var(--color-sand);
+      border-radius: calc(var(--border-radius) * 0.75);
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .accommodation-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: var(--gradient-safari);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      z-index: 0;
+    }
+
+    .accommodation-card:hover::before {
+      opacity: 0.1;
+    }
+
+    .accommodation-card.selected {
+      border-color: var(--color-savanna);
+      background: rgba(218, 165, 32, 0.1);
+    }
+
+    .accommodation-card i {
+      font-size: clamp(1.2rem, 3vw, 1.5rem);
+      color: var(--color-earth);
+      margin-bottom: 0.5rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .accommodation-card div {
+      font-size: clamp(0.875rem, 2vw, 1rem);
+      position: relative;
+      z-index: 1;
+    }
+
+    button {
+      width: 100%;
+      padding: clamp(0.75rem, 2vw, 1.25rem);
+      background: var(--gradient-safari);
+      color: white;
+      border: none;
+      border-radius: var(--border-radius);
+      font-size: clamp(1rem, 2.5vw, 1.2rem);
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    button::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.2),
+        transparent
+      );
+      transition: 0.5s;
+    }
+
+    button:hover::after {
+      left: 100%;
+    }
+
+    .communication-options {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+      gap: clamp(0.5rem, 2vw, 1rem);
+    }
+
+    .checkbox-wrapper input[type="checkbox"] {
+      display: none;
+    }
+
+    .checkbox-wrapper input[type="checkbox"] + label {
+      position: relative;
+      padding-left: 2.5rem;
+      cursor: pointer;
+    }
+
+    .checkbox-wrapper input[type="checkbox"] + label::before {
+      content: '';
+      position: absolute;
+      left: 0.75rem;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 20px;
+      height: 20px;
+      border: 2px solid var(--color-sand);
+      border-radius: 4px;
+      background: white;
+    }
+
+    .checkbox-wrapper input[type="checkbox"]:checked + label::before {
+      content: '✔';
+      background: var(--color-savanna);
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+    }
+
+    .option-card {
+      padding: clamp(0.75rem, 2vw, 1.25rem);
+      border: 2px solid var(--color-sand);
+      border-radius: calc(var(--border-radius) * 0.75);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .option-card.selected {
+      border-color: var(--color-savanna);
+      background: rgba(218, 165, 32, 0.1);
+    }
+
+    .accommodation-card input[type="radio"] {
+      display: none;
+    }
+
+    .close-button {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      width: 30px;
+      height: 30px;
+      border: none;
+      background: none;
+      cursor: pointer;
+      padding: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--color-earth);
+      font-size: 1.5rem;
+      transition: transform 0.3s ease;
+      z-index: 1;
+    }
+
+    .close-button:hover {
+      transform: rotate(90deg);
+    }
+
+    input[type="date"]::-webkit-datetime-edit-year-field {
+      max-width: 4ch;
+    }
+
+    @media (max-width: 480px) {
+      .accommodation-options {
+        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+      }
+
+      form::before,
+      form::after {
+        display: none;
+      }
+    }
+
+    .phone-input-container {
+      display: none;
+      margin-top: 1rem;
+    }
+
+    .iti {
+      width: 100%;
+    }
+
+    /* Receipt and Thank You sections styling */
+.receipt, .thank-you {
+    display: none;
+    background: white;
+    padding: 2rem;
+    border-radius: var(--border-radius);
+    margin-top: 2rem;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+}
+
+.receipt h3, .thank-you h3 {
+    color: var(--color-earth);
+    margin-bottom: 1.5rem;
+}
+
+.receipt p {
+    font-family: 'Courier New', Courier, monospace;
+    margin-bottom: 0.75rem;
+    line-height: 1.5;
+}
+
+.receipt a, .go-back-link {
+    color: var(--color-earth);
+    text-decoration: none;
+    margin-right: 1rem;
+}
+
+#confirm-btn {
+    margin-top: 1rem;
+}
+
+/* Accommodation selection indicator */
+.accommodation-card.selected {
+    border-color: var(--color-savanna);
+    background: rgba(218, 165, 32, 0.1);
+    position: relative;
+}
+
+.accommodation-card.selected::after {
+    content: '✓';
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+    color: var(--color-savanna);
+    font-size: 1.2rem;
+}
+/* CSS for the Underlined Button */
+.download-receipt-btn {
+    background: none;
+    border: none;
+    color: #007bff;
+    text-decoration: underline;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.download-receipt-btn:hover {
+    color: #0056b3;
+}
+
+  </style>
+</head>
+<body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+
+    <form id="booking-form" action="save_bookings.php" method="POST" style="background-image: url('../HomeImage/'); background-size: cover; background-position: center;">
+
+      <button type="button" class="close-button" aria-label="Close form" onclick="goBack()">×</button>
+
+      <script>
+          function goBack() {
+              window.history.back();
+          }
+      </script>
+      
+    <h2>Safari Booking</h2>
+
+    <div class="form-group">
+      <label for="name">Full Name</label>
+      <input type="text" id="name" name="name" required placeholder="Your name">
+    </div>
+
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" required placeholder="your@email.com">
+    </div>
+
+    <div class="form-group">
+      <label>Preferred Communication</label>
+      <div class="communication-options">
+        <div class="checkbox-wrapper">
+          <input type="checkbox" id="email-comm" name="communication[]" value="email" checked>
+          <label class="option-card" for="email-comm">
+            <i class="fas fa-envelope"></i>
+            Email
+          </label>
+        </div>
+        <div class="checkbox-wrapper">
+          <input type="checkbox" id="whatsapp-comm" name="communication[]" value="whatsapp">
+          <label class="option-card" for="whatsapp-comm">
+            <i class="fab fa-whatsapp"></i>
+            WhatsApp
+          </label>
+        </div>
+      </div>
+      <div class="phone-input-container" id="phone-container">
+        <label for="phone">WhatsApp Number</label>
+        <input type="tel" id="phone" name="phone">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="tour-package">Safari Package</label>
+      <select id="tour-package" name="tour-package" required>
+        <option value="">Select a Package</option>
+        <option value="tanzania-safari-extension">4-Day Tanzania Safari Extension – Northern Parks</option>
+        <option value="7-days-safari-tanzania">7 Days Safari Tanzania</option>
+        <option value="8-days-tanzania-holiday">8 Days Tanzania Holiday</option>
+        <option value="kilimanjaro-marangu-route">8-Day Kilimanjaro Climb – Marangu Route (5-Day)</option>
+        <option value="kilimanjaro-machame-route">9-Day Kilimanjaro Climb – Machame Route (6-Day)</option>
+        <option value="kilimanjaro-lemosho-shira-route">9-Day Kilimanjaro Climb – Lemosho-Shira Route (6-Day)</option>
+        <option value="safari-vacation-wildebeest-migration">9 Days Safari Vacation [Includes Wildebeest Migration]</option>
+        <option value="9-days-safari">9 Days Safari</option>
+        <option value="kilimanjaro-machame-route-7-day">10-Day Kilimanjaro Climb – Machame Route (7-Day)</option>
+        <option value="northern-parks-safari">10 Days Tanzania Safari [All Northern Parks in 1 Trip! Suitable for the Wildebeest Migration]</option>
+        <option value="safari-beach">12 Days Safari & Beach</option>
+        <option value="safari-zanzibar-holiday">13 Days Safari + Zanzibar Holiday</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="travelers">Number of Travelers</label>
+      <input type="number" id="travelers" name="travelers" min="1" required placeholder="Number of travelers">
+    </div>
+
+    <div class="form-group">
+        <label for="accommodation">Accommodation:</label>
+      <div class="accommodation-options">
+        <label class="accommodation-card">
+          <input type="radio" name="accommodation" value="silver">
+          <i class="fas fa-bed"></i>
+          <div>Silver</div>
+        </label>
+        <label class="accommodation-card">
+          <input type="radio" name="accommodation" value="gold">
+          <i class="fas fa-crown"></i>
+          <div>Gold</div>
+        </label>
+        <label class="accommodation-card">
+          <input type="radio" name="accommodation" value="platinum">
+          <i class="fas fa-gem"></i>
+          <div>Platinum</div>
+        </label>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="travel-date">Travel Date</label>
+      <input type="date" id="travel-date" name="travel-date" required>
+    </div>
+
+    <button type="submit">Book Your Safari</button>
+  </form>
+
+  <!-- Receipt Section -->
+  <div class="receipt" id="receipt" style="display: none;">
+    <h3>Booking Confirmation</h3>
+    <p><strong>Name:</strong> <span id="receipt-name"></span></p>
+    <p><strong>Email:</strong> <span id="receipt-email"></span></p>
+    <p><strong>Phone:</strong> <span id="receipt-phone"></span></p>
+    <p><strong>Preferred Communication:</strong> <span id="receipt-communication"></span></p>
+    <p><strong>Tour Package:</strong> <span id="receipt-package"></span></p>
+    <p><strong>Number of Travelers:</strong> <span id="receipt-travelers"></span></p>
+    <p><strong>Accommodation Type:</strong> <span id="receipt-accommodation"></span></p>
+    <p><strong>Travel Date:</strong> <span id="receipt-date"></span></p>
+    
+    <!-- Updated Download Receipt Button with Underline -->
+<button id="download-receipt" class="download-receipt-btn">Download Receipt</button>
+
+    <a href="javascript:void(0);" id="edit-link" onclick="editForm()">Edit</a>
+    <button id="confirm-btn">Submit</button>
+</div>
+
+
+
+<div class="thank-you" id="thank-you" style="display: none;">
+    <h3>Thank You, <span id="thank-you-name"></span>!</h3>
+    <p>Your booking has been confirmed.</p>
+    <a href="Home.html" class="go-back-link" id="go-back-form-link">Go Back</a>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+<script>document.addEventListener('DOMContentLoaded', function () {
+  // Initialize phone input
+  const phoneInput = document.querySelector("#phone");
+  const iti = window.intlTelInput(phoneInput, {
+      preferredCountries: ["tz", "us"],
+      separateDialCode: true,
+      utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js",
+  });
+
+  // Handle WhatsApp checkbox
+  const whatsappCheckbox = document.querySelector('input[value="whatsapp"]');
+  const phoneContainer = document.getElementById('phone-container');
+  whatsappCheckbox.addEventListener('change', function () {
+      phoneContainer.style.display = this.checked ? 'block' : 'none';
+      phoneInput.required = this.checked;
+  });
+
+  // Style selected cards
+  document.querySelectorAll('.option-card, .accommodation-card').forEach(card => {
+      card.addEventListener('click', () => {
+          const group = card.closest('.accommodation-options, .communication-options');
+          if (group) {
+              group.querySelectorAll('.selected').forEach(selectedCard => {
+                  selectedCard.classList.remove('selected');
+              });
+          }
+          card.classList.add('selected');
+          const input = card.querySelector('input');
+          if (input) input.checked = true;
+      });
+  });
+
+  // Close button functionality
+  const closeButton = document.querySelector('.close-button');
+  if (closeButton) {
+      closeButton.addEventListener('click', () => {
+          document.getElementById('booking-form').style.display = 'none';
+      });
+  }
+
+  // Handle form submission
+  const bookingForm = document.getElementById('booking-form');
+  const receiptSection = document.getElementById('receipt');
+  const thankYouSection = document.getElementById('thank-you');
+
+  bookingForm.addEventListener('submit', function (event) {
+      event.preventDefault(); // Prevent the default form submission
+
+      // Retrieve form data
+      const name = document.getElementById('name').value;
+      const email = document.getElementById('email').value;
+      const phone = document.getElementById('phone').value;
+      const communicationOptions = Array.from(document.querySelectorAll('input[name="communication[]"]:checked'))
+          .map(option => option.value).join(', ');
+      const tourPackage = document.getElementById('tour-package').value;
+      const travelers = document.getElementById('travelers').value;
+      const accommodation = document.querySelector('input[name="accommodation"]:checked')?.value || '';
+      const travelDate = document.getElementById('travel-date').value;
+
+      // Populate the receipt section
+      document.getElementById('receipt-name').textContent = name;
+      document.getElementById('receipt-email').textContent = email;
+      document.getElementById('receipt-phone').textContent = phone;
+      document.getElementById('receipt-communication').textContent = communicationOptions;
+      document.getElementById('receipt-package').textContent = tourPackage;
+      document.getElementById('receipt-travelers').textContent = travelers;
+      document.getElementById('receipt-accommodation').textContent = accommodation;
+      document.getElementById('receipt-date').textContent = travelDate;
+
+      // Save form data in localStorage
+      const formData = {
+          name, email, phone, communication: communicationOptions,
+          'tour-package': tourPackage, travelers, accommodation,
+          'travel-date': travelDate
+      };
+      localStorage.setItem('formData', JSON.stringify(formData));
+
+      // Show the receipt and hide the form
+      receiptSection.style.display = 'block';
+      bookingForm.style.display = 'none';
+  });
+
+  // Handle Confirm Button
+  document.getElementById('confirm-btn').addEventListener('click', function () {
+      // Hide the receipt and show the thank-you message
+      receiptSection.style.display = 'none';
+      thankYouSection.style.display = 'block';
+
+      // Set the thank-you message
+      const name = document.getElementById('receipt-name').textContent;
+      document.getElementById('thank-you-name').textContent = name;
+
+      // Send the form data to the server using AJAX
+      const savedData = JSON.parse(localStorage.getItem('formData'));
+      if (savedData) {
+          const xhr = new XMLHttpRequest();
+          xhr.open('POST', 'save_bookings.php', true);
+          xhr.setRequestHeader('Content-Type', 'application/json'); // Send as JSON
+          xhr.onload = function () {
+              if (xhr.status === 200) {
+                  console.log("Booking saved successfully.");
+              } else {
+                  alert("There was an error saving your booking.");
+              }
+          };
+          xhr.send(JSON.stringify(savedData));
+      }
+  });
+
+  // Edit form function
+  document.getElementById('edit-link').addEventListener('click', function () {
+      receiptSection.style.display = 'none';
+      bookingForm.style.display = 'block';
+      document.getElementById('thank-you').style.display = 'none';
+
+      // Restore form data from localStorage
+      const savedData = JSON.parse(localStorage.getItem('formData'));
+      if (savedData) {
+          document.getElementById('name').value = savedData.name || '';
+          document.getElementById('email').value = savedData.email || '';
+          document.getElementById('phone').value = savedData.phone || '';
+          document.getElementById('tour-package').value = savedData['tour-package'] || '';
+          document.getElementById('travelers').value = savedData.travelers || '';
+          document.getElementById('travel-date').value = savedData['travel-date'] || '';
+
+          const communicationMethods = savedData.communication ? savedData.communication.split(', ') : [];
+          communicationMethods.forEach(method => {
+              const checkbox = document.querySelector(`input[name="communication[]"][value="${method}"]`);
+              if (checkbox) checkbox.checked = true;
+          });
+
+          const accommodationRadio = document.querySelector(`input[name="accommodation"][value="${savedData.accommodation}"]`);
+          if (accommodationRadio) accommodationRadio.checked = true;
+      }
+  });
+
+  // Handle Download Receipt Button
+const downloadReceiptBtn = document.getElementById('download-receipt');
+downloadReceiptBtn.addEventListener('click', function () {
+    const { jsPDF } = window.jspdf;
+    const doc = new jsPDF({
+        orientation: 'portrait',
+        unit: 'mm',
+        format: 'a4'
+    });
+
+    // Retrieve form data
+    const name = document.getElementById('receipt-name').textContent;
+    const email = document.getElementById('receipt-email').textContent;
+    const phone = document.getElementById('receipt-phone').textContent;
+    const communication = document.getElementById('receipt-communication').textContent;
+    const package = document.getElementById('receipt-package').textContent;
+    const travelers = document.getElementById('receipt-travelers').textContent;
+    const accommodation = document.getElementById('receipt-accommodation').textContent;
+    const date = document.getElementById('receipt-date').textContent;
+
+    // Document metadata
+    doc.setProperties({
+        title: 'Safari Booking Confirmation',
+        subject: 'Travel Booking Receipt',
+        author: 'Safari Tours',
+        keywords: 'safari, booking, receipt',
+        creator: 'Safari Booking System'
+    });
+
+    // Modern theme colors
+    const colors = {
+        primary: [46, 124, 95],    // Deep Teal
+        secondary: [255, 242, 219], // Warm Cream
+        accent: [214, 158, 46],    // Golden
+        text: [51, 51, 51],        // Dark Gray
+        lightText: [119, 119, 119]  // Light Gray
+    };
+
+    // Background styling
+    doc.setFillColor(...colors.secondary);
+    doc.rect(0, 0, 210, 297, 'F');
+
+    // Header banner
+    doc.setFillColor(...colors.primary);
+    doc.rect(0, 0, 210, 50, 'F');
+
+    // Add logo (replace with your logo path)
+    try {
+        doc.addImage('logo.png', 'PNG', 15, 10, 30, 30);
+    } catch (e) {
+        // Fallback: Create a placeholder for logo
+        doc.setFillColor(255, 255, 255);
+        doc.roundedRect(15, 10, 30, 30, 3, 3, 'F');
+        doc.setTextColor(...colors.primary);
+        doc.setFontSize(12);
+        doc.text('LOGO', 22, 28);
+    }
+
+    // Title section
+    doc.setTextColor(255, 255, 255);
+    doc.setFont('helvetica', 'bold');
+    doc.setFontSize(24);
+    doc.text('Safari Booking', 55, 25);
+    doc.setFontSize(14);
+    doc.text('Confirmation', 55, 35);
+
+    // Booking reference with accent color
+    const bookingRef = 'REF: ' + Math.random().toString(36).substr(2, 9).toUpperCase();
+    doc.setTextColor(...colors.accent);
+    doc.setFontSize(12);
+    doc.text(bookingRef, 150, 25);
+
+    // Content wrapper
+    doc.setFillColor(255, 255, 255);
+    doc.roundedRect(15, 60, 180, 190, 3, 3, 'F');
+
+    // Main content settings
+    const startX = 25;
+    const startY = 75;
+    const lineHeight = 8;
+    doc.setTextColor(...colors.text);
+    doc.setFontSize(10);
+
+    // Customer Information Section
+    doc.setFont('helvetica', 'bold');
+    doc.setFillColor(...colors.primary);
+    doc.setTextColor(...colors.primary);
+    doc.text('CUSTOMER INFORMATION', startX, startY);
+    
+    // Subtle separator
+    doc.setDrawColor(...colors.primary);
+    doc.setLineWidth(0.1);
+    doc.line(startX, startY + 2, 185, startY + 2);
+
+    const customerInfo = [
+        ['Name', name],
+        ['Email', email],
+        ['Phone', phone],
+        ['Preferred Communication', communication]
+    ];
+
+    customerInfo.forEach((item, index) => {
+        const y = startY + 12 + (index * lineHeight);
+        doc.setFont('helvetica', 'bold');
+        doc.setTextColor(...colors.lightText);
+        doc.text(item[0], startX, y);
+        doc.setFont('helvetica', 'normal');
+        doc.setTextColor(...colors.text);
+        doc.text(item[1], startX + 60, y);
+    });
+
+    // Booking Details Section
+    const bookingStartY = startY + 45;
+    doc.setFont('helvetica', 'bold');
+    doc.setTextColor(...colors.primary);
+    doc.text('BOOKING DETAILS', startX, bookingStartY);
+    doc.line(startX, bookingStartY + 2, 185, bookingStartY + 2);
+
+    const bookingInfo = [
+        ['Package', package],
+        ['Travelers', travelers],
+        ['Accommodation', accommodation],
+        ['Travel Date', date]
+    ];
+
+    bookingInfo.forEach((item, index) => {
+        const y = bookingStartY + 12 + (index * lineHeight);
+        doc.setFont('helvetica', 'bold');
+        doc.setTextColor(...colors.lightText);
+        doc.text(item[0], startX, y);
+        doc.setFont('helvetica', 'normal');
+        doc.setTextColor(...colors.text);
+        doc.text(item[1], startX + 60, y);
+    });
+
+    // Add decorative element
+    doc.setDrawColor(...colors.accent);
+    doc.setLineWidth(0.5);
+    doc.line(15, 255, 195, 255);
+
+    // Footer
+    const footerY = 270;
+    doc.setFontSize(8);
+    doc.setTextColor(...colors.text);
+    doc.setFont('helvetica', 'bold');
+    doc.text('Safari Tours', startX, footerY);
+    doc.setFont('helvetica', 'normal');
+    doc.setTextColor(...colors.lightText);
+    doc.text('support@safaritours.com | +1 234 567 8900', startX + 20, footerY);
+    
+    // Current date
+    const currentDate = new Date().toLocaleDateString();
+    doc.text(`Generated: ${currentDate}`, 150, footerY);
+
+    // QR Code placeholder (if needed)
+    doc.setFillColor(...colors.primary);
+    doc.roundedRect(165, 220, 25, 25, 2, 2, 'F');
+
+    // Save the PDF
+    doc.save('Safari_Booking_Receipt.pdf');
+});
+
+// Edit Link Functionality
+document.getElementById('edit-link').addEventListener('click', function () {
+    receiptSection.style.display = 'none';
+    bookingForm.style.display = 'block';
+});
+});
+</script>
+    
+</body>
+</html>

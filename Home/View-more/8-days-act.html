@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>8 safari activities</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+   
+    <link rel="stylesheet" href="../../CSS/header.css">
+    <link rel="stylesheet" href="../../CSS/nav.css">
+    
+    <link rel="stylesheet" href="../../CSS/Activites2.css">
+
+    <link rel="stylesheet" href="../../CSS/footer.css">
+    <link rel="stylesheet" href="../../CSS/CTA.css">
+    
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+ 
+
+</head>
+<body>
+    
+
+     
+    <header class="header">
+        <div class="header-container">
+            <div class="logo-container">
+                <a href="/">
+                    <img src="/api/placeholder/120/40" alt="Logo" class="logo-img">
+                </a>
+            </div>
+
+            <nav class="desktop-nav">
+                <a href="../../Home/Packages.html"><i class="fas fa-suitcase"></i> Packages</a>
+                <a href="../../Home/Accomodation.html"><i class="fas fa-hotel"></i> Accommodation</a>
+                <a href="../../Home/plan your tour.html"><i class="fas fa-map-marked-alt"></i> Plan Your Tour</a>
+            </nav>
+
+            <div class="actions">
+                <div class="search-container">
+                    <button id="search-toggle" class="icon-button">
+                        <i class="fas fa-search"></i>
+                    </button>
+                    <div id="search-bar" class="search-bar hidden">
+                        <input type="text" id="search-input" placeholder="Search..." oninput="filterSuggestions()">
+                        <button><i class="fas fa-search"></i></button>
+                        <div id="suggestion-box" class="suggestion-box"></div> <!-- Suggestions container -->
+                    </div>
+                </div>
+
+               
+            <div class="dropdown">
+                <button class="icon-button" id="language-dropdown-toggle">
+                    <img src="https://flagcdn.com/w20/gb.png" alt="English" id="language-flag">
+                    <span class="hidden-mobile">Language</span>
+                </button>
+                    <div id="language-dropdown" class="dropdown-content hidden">
+                        <a href="#" data-lang="en"><img src="https://flagcdn.com/w20/gb.png" alt="English"> English</a>
+                        <a href="#" data-lang="fr"><img src="https://flagcdn.com/w20/fr.png" alt="Français"> Français</a>
+                        <a href="#" data-lang="es"><img src="https://flagcdn.com/w20/es.png" alt="Español"> Español</a>
+                        <a href="#" data-lang="de"><img src="https://flagcdn.com/w20/de.png" alt="Deutsch"> Deutsch</a>
+                        <a href="#" data-lang="it"><img src="https://flagcdn.com/w20/it.png" alt="Italiano"> Italiano</a>
+                        <a href="#" data-lang="sa"><img src="https://flagcdn.com/w20/sa.png" alt="العربية"> العربية</a>
+                        <a href="#" data-lang="ru"><img src="https://flagcdn.com/w20/ru.png" alt="Русский"> Русский</a>
+                        <a href="#" data-lang="cn"><img src="https://flagcdn.com/w20/cn.png" alt="中文"> 中文</a>
+                        <a href="#" data-lang="jp"><img src="https://flagcdn.com/w20/jp.png" alt="日本語"> 日本語</a>
+                        <a href="#" data-lang="kr"><img src="https://flagcdn.com/w20/kr.png" alt="한국어"> 한국어</a>
+                        <a href="#" data-lang="no"><img src="https://flagcdn.com/w20/no.png" alt="Norsk"> Norsk</a>
+
+                    </div>
+                </div>
+
+                <div class="dropdown">
+                    <button class="icon-button" id="theme-dropdown-toggle">
+                        <i class="fas fa-palette"></i>
+                        <span class="hidden-mobile">Theme</span>
+                    </button>
+                    <div id="theme-dropdown" class="dropdown-content hidden">
+                        <a href="#" data-theme="light"><i class="fas fa-sun"></i> Light</a>
+                        
+                        <a href="#" data-theme="soft"><i class="fas fa-leaf"></i> Soft</a>
+                        <a href="#" data-theme="nature"><i class="fas fa-leaf"></i> Nature</a>
+                        <a href="#" data-theme="dark"><i class="fas fa-moon"></i> Dark</a>
+                        
+                        <a href="#" data-theme="contrast"><i class="fas fa-sunset"></i> Contrast</a>
+                    </div>
+
+                <button id="mobile-menu-toggle" class="icon-button mobile-only">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+
+        <div id="mobile-menu" class="mobile-menu hidden">
+            <a href="../../Home/Packages.html"><i class="fas fa-suitcase"></i> Packages</a>
+            <a href="../../Home/Accomodation.html"><i class="fas fa-hotel"></i> Accommodation</a>
+            <a href="../../Home/plan-your-tour.html"><i class="fas fa-map-marked-alt"></i> Plan Your Tour</a>
+        </div>
+    </header>
+
+
+<!-- Hero Section -->
+<header class="hero">
+    <video autoplay muted loop playsinline class="bg-video">
+        <source src="../../HomeImage/Videos/safari.mp4" type="video/mp4">
+    </video>
+    <div class="overlay">
+        <div class="hero-content">
+            <h1>Discover the Heart of Tanzania</h1>
+<p>8 Days of Thrilling Safari Escapades</p>
+ </div>
+    </div>
+</header>
+ <!-- Navbar -->
+ <nav class="navbar">
+    <div class="nav-container">
+        <a href="#" class="logoB">
+            <span class="logo-text">HYVERTOURS</span>
+            <span class="logo-arrow">&#8594;</span> <!-- Right arrow symbol -->
+        </a>
+        <button class="menu-toggle" aria-label="Toggle Menu">
+            <i class="fas fa-bars"></i>
+        </button>
+        <div id="nav-links" class="nav-links">
+            <a href="8-days-general.html" >Overview</a>
+            <a href="8-days-itenenary.html">Itinerary</a>
+            <a href="#.html">Pricing</a>
+            <a href="8-days-act.html" class="active">Activities</a>
+            <a href="../request-form/request-form-8 Days .html" class="request-btn">Request This Trip</a>
+        </div>
+    </div>
+</nav>
+    
+
+<div class="container">
+    <h1>🐂 Serengeti</h1>
+
+    
+    <div class="park-section">
+        <div class="stats">
+            <div class="stat-card" style="background-image: url('../../HomeImage/activities/Serengeti/zebras.jpg'); background-size: cover; background-position: center;">
+                <div class="stat-overlay"></div> <!-- Overlay added -->
+                <div class="stat-value" data-target="200">0</div>
+                <p>Species of Animals</p>
+            </div>
+            <div class="stat-card" style="background-image: url('../../HomeImage/activities/Serengeti/wild\ b.jpg'); background-size: cover; background-position: center;">
+                <div class="stat-overlay"></div>
+                <div class="stat-value" data-target="1.5M">0</div>
+                <p>Wildebeest Migrating Annually</p>
+            </div>
+            <div class="stat-card" style="background-image: url('../../HomeImage/activities/Serengeti/Hotairballon.jpeg'); background-size: cover; background-position: center;">
+                <div class="stat-overlay"></div>
+                <div class="stat-value" data-target="14750">0</div>
+                <p>Square Kilometers</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+        <h2>Great Migration</h2>
+
+        <h2>Featured Activities in Central Serengeti</h2>
+
+        <div class="activities" id="activities-1">
+            <div class="activity-card">
+                <img src="../../HomeImage/activities/Serengeti/bush-dinner.jpg" alt="Bush Dinner in the Serengeti">
+                <div class="activity-content">
+                    <h3 class="activity-title">Bush Dinner in the Serengeti</h3>
+                    <p class="activity-description">
+                        Dine under the stars in the heart of the wild! Enjoy gourmet dishes, crackling bonfires, and the enchanting sounds of nature. A magical safari experience you’ll never forget!
+                    </p>
+                </div>
+            </div>
+            <div class="activity-card">
+                <img src="../../HomeImage/activities/Serengeti/Hotairballon.jpeg" alt="Hot Air Balloon Flight in Serengeti">
+                <div class="activity-content">
+                    <h3 class="activity-title">Hot Air Balloon Flight in Serengeti</h3>
+                    <p class="activity-description">
+                        Soar over the Serengeti plains at sunrise, enjoying breathtaking views and spotting wildlife from above.
+                    </p>
+                </div>
+            </div>
+
+           
+        </div>
+        <button class="show-more-btn" data-target="activities-1">Show More</button>
+    </div>
+</div>
+
+
+
+
+            <div class="container">
+                <h1> 🐘 Tarangire</h1>
+            
+                <div class="park-section">
+                    <div class="stats">
+                        <div class="stat-card"   style="background-image: url('../../HomeImage/ele.jpg'); background-size: cover; background-position: center;">
+                            
+                            <div class="stat-overlay"></div> <!-- Added overlay -->
+                            <div class="stat-value" data-target="100">0</div>
+                            <p>Species of Animals</p>
+                        </div>
+                        <div class="stat-card"style="background-image: url('../../HomeImage/activities/Tarangire/bird.jpg'); background-size: cover; background-position: center;">
+                            <div class="stat-overlay"></div>
+                            <div class="stat-value" data-target="550">0</div>
+                            <p>Bird Species</p>
+                        </div>
+                        <div class="stat-card"style="background-image: url('../../HomeImage/activities/Tarangire/savannah.jpg'); background-size: cover; background-position: center;">
+                            <div class="stat-value" data-target="2850">0</div>
+                            <p>Square Kilometers</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            
+                  
+            
+                <h2>Featured Activities in Tarangire</h2>
+                
+                <div class="activities" id="activities-1">
+                    <div class="activity-card">
+                        <img src="../../HomeImage/activities/Tarangire/film.jpeg" alt="Night Game Drive">
+                        <div class="activity-content">
+                            <h3 class="activity-title">Night Game Drive in Tarangire National Park</h3>
+                            <p class="activity-description">Experience the thrill of a night game drive, spotting nocturnal wildlife in the Tarangire National Park under the stars.</p>
+                        </div>
+                    </div>
+                    <div class="activity-card">
+                        <img src="../../HomeImage/activities/Tarangire/filming.jpeg" alt="Walking Safari">
+                        <div class="activity-content">
+                            <h3 class="activity-title">Walking Safari in Tarangire National Park</h3>
+                            <p class="activity-description">Join a guided walking safari to explore Tarangire's diverse landscapes and wildlife on foot, with a local expert.</p>
+                        </div>
+                    </div>
+                    <!-- Activity 3: Tarangire National Park - Custom Safari Experience -->
+                            <div class="activity-card">
+                                <img src="../../HomeImage/custom-safari.jpg" alt="Tarangire Safari">
+                                <div class="activity-content">
+                                    <h3 class="activity-title">Custom Safari Experience in Tarangire</h3>
+                                    <p class="activity-description">
+                                        Tailor your adventure in Tarangire with a custom safari, whether you prefer game drives, bird watching, or guided nature walks.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <button class="show-more-btn" data-target="activities-2">Show More</button>
+                    </div>
+                </div>
+                
+
+
+<!-- Arussha -->
+<div class="park-section">
+    <h1>🏞️ Arusha National Park</h1>
+
+
+        
+        <div class="stats">
+            <div class="stat-card"  style="background-image: url('../../HomeImage/activities/Arusha/cultu.jpg'); background-size: cover; background-position: center;">
+                <div class="stat-overlay"></div>
+                <div class="stat-value" data-target="400">0</div>
+                <p>Culture</p>
+            </div>
+            <div class="stat-card" style="background-image: url('../../HomeImage/activities/Arusha/population.jpg'); background-size: cover; background-position: center;">
+                <div class="stat-overlay"></div>
+                <div class="stat-value" data-target="1800000">0</div>
+                <p>Population</p>
+            </div>
+            <div class="stat-card" style="background-image: url('../../HomeImage/activities/Arusha/city.jpg'); background-size: cover; background-position: center;">
+                <div class="stat-overlay"></div>
+                <div class="stat-value" data-target="552">0</div>
+                <p>Square Kilometers</p>
+                
+            </div>
+        </div>
+    </div>
+    
+
+        <h2>Featured Activities in Arusha</h2>
+        
+        <div class="activities" id="activities-3">
+            <!-- Activity 1: Walking Safari in Arusha National Park -->
+            <div class="activity-card">
+                <img src="../../HomeImage/activities/Arusha/safari.jpg" alt="Walking Safari in Arusha National Park">
+                <div class="activity-content">
+                    <h3 class="activity-title">Walking Safari in Arusha National Park – Full Day</h3>
+                    <p class="activity-description">
+                        Explore the wonders of Arusha National Park on foot, guided by expert rangers, for an immersive safari experience.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Activity 2: Canoeing in Arusha National Park -->
+            <div class="activity-card">
+                <img src="../../HomeImage/activities/Arusha/Canoeing.jpeg" alt="Canoeing in Arusha National Park">
+                <div class="activity-content">
+                    <h3 class="activity-title">Canoeing in Arusha National Park</h3>
+                    <p class="activity-description">
+                        Paddle through tranquil waters surrounded by stunning wildlife, enjoying the peaceful beauty of Arusha.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Activity 3: Kilimanjaro Scenic Tour -->
+            <div class="activity-card">
+                <img src="../../HomeImage/activities/Arusha/scenic-kilimanjaro.jpg" alt="Kilimanjaro Scenic Tour">
+                <div class="activity-content">
+                    <h3 class="activity-title">Kilimanjaro Scenic Tour</h3>
+                    <p class="activity-description">
+                        Take a scenic tour around Kilimanjaro, capturing breathtaking views of the world's tallest free-standing mountain.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Activity 4: Souvenir Market (Duration: 2-3 hours) -->
+            <div class="activity-card">
+                <img src="../../HomeImage/activities/Arusha/souvenir.jpg" alt="Souvenir Market">
+                <div class="activity-content">
+                    <h3 class="activity-title">Souvenir Market (Duration: 2-3 hours)</h3>
+                    <p class="activity-description">
+                        Browse through local markets for authentic Tanzanian souvenirs, from handmade crafts to unique gifts.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Activity 5: Climb Mount Longido -->
+            <div class="activity-card">
+                <img src="../../HomeImage/longido-climb.jpg" alt="Climb Mount Longido">
+                <div class="activity-content">
+                    <h3 class="activity-title">Climb Mount Longido</h3>
+                    <p class="activity-description">
+                        Conquer the heights of Mount Longido, a lesser-known peak with incredible views of the surrounding savanna.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Activity 6: Mountain Bike Tour Outside Arusha -->
+            <div class="activity-card">
+                <img src="../../HomeImage/activities/Arusha/bicycle-1.jpg" alt="Mountain Bike Tour Outside Arusha">
+                <div class="activity-content">
+                    <h3 class="activity-title">Mountain Bike Tour Outside Arusha</h3>
+                    <p class="activity-description">
+                        Ride through the countryside and nearby villages, taking in stunning views and experiencing local life.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Activity 7: Horseback Riding in Arusha -->
+            <div class="activity-card">
+                <img src="../../HomeImage/activities/Arusha/horse riding.jpeg" alt="Horseback Riding in Arusha">
+                <div class="activity-content">
+                    <h3 class="activity-title">Horseback Riding in Arusha</h3>
+                    <p class="activity-description">
+                        Experience the beauty of Arusha on horseback, guided through scenic routes and lush landscapes.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Activity 8: Meserani Snake Park, Maasai Museum & Camel Ride -->
+            <div class="activity-card">
+                <img src="../../HomeImage/activities/Arusha/meserani.jpeg" alt="Meserani Snake Park, Maasai Museum & Camel Ride">
+                <div class="activity-content">
+                    <h3 class="activity-title">Meserani Snake Park, Maasai Museum & Camel Ride</h3>
+                    <p class="activity-description">
+                        Explore the Meserani Snake Park, learn about the Maasai culture, and enjoy a camel ride through the local area.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Activity 9: Tanzanite Museum Arusha -->
+            <div class="activity-card">
+                <img src="../../HomeImage/activities/Arusha/Tanzanite.jpeg" alt="Tanzanite Museum">
+                <div class="activity-content">
+                    <h3 class="activity-title">Tanzanite Museum Arusha</h3>
+                    <p class="activity-description">
+                        Discover the rare gemstone Tanzanite, only found in this region, and learn about its significance in Tanzanian culture.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Activity 10: Visit a Maasai Village -->
+            <div class="activity-card">
+                <img src="../../HomeImage/activities/Arusha/culure-kid.jpg" alt="Visit a Maasai Village">
+                <div class="activity-content">
+                    <h3 class="activity-title">Visit a Maasai Village</h3>
+                    <p class="activity-description">
+                        Immerse yourself in Maasai culture by visiting a traditional village, learning about their way of life.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Activity 11: Visit a Coffee Plantation in Arusha -->
+            <div class="activity-card">
+                <img src="../../HomeImage/activities/Arusha/coffee.jpg" alt="Visit a Coffee Plantation in Arusha">
+                <div class="activity-content">
+                    <h3 class="activity-title">Visit a Coffee Plantation in Arusha</h3>
+                    <p class="activity-description">
+                        Explore the coffee plantations of Arusha, learning about the coffee production process and tasting the freshest brews.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Activity 12: Hike to the Mount Meru Waterfalls -->
+            <div class="activity-card">
+                <img src="../../HomeImage/activities/Arusha/waterfall.jpg" alt="Hike to the Mount Meru Waterfalls">
+                <div class="activity-content">
+                    <h3 class="activity-title">Hike to the Mount Meru Waterfalls</h3>
+                    <p class="activity-description">
+                        Hike to the beautiful waterfalls of Mount Meru, surrounded by stunning views and lush tropical forests.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Activity 13: Arusha City Tour – Full Day -->
+            <div class="activity-card">
+                <img src="../../HomeImage/activities/Arusha/city-1.jpg" alt="Arusha City Tour – Full Day">
+                <div class="activity-content">
+                    <h3 class="activity-title">Arusha City Tour – Full Day</h3>
+                    <p class="activity-description">
+                        Discover the vibrant city of Arusha with a full-day tour, including local markets, museums, and cultural landmarks.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Activity 14: Arusha City Tour – Half Day -->
+            <div class="activity-card">
+                <img src="../../HomeImage/activities/Arusha/Arusha City.jpeg" alt="Arusha City Tour – Half Day">
+                <div class="activity-content">
+                    <h3 class="activity-title">Arusha City Tour – Half Day</h3>
+                    <p class="activity-description">
+                        If you're short on time, enjoy a half-day city tour covering the highlights of Arusha's culture and history.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <button class="show-more-btn" data-target="activities-3">Show More</button>
+    </div>
+</div>
+    <!-- Ngorongoro -->
+    <div class="park-section">
+        <h1>🌋 Ngorongoro Crater</h1>
+    
+        <div class="stats">
+            <div class="stat-card" style="background-image: url('../../HomeImage/activities/Ngorongoro/'); background-size: cover; background-position: center;">
+                <div class="stat-overlay"></div> <!-- Added overlay -->
+                <div class="stat-value" data-target="2000000">0</div>
+                <p>Years of Human History at olduvai Gorge</p>
+            </div>
+            <div class="stat-card" style="background-image: url('../../HomeImage/activities/Ngorongoro/empakai.jpg'); background-size: cover; background-position: center;">
+                <div class="stat-overlay"></div> <!-- Added overlay -->
+                <div class="stat-value" data-target="">0</div>
+                <p>Ngorongoro Crater</p>
+            </div>
+            <div class="stat-card" style="background-image: url('../../HomeImage/activities/Ngorongoro/car-mt.bg.jpg'); background-size: cover; background-position: center;">
+                <div class="stat-overlay"></div> <!-- Added overlay -->
+                <div class="stat-value" data-target="2850">0</div>
+                <p>Square Kilometers</p>
+            </div>
+        </div>
+    </div>
+`
+    
+    
+            <h2>Featured Activities in Ngorongoro</h2>
+            
+            <div class="activities" id="activities-4">
+                <!-- Activity 1: Empakaai Crater Hike -->
+                <div class="activity-card">
+                    <img src="../../HomeImage/activities/Ngorongoro/empakai.jpg" alt="Empakaai Crater Hike">
+                    <div class="activity-content">
+                        <h3 class="activity-title">Empakaai Crater Hike</h3>
+                        <p class="activity-description">
+                            Explore the stunning Empakaai Crater with a hike that leads you to a breathtaking crater lake surrounded by lush forests.
+                        </p>
+                    </div>
+                </div>
+    
+                <!-- Activity 2: Two-day Hike from Ngorongoro to Lake Natron -->
+                <div class="activity-card">
+                    <img src="../../HomeImage/ngorongoro-lake-natron-hike.jpg" alt="Two-day Hike from Ngorongoro to Lake Natron">
+                    <div class="activity-content">
+                        <h3 class="activity-title">Two-day Hike from Ngorongoro to Lake Natron</h3>
+                        <p class="activity-description">
+                            Embark on a thrilling two-day hike through stunning landscapes, connecting Ngorongoro to the beautiful Lake Natron.
+                        </p>
+                    </div>
+                </div>
+    
+                <!-- Activity 3: Visit Olduvai Gorge -->
+                <div class="activity-card">
+                    <img src="../../HomeImage/activities/Ngorongoro/oldu.jpeg" alt="Visit Olduvai Gorge">
+                    <div class="activity-content">
+                        <h3 class="activity-title">Visit Olduvai Gorge</h3>
+                        <p class="activity-description">
+                            Visit the famous archaeological site of Olduvai Gorge, often referred to as the "Cradle of Mankind," home to some of the earliest human fossils.
+                        </p>
+                    </div>
+                </div>
+            </div>
+    
+            <button class="show-more-btn" data-target="activities-4">Show More</button>
+        </div>
+    </div>
+        
+<!-- Call to Action Section -->
+ 
+<section class="call-to-action" id="bookingSection">
+    <div class="cta-container">
+        <h2 class="cta-title">Begin Your Safari Adventure</h2>
+        <p class="cta-subtitle">Let us help you create memories that will last a lifetime</p>
+        
+        <form class="cta-form" id="bookingForm2" action="save_Packages.php" method="post">
+            <div class="form-group">
+                <label for="name" class="visually-hidden">Your Name</label>
+                <input type="text" id="name" name="name" placeholder="Your Name" required>
+                <div class="form-indicator"></div>
+            </div>
+
+            <div class="form-group">
+                <label for="email" class="visually-hidden">Your Email</label>
+                <input type="email" id="email" name="email" placeholder="Your Email" required>
+                <div class="form-indicator"></div>
+            </div>
+
+            <div class="form-group">
+                <label for="expectations" class="visually-hidden">Adventure Expectations</label>
+                <textarea id="expectations" name="Adventure_Expectations" 
+                    placeholder="Tell us about your dream safari experience..."
+                    rows="4"></textarea>
+                <div class="form-indicator"></div>
+            </div>
+
+            <button type="submit" class="submit-button">
+                <span class="button-text">Begin Your Journey</span>
+                <span class="button-icon">→</span>
+            </button>
+        </form>
+    </div>
+</section>
+
+
+
+
+<!-- Appreciation Section -->
+<section class="appreciation-section" id="appreciationSection" aria-hidden="true">
+    <div class="appreciation-container">
+        <div class="success-icon">✓</div>
+        <h2 class="appreciation-title">Adventure Awaits!</h2>
+        <p class="appreciation-message">Thank you for choosing to explore with us. Our safari experts will be in touch within 24 hours to start planning your perfect adventure.</p>
+        <button class="return-button" onclick="resetBooking(event)">
+            <span class="button-icon">←</span>
+            <span class="button-text">Plan Another Adventure</span>
+        </button>
+    </div>
+</section>
+
+<script src="../../JS/header.js" defer></script>
+<script src="../../JS/Activites2.js" defer></script>
+
+<script src="../../JS/CTA.js" defer></script>
+<script src="../../JS/nav.js" defer></script>
+</body>
+
+    <!--FOOTER-->
+    <footer class="site-footer">
+        <div class="footer-background"></div>
+        <div class="container-footer">
+            <div class="row">
+                <div class="col company" id="company">
+                    <img src="images/logo.png" alt="Company Logo" class="logo">
+                    <p>"The world is a book, and those who do not travel read only one page." – Saint Augustine</p>
+                    <div class="social">
+                        <a href="#" class="facebook"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="youtube"><i class="fab fa-youtube"></i></a>
+                        <a href="#" class="twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="linkedin"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+                <div class="col services" id="services">
+                    <h3>Service</h3>
+                    <div class="links">
+                        <a href="us.html">About</a>
+                        <a href="us.html#services">Services</a>
+                        <a href="us.html#policies">Our Policy</a>
+                        <a href="us.html#help">Help</a>
+                    </div>
+                </div>
+                <div class="col useful-links" id="useful-links">
+                    <h3>Useful Links</h3>
+                    <div class="links">
+                        <a href="#">Home</a>
+                        <a href="#">Destinations</a>
+                        <a href="#">Blog</a>
+                        <a href="#">Contact</a>
+                    </div>
+                </div>
+                <div class="col contact" id="contact">
+                    <h3>Contact</h3>
+                    <div class="contact-details">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <p>123 Arusha, <br>Arusha City,</p>
+                    </div>
+                    <div class="contact-details">
+                        <i class="fas fa-phone-alt"></i>
+                        <p>+255 7________</p>
+                    </div>
+                    <div class="contact-details">
+                        <i class="fas fa-envelope"></i>
+                        <p>info@company.com</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row partners">
+                <h3>Our Partners</h3>
+                <div class="partner-logos">
+                    <a href="#"><img src="images/partner1.png" alt="Partner 1"></a>
+                    <a href="#"><img src="images/partner2.png" alt="Partner 2"></a>
+                    <a href="#"><img src="images/partner3.png" alt="Partner 3"></a>
+                    <a href="#"><img src="images/partner4.png" alt="Partner 4"></a>
+                    <a href="#"><img src="images/partner5.png" alt="Partner 5"></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 YourCompany | <span class="designer">Designed by Nola Inc</span></p>
+        </div>
+    </footer>
+
+
+
+
+</html>
